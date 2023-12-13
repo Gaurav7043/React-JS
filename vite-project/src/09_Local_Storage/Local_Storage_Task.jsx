@@ -59,13 +59,22 @@ export default function Local_Storage_Task() {
 
     // update is success
     const update_data = ()=>{
+        // Check for duplicate input data
+        let match = all_todo.some((e)=>{
+            return e === todo
+        })
+
         if(index || index === 0 && todo.length > 0){
-            all_todo.splice(index, 1, todo)
-            set_todo([...all_todo])
-            localStorage.setItem("Todo List", JSON.stringify([...all_todo]))
-            set_todo("")
-            set_index(null)
-            toast.success("Data Update Successfully")
+            if(match){
+                toast.warning("User with the Same Data Already Exits")
+            }else{
+                all_todo.splice(index, 1, todo)
+                set_todo([...all_todo])
+                localStorage.setItem("Todo List", JSON.stringify([...all_todo]))
+                set_todo("")
+                set_index(null)
+                toast.success("Data Update Successfully")
+            }
         }else{
             toast("Please Updata New Data")
         }
