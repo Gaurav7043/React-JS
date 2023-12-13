@@ -1,0 +1,413 @@
+/* ============header================ */
+.icon:hover{
+    color: #f7783c;
+    transition: 1s all ease-in-out;
+}
+.flex {
+    background:  linear-gradient(-45deg, #aaffa9, #11ffbd, #87f786, #07f9b6);
+    background-size: 270% 270%;
+    animation: gradient-animation 24s ease infinite;
+    --gradient-color: linear-gradient(-45deg, #aaffa9, #11ffbd);
+}
+.photo{
+    height: 80%;
+    max-width: 100%;
+    animation: image_rotate 30s linear infinite;
+}
+.flex .btn{
+    padding: 12px 36px 14px;
+    color: #fff;
+    border-radius: 30px;
+    font-weight: bold;
+    border: none;
+    background: #f7783c;
+    transition: all 1.8s ease-in-out;
+}
+.flex .btn:hover{
+    color: #ffffff;
+    background: #0abf53;
+}
+@keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;  
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes image_rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+/* ========body=============== */
+/* ==========expriance==================== */
+.experiance .exp-p {
+    padding: 80px 0px;
+}
+.experiance .exp-outer-div {
+    display: flex;
+}
+.experiance .exp-outer-div .exp-div-img {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+.experiance .exp-outer-div .exp-div-img img {
+    border-radius: 10px;
+    border: 5px solid white;
+    height: auto;
+    max-width: 100%;
+}
+.experiance .exp-outer-div .exp-div-img .img2 {
+    transform: translate(-80px, 80px);
+}
+.experiance .exp-outer-div .exp-content {
+    flex: 1;
+}
+.experiance .exp-outer-div .exp-content .exp-title {
+    font-size: 30px;
+    text-transform: capitalize;
+    padding-bottom: 17px;
+}
+.experiance .exp-outer-div .exp-content h1 {
+    font-size: 45px;
+    padding-bottom: 20px;
+}
+.experiance .exp-outer-div .exp-content h1 span {
+    color: #f7783c;
+}
+.experiance .exp-outer-div .exp-content .para1, .para2 {
+    letter-spacing: 0.5px;
+    padding-bottom: 20px;
+}
+/* ======================== popular dishes =========================== */
+.popular-dishes .pop-p {
+    padding: 50px 0px;
+}
+.popular-dishes .title {
+    text-align: center;
+}
+.popular-dishes .title h1 {
+    text-transform: capitalize;
+    font-size: 40px;
+}
+.popular-dishes .title h1 span {
+    color: #f7783c;
+}
+.popular-dishes .gridbox {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 30px 0px;
+}
+.popular-dishes .gridbox .grid1, .grid {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.popular-dishes .gridbox .grid1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 170px;
+    width: 170px;
+    background-color: #00a95a70;
+    z-index: -1;
+    border-radius: 0px 50%;
+    transition: 0.4s ease-in-out all;
+}
+.popular-dishes .gridbox .grid-img {
+    padding: 20px;
+}
+.popular-dishes .gridbox img {
+    border-radius: 50%;
+    border: 7px solid white;
+}
+.popular-dishes .gridbox .grid-text {
+    position: relative;
+    padding-bottom: 30px;
+}
+.popular-dishes .gridbox .grid-text h3 {
+    font-size: 27px;
+    padding-bottom: 10px;
+}
+.popular-dishes .gridbox .grid1 .grid-text::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-right: 50px solid #f7783c;
+    border-bottom: 50px solid transparent;
+    transform: scale(0) rotate(90deg);
+}
+.popular-dishes .gridbox .grid1:hover::before {
+    background-color: #f7783c;
+}
+.popular-dishes .gridbox .grid1:hover .grid-text::after {
+    transform: scale(1) rotate(90deg);
+}
+.popular-dishes .gridbox .grid::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 170px;
+    width: 170px;
+    background-color: #f7783c;
+    z-index: -1;
+    border-radius: 0px 50%;
+    transition: 0.4s ease-in-out all;
+}
+.popular-dishes .gridbox .grid .grid-text::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-right: 50px solid #f7783c;
+    border-bottom: 50px solid transparent;
+    transform: rotate(90deg);
+}
+/* =================res_menu================= */
+.Res_menu .res_menu_sub {
+    background: url(assets/img1.png) no-repeat right;
+}
+.Res_menu .res-p {
+    padding: 80px 0px;
+}
+.Res_menu .title h1 {
+    font-size: 45px;
+}
+.Res_menu .title h1 span {
+    color: #f36c2d;
+}
+.Res_menu .res_text {
+    padding: 30px 0px;
+    display: flex;
+}
+.Res_menu .res_text p {
+    flex: 1;
+    font-size: 17px;
+    line-height: 25px;
+    padding: 10px;
+}
+.Res_menu .btn button {
+    height: 40px;
+    width: 200px;
+    background-color: #f36c2d;
+    border: 2px solid transparent;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 40px;
+    transition: 0.5s ease all;
+}
+.Res_menu .btn button:hover {
+    background-color: #05462d;
+}
+/* =====================about_food=================== */
+.about-food .about-f-p {
+    padding: 80px 0px;
+}
+.about-food .foodgrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.about-food .foodgrid .foodsubgrid {
+    padding: 20px;
+}
+.about-food .foodgrid .foodsubgrid .foodinfo {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    transition: 0.5s ease-in-out all;
+    border-radius: 10px;
+    border: 1px solid transparent;
+}
+.about-food .foodgrid .foodsubgrid .foodinfo span {
+    font-size: 35px;
+    color: #f36c2d;
+    transition: 0.5s ease all;
+    text-transform: capitalize;
+}
+.about-food .foodgrid .foodsubgrid .foodinfo h3 {
+    padding-bottom: 10px;
+    font-weight: 700;
+    transition: 0.5s ease all;
+}
+.about-food .foodgrid .foodsubgrid .foodinfo:hover h3 {
+    color: #3ee47b;
+}
+.about-food .foodgrid .foodsubgrid .foodinfo:hover {
+    border: 1px solid rgb(228, 224, 224);
+    border-radius: 10px;
+}
+/* ================= about_chef =============== */
+.about-chef .about-c-flex {
+    display: flex;
+    align-items: center;
+}
+.about-chef .about-c-flex .about-left {
+    flex: 1.5;
+    padding: 30px;
+}
+.about-chef .about-c-flex .about-left .title h1 {
+    font-size: 45px;
+    line-height: 55px;
+    font-weight: bold;
+}
+.about-chef .about-c-flex .about-left .title h1 span {
+    color: #f36c2d;
+}
+.about-chef .about-c-flex .about-left p {
+    padding-bottom: 20px;
+    font-size: 17px;
+    line-height: 25px;
+}
+.about-chef .about-c-flex .about-left .text {
+    padding-top: 30px;
+}
+.about-chef .about-c-flex .about-right {
+    flex: 1;
+    text-align: center;
+}
+.about-chef .about-c-flex .about-right img {
+    height: auto;
+    max-width: 100%;
+}
+.about-chef .orderbtn{
+    height: 40px;
+    width: 200px;
+    background-color: #f36c2d;
+    border: 2px solid transparent;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 40px;
+    transition: 0.5s ease all;
+}
+.about-chef .orderbtn:hover{
+    color: #ffffff;
+    background-color: #0abf53;
+}
+/* ================== news update ============ */
+.newsUpdate .news-p {
+    padding: 80px 0px;
+}
+.newsUpdate .title {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    padding-bottom: 20px;
+}
+.newsUpdate .title h1 {
+    font-size: 50px;
+    font-weight: bold;
+}
+.newsUpdate .forms {
+    margin: auto;
+    width: 52%;
+    position: relative;
+}
+.newsUpdate .forms input[type="text"] {
+    height: 50px;
+    width: 500px;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    padding: 0px 30px;
+    font-size: 17px;
+    border: 1px solid gray;
+}
+.newsUpdate .forms input[type="text"]:focus-within {
+    outline: none;
+}
+.newsUpdate .forms .btn {
+    position: absolute;
+    top: -1px;
+    right: 0;
+    padding: 0px;
+}
+.newsUpdate .forms button {
+    height: 50px;
+    width: 150px;
+    border: 1px solid transparent;
+    background-color: #f36c2d;
+    color: white;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
+.newsUpdate .forms button:hover {
+    color: white;
+    background: #0abf53;
+}
+/* ==================== footer ============ */
+.footer .footer-p {
+    padding: 50px 0px;
+}
+.footer .footer-main {
+    display: grid;
+    grid-template-columns: 1.9fr 1.4fr 1fr 1fr;
+    gap: 30px;
+}
+.footer .footer-main .footer-sub-grid h3 {
+    text-transform: uppercase;
+    font-size: 20px;
+    padding-bottom: 17px;
+    font-weight: bold;
+}
+.footer .footer-main .footer-sub-grid p {
+    padding-bottom: 20px;
+}
+.footer .footer-main .footer-sub-grid .social {
+    display: flex;
+    gap: 15px;
+}
+.footer .footer-main .footer-sub-grid .social .icons {
+    height: 30px;
+    width: 30px;
+    background-color: rgb(209, 203, 203);
+    display: grid;
+    place-content: center;
+    border-radius: 50%;
+    transition: 0.5s all ease-in-out;
+}
+.footer .footer-main .footer-sub-grid .social .icons a {
+    color: black;
+}
+.footer .footer-main .footer-sub-grid .social .icons:hover {
+    background-color: #f36c2d;
+}
+.footer .footer-main .footer-sub-grid li {
+    padding: 10px 0px;
+}
+.footer .footer-main .footer-sub-grid li span {
+    padding-right: 10px;
+}
+.footer .footer-main .footer-sub-grid li a {
+    color: black;
+    transition: 0.5s ease all;
+}
+.footer .footer-main .footer-sub-grid li:hover a {
+    color: #3ee47b;
+}
+.footer .copyright {
+    text-align: center;
+    padding-top: 20px;
+    padding-right: 20px;
+}
+ul{
+    list-style: none;
+}
