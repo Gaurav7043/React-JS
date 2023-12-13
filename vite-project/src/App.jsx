@@ -67,7 +67,7 @@ function App(){
         {/* <Use_Ref_Component/> */}
 
         {/* ---------Hook_Use_Contaxt----------- */}
-        <Use_Context_Com/>
+        {/* <Use_Context_Com/> */}
 
         {/* ----------Fragment--------------- */}
         {/* <Fragment_Com/>
@@ -99,7 +99,7 @@ function App(){
         {/* <Single_Input_Revision/> */}
 
         {/* ------Multiple input---------- */}
-        {/* <Multiple_Input/> */}
+        <Multiple_Input/>
         {/* <Multiple_Input_Delete/> */}
         {/* <Multiple_Input_Update/> */}
 

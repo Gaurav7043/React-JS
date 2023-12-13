@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { Trash } from "lucide-react"
 import { Button, Form, FormGroup, Input, Label, Table } from "reactstrap";
@@ -21,6 +21,7 @@ export default function Multiple_Input_Delete() {
       if(!all_user.some((existinguser) => isEqual (existinguser, user))){
         set_all_user([...all_user, user])
         set_user({name: "", email: "", address: "", city: "", password: ""})
+        localStorage.setItem("user", JSON.stringify([...all_user, user]))
         toast.success("User Added Successfully")
       }else{
         toast.dark("User with the Same Data Already Exits")
@@ -29,6 +30,13 @@ export default function Multiple_Input_Delete() {
       toast.error("Please Fill Data")
     }
   })
+
+  // use effect
+  useEffect(()=>{
+    let json_data = localStorage.getItem("user")
+    let normal_data = JSON.parse(json_data)
+    set_all_user(normal_data || [])
+  }, [])
 
   // data delete
   const data_delete = ((index)=>{
@@ -40,11 +48,13 @@ export default function Multiple_Input_Delete() {
     
     // all_user.splice(index, 1)
     // set_user([...all_user])
+    // localStorage.setItem("user", JSON.stringify([...all_user]))
     // toast.info("Data Remove Successfully")
     
     // filter with delete
     let filter_data = all_user.filter((e, i)=> i != index)
     set_all_user(filter_data)
+    localStorage.setItem("user", JSON.stringify(filter_data))
     toast.info("Data Remove Successfully")
   })
 

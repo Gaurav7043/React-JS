@@ -1,5 +1,5 @@
 import { FileEdit, Slash, Trash } from 'lucide-react'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import { Button, Form, FormGroup, Input, Label, Table } from 'reactstrap'
 
@@ -19,6 +19,7 @@ export default function Multiple_Input_Update() {
             if(!all_user.some((existinguser) => Equal (existinguser, user))){
                 set_all_user([...all_user, user])
                 set_user({email: "", password: ""})
+                localStorage.setItem("user", JSON.stringify([...all_user, user]))
                 toast.success("Data Added Successfully")
             }else{
                 toast.dark("User with the Same Data Already Exits")
@@ -28,10 +29,19 @@ export default function Multiple_Input_Update() {
         }
     })
 
+    // use effect
+    useEffect(()=>{
+        let json_data = localStorage.getItem("user")
+        let normal_data = JSON.parse(json_data)
+        // console.log(normal_data)
+        set_all_user(normal_data || [])
+    }, [])
+
     // delete with filter
     const data_delete = ((index)=>{
         let filter_data = all_user.filter((e, i)=> i != index)
         set_all_user(filter_data)
+        localStorage.setItem("user", JSON.stringify(filter_data))
         toast.info("Data Remove Successfully")
     })
 
@@ -45,6 +55,7 @@ export default function Multiple_Input_Update() {
                 password : ""
             })
             set_index(null)
+            localStorage.setItem("user", JSON.stringify([...all_user]))
             toast.success("Data Update Successfully")
         }else{
             toast("Please Updata New Data")

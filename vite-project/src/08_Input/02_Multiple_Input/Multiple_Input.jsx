@@ -1,5 +1,5 @@
 import { Trash } from "lucide-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { Button, Form, FormGroup, Input, Label, Table } from "reactstrap";
 
@@ -19,6 +19,7 @@ export default function Multiple_Input() {
             if(!all_user.some((existinguser) => isEqual (existinguser, user))){
                 set_all_user([...all_user, user])
                 set_user({email: "", city: "", password: ""})
+                localStorage.setItem("user", JSON.stringify([...all_user, user]))
                 toast.success("User Added Successfully")
             }else{
                 toast.dark("User with the Same Data Already Exits")
@@ -28,6 +29,13 @@ export default function Multiple_Input() {
         }
     }
 
+    // use effect
+    useEffect(()=>{
+        let json_data = localStorage.getItem("user")
+        let normal_data = JSON.parse(json_data)
+        set_all_user(normal_data || [])
+    }, [])
+
     // delete with filter
     const data_delete = ((index)=>{
         // delete with splice
@@ -36,14 +44,16 @@ export default function Multiple_Input() {
         // set_all_user(del)
         // toast.info("Data Remove Successfully")
         
-        all_user.splice(index, 1)
-        set_user([...all_user])
-        toast.info("Data Remove Successfully")
+        // all_user.splice(index, 1)
+        // set_user([...all_user])
+        // localStorage.setItem("user", JSON.stringify([...all_user]))
+        // toast.info("Data Remove Successfully")
         
         // delete with filter
-        // let filter_data = all_user.filter((e, i)=> i !== index)
-        // set_all_user(filter_data)
-        // toast.info("Data Remove Successfully")
+        let filter_data = all_user.filter((e, i)=> i !== index)
+        set_all_user(filter_data)
+        localStorage.setItem("user", JSON.stringify(filter_data))
+        toast.info("Data Remove Successfully")
     })
 
     // Function to check if two users are equal
