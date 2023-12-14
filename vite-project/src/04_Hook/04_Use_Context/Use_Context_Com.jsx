@@ -3,15 +3,19 @@ import Com_A from './Com_A'
 import Com_B from './Com_B'
 
 export const NameContext = createContext()
+export const AgeContext = createContext()
 
 export default function Use_Context_Com() {
     let [name, set_name] = useState("Gaurav Gupta")
+    let [age, setAge] = useState(23)
 
     return (
         <>
             <NameContext.Provider value={name}>
-                <Com_A/>
                 <Com_B name={name} />
+                <AgeContext.Provider value={{age: age}}>
+                    <Com_A/>
+                </AgeContext.Provider>
             </NameContext.Provider>
         </>
     )

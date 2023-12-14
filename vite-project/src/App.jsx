@@ -32,6 +32,7 @@ import Local_Storage_Task from "./09_Local_Storage/Local_Storage_Task";
 import Local_Storage_Remove_Clear from "./09_Local_Storage/Local_Storage_Remove_Clear";
 import Use_Ref_Component from "./04_Hook/03_Use_Ref/Use_Ref_Component";
 import Use_Context_Com from "./04_Hook/04_Use_Context/Use_Context_Com";
+import Use_Reducer_Component from "./04_Hook/05_Use_Reducer/Use_Reducer_Component";
 
 
 function App(){
@@ -69,6 +70,9 @@ function App(){
         {/* ---------Hook_Use_Contaxt----------- */}
         {/* <Use_Context_Com/> */}
 
+        {/* ---------Hook_Use_Reducer----------- */}
+        <Use_Reducer_Component/>
+
         {/* ----------Fragment--------------- */}
         {/* <Fragment_Com/>
         <Fragment_Com/> */}
@@ -99,7 +103,7 @@ function App(){
         {/* <Single_Input_Revision/> */}
 
         {/* ------Multiple input---------- */}
-        <Multiple_Input/>
+        {/* <Multiple_Input/> */}
         {/* <Multiple_Input_Delete/> */}
         {/* <Multiple_Input_Update/> */}
 
