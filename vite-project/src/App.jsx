@@ -33,6 +33,7 @@ import Local_Storage_Remove_Clear from "./09_Local_Storage/Local_Storage_Remove_
 import Use_Ref_Component from "./04_Hook/03_Use_Ref/Use_Ref_Component";
 import Use_Context_Com from "./04_Hook/04_Use_Context/Use_Context_Com";
 import Use_Reducer_Component from "./04_Hook/05_Use_Reducer/Use_Reducer_Component";
+import Use_Reducer_Component_Task from "./04_Hook/05_Use_Reducer/Use_Reducer_Component_Task";
 
 
 function App(){
@@ -71,7 +72,8 @@ function App(){
         {/* <Use_Context_Com/> */}
 
         {/* ---------Hook_Use_Reducer----------- */}
-        <Use_Reducer_Component/>
+        {/* <Use_Reducer_Component/> */}
+        <Use_Reducer_Component_Task/>
 
         {/* ----------Fragment--------------- */}
         {/* <Fragment_Com/>
