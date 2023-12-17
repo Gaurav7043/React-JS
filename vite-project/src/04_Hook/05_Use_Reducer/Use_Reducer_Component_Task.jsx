@@ -5,9 +5,11 @@ export default function Use_Reducer_Component_Task() {
     const reducer = (state, action)=>{
         console.log("---------state, action-----------", state, action)
         if(action === "INC"){
-            return {count: state.count + 1}
+            return {count : state.count + 1}
         }else if(action === "DEC"){
-            return {count: state.count - 1}
+            return {count : state.count - 1}
+        }else if(action === "RESET"){
+            return {count : 100}
         }else{
             return state
         }
@@ -22,6 +24,7 @@ export default function Use_Reducer_Component_Task() {
                 <div className='m-auto text-center'>
                     <Button color='danger' className='mt-2 me-2 ms-2 mb-2' onClick={()=>dispatch("INC")}>Inc-1</Button>
                     <Button color='danger' className='mt-2 me-2 ms-2 mb-2' onClick={()=>dispatch("DEC")}>Dec-1</Button>
+                    <Button color='danger' className='mt-2 me-2 ms-2 mb-2' onClick={()=>dispatch("RESET")}>Reset</Button>
                 </div>
             </div>
         </>
