@@ -25,9 +25,6 @@ export default function Use_Reducer_With_PayLoad_Input() {
         dispatch({actionType : "INC", payLoad: +inpValue})
         setInpValue("")
     }
-    {
-        console.log(typeof inpValue)
-    }
 
     return (
         <>
