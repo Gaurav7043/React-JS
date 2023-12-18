@@ -19,10 +19,10 @@ export default function Use_Reducer_With_PayLoad_Input() {
         }
     }
 
-    function submit(){
-        dispatch({actionType : "INC", payLoad: +inpValue})
-        setInpValue("")
-    }
+    // function submit(){
+    //     dispatch({actionType : "INC", payLoad: +inpValue})
+    //     setInpValue("")
+    // }
 
     return (
         <>
@@ -30,7 +30,8 @@ export default function Use_Reducer_With_PayLoad_Input() {
                 <h1 className='text-center'>Count is : {count.count}</h1>
                 <div className='mt-3' style={{textAlign: "center"}}>
                     <Input type='text' placeholder='Enter your Number' className='w-25 mb-3 text-center m-auto' value={inpValue} onChange={inpHandler}/>
-                    <Button color='danger' onClick={submit}>INC By Number</Button>
+                    {/* <Button color='danger' onClick={submit}>INC By Number</Button> */}
+                    <Button color='danger' onClick={()=>dispatch({actionType : "INC", payLoad: +inpValue, blank : setInpValue("")})}>INC By Number</Button>
                 </div>
             </div>
         </>
