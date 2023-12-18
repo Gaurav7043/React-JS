@@ -13,8 +13,6 @@ export default function Use_Reducer_With_PayLoad_Input() {
     let [inpValue, setInpValue] = useState("")
 
     const inpHandler = (e)=>{
-        // setInpValue(parseInt(e.target.value, 10))
-
         const value = parseInt(e.target.value, 10)
         if(!isNaN(value)){
             setInpValue(value)
