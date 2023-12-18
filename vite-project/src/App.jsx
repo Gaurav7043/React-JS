@@ -35,6 +35,7 @@ import Use_Context_Com from "./04_Hook/04_Use_Context/Use_Context_Com";
 import Use_Reducer_Component from "./04_Hook/05_Use_Reducer/Use_Reducer_Component";
 import Use_Reducer_Component_Task from "./04_Hook/05_Use_Reducer/Use_Reducer_Component_Task";
 import Use_Reducer_With_PayLoad from "./04_Hook/05_Use_Reducer/Use_Reducer_With_PayLoad";
+import Use_Reducer_With_PayLoad_Input from "./04_Hook/05_Use_Reducer/Use_Reducer_With_PayLoad_Input";
 
 
 function App(){
@@ -75,7 +76,8 @@ function App(){
         {/* ---------Hook_Use_Reducer----------- */}
         {/* <Use_Reducer_Component/> */}
         {/* <Use_Reducer_Component_Task/> */}
-        <Use_Reducer_With_PayLoad/>
+        {/* <Use_Reducer_With_PayLoad/> */}
+        <Use_Reducer_With_PayLoad_Input/>
 
         {/* ----------Fragment--------------- */}
         {/* <Fragment_Com/>
