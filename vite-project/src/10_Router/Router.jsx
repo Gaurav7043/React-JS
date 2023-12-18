@@ -10,7 +10,7 @@ export default function Router() {
         <>
             <BrowserRouter>
                 <Header/>
-                <div className='d-flex justify-content-center align-items-center' style={{width: "100vw", minHeight: "100vh", backgroundColor: "lightgray"}}>
+                <div className='d-flex justify-content-center align-items-center' style={{width: "100vw", minHeight: "90vh", backgroundColor: "lightgray"}}>
                         <Routes>
                             <Route path='/' element={<Home />} />
                             <Route path='/contact' element={<Contact />} />
