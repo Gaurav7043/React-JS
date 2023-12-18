@@ -36,6 +36,7 @@ import Use_Reducer_Component from "./04_Hook/05_Use_Reducer/Use_Reducer_Componen
 import Use_Reducer_Component_Task from "./04_Hook/05_Use_Reducer/Use_Reducer_Component_Task";
 import Use_Reducer_With_PayLoad from "./04_Hook/05_Use_Reducer/Use_Reducer_With_PayLoad";
 import Use_Reducer_With_PayLoad_Input from "./04_Hook/05_Use_Reducer/Use_Reducer_With_PayLoad_Input";
+import Use_Reducer_Component_Obj_Task from "./04_Hook/05_Use_Reducer/Use_Reducer_Component_Obj_Task";
 
 
 function App(){
@@ -77,7 +78,8 @@ function App(){
         {/* <Use_Reducer_Component/> */}
         {/* <Use_Reducer_Component_Task/> */}
         {/* <Use_Reducer_With_PayLoad/> */}
-        <Use_Reducer_With_PayLoad_Input/>
+        {/* <Use_Reducer_With_PayLoad_Input/> */}
+        <Use_Reducer_Component_Obj_Task/>
 
         {/* ----------Fragment--------------- */}
         {/* <Fragment_Com/>
