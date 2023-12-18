@@ -37,6 +37,7 @@ import Use_Reducer_Component_Task from "./04_Hook/05_Use_Reducer/Use_Reducer_Com
 import Use_Reducer_With_PayLoad from "./04_Hook/05_Use_Reducer/Use_Reducer_With_PayLoad";
 import Use_Reducer_With_PayLoad_Input from "./04_Hook/05_Use_Reducer/Use_Reducer_With_PayLoad_Input";
 import Use_Reducer_Component_Obj_Task from "./04_Hook/05_Use_Reducer/Use_Reducer_Component_Obj_Task";
+import Router from "./10_Router/Router";
 
 
 function App(){
@@ -79,7 +80,7 @@ function App(){
         {/* <Use_Reducer_Component_Task/> */}
         {/* <Use_Reducer_With_PayLoad/> */}
         {/* <Use_Reducer_With_PayLoad_Input/> */}
-        <Use_Reducer_Component_Obj_Task/>
+        {/* <Use_Reducer_Component_Obj_Task/> */}
 
         {/* ----------Fragment--------------- */}
         {/* <Fragment_Com/>
@@ -119,6 +120,10 @@ function App(){
         {/* <Local_Storage/> */}
         {/* <Local_Storage_Task/> */}
         {/* <Local_Storage_Remove_Clear/> */}
+
+        {/* ------Router---------- */}
+        <Router/>
+        
       </div>
       <ToastContainer />
     </>
