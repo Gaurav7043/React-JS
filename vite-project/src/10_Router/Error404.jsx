@@ -5,8 +5,8 @@ export default function Error404() {
     return (
         <>
             <div className=''>
-                <h1>Error 404</h1>
-                <NavLink to={"/"} className='fs-5 text-black ms-5'>Home</NavLink>
+                <h1 className='mb-3'>Error 404</h1>
+                <NavLink to={"/"} className='text-black ms-5 fw-bold text-decoration-none p-2' style={{backgroundColor: "dodgerblue"}}>Home</NavLink>
             </div>
         </>
     )
