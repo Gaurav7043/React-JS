@@ -11,7 +11,10 @@ export default function Header() {
                         <NavLink to={"/"} className='text-decoration-none'>Home</NavLink>
                     </li>
                     <li>
-                        <NavLink to={"Contact"} className='text-decoration-none'>Contact</NavLink>
+                        <NavLink to={"/Contact"} className='text-decoration-none'>Contact</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={"/service"} className='text-decoration-none'>Service</NavLink>
                     </li>
                 </ul>
             </div>
