@@ -9,12 +9,14 @@ import Car_Service from './Service/Car_Service'
 import Bike_Service from './Service/Bike_Service'
 import Sports_Bike from './Service/Bike/Sports_Bike'
 import Normal_Bike from './Service/Bike/Normal_Bike'
+import Header_RS from './Header_RS'
 
 export default function Router() {
     return (
         <>
             <BrowserRouter>
-                <Header/>
+                <Header_RS expand="lg" />
+                {/* <Header/> */}
                 <div className='d-flex justify-content-center align-items-center' style={{width: "100vw", minHeight: "90vh", backgroundColor: "lightgray"}}>
                         <Routes>
                             <Route path='/' element={<Home />} />
