@@ -38,6 +38,7 @@ import Use_Reducer_With_PayLoad from "./04_Hook/05_Use_Reducer/Use_Reducer_With_
 import Use_Reducer_With_PayLoad_Input from "./04_Hook/05_Use_Reducer/Use_Reducer_With_PayLoad_Input";
 import Use_Reducer_Component_Obj_Task from "./04_Hook/05_Use_Reducer/Use_Reducer_Component_Obj_Task";
 import Router from "./10_Router/Router";
+import Routerr from "./10_Router/Task/Router";
 
 
 function App(){
@@ -122,7 +123,8 @@ function App(){
         {/* <Local_Storage_Remove_Clear/> */}
 
         {/* ------Router---------- */}
-        <Router/>
+        {/* <Router/> */}
+        <Routerr/>
         
       </div>
       <ToastContainer />
