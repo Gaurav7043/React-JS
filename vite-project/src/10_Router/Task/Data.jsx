@@ -11,7 +11,8 @@ export default function Data() {
 
     return (
         <>
-            <Table striped className='w-50 m-auto mt-4 text-center'>
+            <h1 className='text-center mt-4'>Data Information</h1>
+            <Table striped className='w-50 m-auto mt-5 text-center'>
                 <thead>
                     <tr>
                         <th>Sr.No</th>
