@@ -10,6 +10,7 @@ import Bike_Service from './Service/Bike_Service'
 import Sports_Bike from './Service/Bike/Sports_Bike'
 import Normal_Bike from './Service/Bike/Normal_Bike'
 import Header_RS from './Header_RS'
+import User from './User/User'
 
 export default function Router() {
     return (
@@ -31,6 +32,7 @@ export default function Router() {
                                 </Route>
                             </Route>
                             <Route path='*' element={<Error404 />} />
+                            <Route path='/user/:name' element={<User/>} />
                         </Routes>
                 </div>
             </BrowserRouter>
