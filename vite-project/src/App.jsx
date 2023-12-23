@@ -123,8 +123,8 @@ function App(){
         {/* <Local_Storage_Remove_Clear/> */}
 
         {/* ------Router---------- */}
-        {/* <Router/> */}
-        <Routerr/>
+        <Router/>
+        {/* <Routerr/> */}
         
       </div>
       <ToastContainer />
