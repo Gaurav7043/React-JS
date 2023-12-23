@@ -24,7 +24,7 @@ export default function Contact() {
     return (
         <>
             <Profile_Modal toggle={toggle} modal={modal} />
-            <Table className="me-5 ms-5" striped>
+            <Table className="me-5 ms-5 w-50 text-center" striped>
                 <thead>
                     <tr>
                         <th>Sr.</th>
