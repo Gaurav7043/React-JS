@@ -40,6 +40,7 @@ import Use_Reducer_Component_Obj_Task from "./04_Hook/05_Use_Reducer/Use_Reducer
 import Router from "./10_Router/Router";
 import Routerr from "./10_Router/Task/Router";
 import App_Pro from "./11_Protected_Router/App_Pro";
+import RouterSimple from './12_Protected_2/Router'
 
 function App(){
   return(
@@ -127,7 +128,8 @@ function App(){
         {/* <Routerr/> */}
 
         {/* ------Protected_Router---------- */}
-        <App_Pro/>
+        {/* <App_Pro/> */}
+        <RouterSimple/>
       </div>
       <ToastContainer />
     </>
