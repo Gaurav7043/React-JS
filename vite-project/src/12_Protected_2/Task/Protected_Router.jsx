@@ -46,15 +46,15 @@ export const Admin_Pro = ({ Component })=> {
     )
 }
 
-// for profile
-export const Profile_Pro = ({ Component })=> {
+// for employee
+export const Employee_Pro = ({ Component })=> {
     const navigate = useNavigate()
 
     // check user is login or not
     useEffect(()=>{
         let jsonData = localStorage.getItem("login")
         let normalData = JSON.parse(jsonData)
-         if(!normalData || normalData?.userType !== "profile"){
+         if(!normalData || (normalData?.userType !== "emp" && normalData?.userType !== "admin" && normalData?.userType !== "superadmin")){
             toast.warn("Please do Login");
             navigate("/")
         }
@@ -68,15 +68,37 @@ export const Profile_Pro = ({ Component })=> {
     )
 }
 
-// for employee
-export const Employee_Pro = ({ Component })=> {
+// for user
+export const User_Pro = ({ Component })=> {
     const navigate = useNavigate()
 
     // check user is login or not
     useEffect(()=>{
         let jsonData = localStorage.getItem("login")
         let normalData = JSON.parse(jsonData)
-         if(!normalData || normalData?.userType !== "emp"){
+         if(!normalData || (normalData.userType !== "user" && normalData.userType !== "emp" && normalData?.userType !== "admin" && normalData?.userType !== "superadmin")){
+            toast.warn("Please do Login");
+            navigate("/")
+        }
+    })
+
+    return (
+        <>  
+
+            {Component}
+        </>
+    )
+}
+
+// for profile
+export const Profile_Pro = ({ Component })=> {
+    const navigate = useNavigate()
+
+    // check user is login or not
+    useEffect(()=>{
+        let jsonData = localStorage.getItem("login")
+        let normalData = JSON.parse(jsonData)
+         if(!normalData || (normalData.userType !== "profile" && normalData.userType !== "user" && normalData.userType !== "emp" && normalData?.userType !== "admin" && normalData?.userType !== "superadmin")){
             toast.warn("Please do Login");
             navigate("/")
         }

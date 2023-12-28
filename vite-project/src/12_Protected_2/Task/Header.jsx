@@ -12,11 +12,14 @@ export default function Header() {
         // for admin
         // JSON.stringify({login: true, userType: "admin"}))
 
-        // for Profile
-        // JSON.stringify({login: true, userType: "profile"}))
-
         // for employee
-        JSON.stringify({login: true, userType: "emp"}))
+        // JSON.stringify({login: true, userType: "emp"}))
+        
+        // for user
+        // JSON.stringify({login: true, userType: "user"}))
+        
+        // for profile
+        JSON.stringify({login: true, userType: "profile"}))
     }
 
     const logoutHandler = ()=>{
@@ -31,13 +34,16 @@ export default function Header() {
                         <NavLink to={"/"} className='text-decoration-none'>Home</NavLink>
                     </li>
                     <li>
-                        <NavLink to={"/Contact"} className='text-decoration-none'>Contact</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to={"/emp"} className='text-decoration-none'>Employee</NavLink>
+                        <NavLink to={"/contact"} className='text-decoration-none'>Contact</NavLink>
                     </li>
                     <li>
                         <NavLink to={"/profile"} className='text-decoration-none'>Profile</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={"/user"} className='text-decoration-none'>user</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={"/emp"} className='text-decoration-none'>Employee</NavLink>
                     </li>
                     <li>
                         <NavLink to={"/admin"} className='text-decoration-none'>Admin</NavLink>

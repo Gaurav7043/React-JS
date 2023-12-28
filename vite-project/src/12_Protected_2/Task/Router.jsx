@@ -1,14 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './Home'
 import Contact from './Contact'
+import Profile from './Profile'
 import Error from './Error'
 import Admin from './Admin'
 import Super_Admin from './Super_Admin'
-import Profile from './Profile'
 import Header from './Header'
 import Employee from './Employee'
-import { Admin_Pro, Employee_Pro, Profile_Pro, Supe_Admin } from './Protected_Router'
+import { Admin_Pro, Employee_Pro, Profile_Pro, Supe_Admin, User_Pro } from './Protected_Router'
+import User from './User'
 
 export default function Router() {
     return (
@@ -19,8 +20,9 @@ export default function Router() {
                     <Routes>
                         <Route path='/' Component={Home} />
                         <Route path='/contact' element={<Contact />} />
-                        <Route path='/emp' element={<Employee_Pro Component={<Employee/>}/>} />
                         <Route path='/profile' element={<Profile_Pro Component={<Profile />}/>} />
+                        <Route path='/user' element={<User_Pro Component={<User />}/>} />
+                        <Route path='/emp' element={<Employee_Pro Component={<Employee/>}/>} />
                         <Route path='/admin' element={<Admin_Pro Component={<Admin />}/>} />
                         <Route path='/supadmin' element={<Supe_Admin Component={<Super_Admin/>} />} />
                         <Route path='*' Component={Error} />
