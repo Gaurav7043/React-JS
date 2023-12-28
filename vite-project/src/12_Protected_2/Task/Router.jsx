@@ -1,7 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './Home'
-import Contact from './Contact'
 import Profile from './Profile'
 import Error from './Error'
 import Admin from './Admin'
@@ -19,7 +18,6 @@ export default function Router() {
                 <div className='d-flex justify-content-center align-items-center' style={{width: "100vw", minHeight: "89vh", backgroundColor: "lightgray"}}>
                     <Routes>
                         <Route path='/' Component={Home} />
-                        <Route path='/contact' element={<Contact />} />
                         <Route path='/profile' element={<Profile_Pro Component={<Profile />}/>} />
                         <Route path='/user' element={<User_Pro Component={<User />}/>} />
                         <Route path='/emp' element={<Employee_Pro Component={<Employee/>}/>} />

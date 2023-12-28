@@ -34,9 +34,6 @@ export default function Header() {
                         <NavLink to={"/"} className='text-decoration-none'>Home</NavLink>
                     </li>
                     <li>
-                        <NavLink to={"/contact"} className='text-decoration-none'>Contact</NavLink>
-                    </li>
-                    <li>
                         <NavLink to={"/profile"} className='text-decoration-none'>Profile</NavLink>
                     </li>
                     <li>
