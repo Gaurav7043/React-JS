@@ -41,6 +41,7 @@ import Router from "./10_Router/Router";
 import Routerr from "./10_Router/Task/Router";
 import App_Pro from "./11_Protected_Router/App_Pro";
 import RouterSimple from './12_Protected_2/Router'
+import RouterSimp from './12_Protected_2/Task/Router'
 
 function App(){
   return(
@@ -129,7 +130,9 @@ function App(){
 
         {/* ------Protected_Router---------- */}
         {/* <App_Pro/> */}
-        <RouterSimple/>
+        {/* <RouterSimple/> */}
+        <RouterSimp/>
+
       </div>
       <ToastContainer />
     </>
