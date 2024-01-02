@@ -11,7 +11,7 @@ const userTypeOptions = [
 export default function Register_Modal({ modal, toggle }) {
     let [user, setUser] = useState({
         email : "",
-        gender : "",
+        gender : "male",
         hobbies : [],
         userType : "",
         Password : ""
@@ -39,22 +39,28 @@ export default function Register_Modal({ modal, toggle }) {
                         <FormGroup tag="fieldset" className='d-flex gap-3'>
                             <FormGroup check>
                                 <Input
+                                    checked={user?.gender === "male"}
                                     name="radio1"
                                     type="radio"
+                                    onChange={()=>setUser({...user, gender: "male"})}
                                 />
                                 <Label check>Male</Label>
                             </FormGroup>
                             <FormGroup check>
                                 <Input
+                                    checked={user?.gender === "female"}
                                     name="radio1"
                                     type="radio"
+                                    onChange={()=>setUser({...user, gender: "female"})}
                                 />
                                 <Label check>Female</Label>
                             </FormGroup>
                             <FormGroup check>
                                 <Input
+                                    checked={user?.gender === "kids"}
                                     name="radio1"
                                     type="radio"
+                                    onChange={()=>setUser({...user, gender: "kids"})}
                                 />
                                 <Label check>Kids</Label>
                             </FormGroup>
@@ -84,7 +90,7 @@ export default function Register_Modal({ modal, toggle }) {
                         {/* 4th box */}
                         <FormGroup>
                             <Label>User Type</Label>
-                            <Select onChange={(e)=>setUser(...user,userType = e?.value)} options={userTypeOptions} />
+                            <Select onChange={(e)=>setUser({...user, userType : e?.value})} options={userTypeOptions} />
                         </FormGroup>
 
                         {/* 5th box */}
