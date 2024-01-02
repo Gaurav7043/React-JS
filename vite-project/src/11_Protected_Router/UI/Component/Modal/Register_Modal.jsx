@@ -1,29 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input } from 'reactstrap';
 import Select from 'react-select';
 
-const UserTypeOptions = [
+const userTypeOptions = [
     { value: 'user', label: 'User' },
     { value: 'admin', label: 'Admin' },
     { value: 'employee', label: 'Employee' },
   ];
 
 export default function Register_Modal({ modal, toggle }) {
+    let [user, setUser] = useState({
+        email : "",
+        gender : "",
+        hobbies : [],
+        userType : "",
+        Password : ""
+    })
     return (
         <div>
             <Modal isOpen={modal} toggle={toggle}>
                 <ModalHeader toggle={toggle}>Sign Up</ModalHeader>
                 <ModalBody>
                     <Form>
+                        {/* 1st box */}
                         <FormGroup>
                             <Label for="exampleEmail">Email</Label>
                             <Input
                                 id="exampleEmail"
                                 name="email"
-                                placeholder="with a placeholder"
+                                onChange={(e)=>setUser({...user, email : e?.target?.value})}
+                                placeholder="Enter Email"
                                 type="email"
                             />
                         </FormGroup>
+
+                        {/* 2nd box */}
                         <Label>Gender</Label>
                         <FormGroup tag="fieldset" className='d-flex gap-3'>
                             <FormGroup check>
@@ -48,6 +59,8 @@ export default function Register_Modal({ modal, toggle }) {
                                 <Label check>Kids</Label>
                             </FormGroup>
                         </FormGroup>
+
+                        {/* 3rd box */}
                         <Label>Hobbies</Label>
                         <FormGroup>
                             <FormGroup check inline>
@@ -67,17 +80,25 @@ export default function Register_Modal({ modal, toggle }) {
                                 <Label check>Music</Label>
                             </FormGroup>
                         </FormGroup>
-                        <Label>Option</Label>
-                        <Select options={UserTypeOptions} />
+
+                        {/* 4th box */}
+                        <FormGroup>
+                            <Label>User Type</Label>
+                            <Select onChange={(e)=>setUser(...user,userType = e?.value)} options={userTypeOptions} />
+                        </FormGroup>
+
+                        {/* 5th box */}
                         <FormGroup>
                             <Label for="examplePassword">Password</Label>
                             <Input
                                 id="examplePassword"
                                 name="password"
-                                placeholder="password placeholder"
+                                onChange={(e)=>setUser({...user, Password : e?.target?.value})}
+                                placeholder="Enter Password"
                                 type="password"
                             />
                         </FormGroup>
+
                         <Button color='danger' className='w-100'>Submit</Button>
                     </Form>
                 </ModalBody>
