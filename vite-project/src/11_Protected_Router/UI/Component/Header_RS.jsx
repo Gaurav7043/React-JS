@@ -30,7 +30,7 @@ function Header_RS(args) {
                             <NavLink to="/" className='text-decoration-none'>Home</NavLink>
                         </NavItem>
                         <NavItem className="me-3">
-                            <Button color="danger" onClick={registerToggle}>Login</Button>
+                            <Button color="danger" onClick={registerToggle}>Sign Up</Button>
                         </NavItem>
                     </Nav>
                 </Collapse>
