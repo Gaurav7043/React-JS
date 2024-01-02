@@ -68,7 +68,7 @@ export default function Register_Modal({ modal, toggle }) {
                             </FormGroup>
                         </FormGroup>
                         <Label>Option</Label>
-                        <Select value={user} options={UserTypeOptions} />
+                        <Select options={UserTypeOptions} />
                         <FormGroup>
                             <Label for="examplePassword">Password</Label>
                             <Input
