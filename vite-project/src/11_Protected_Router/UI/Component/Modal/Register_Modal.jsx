@@ -17,13 +17,37 @@ export default function Register_Modal({ modal, toggle }) {
         Password : ""
     })
 
-    const checkHandler = (item)=>{}
+    const checkHandler = (item)=>{
+        const matchItem = user?.hobbies?.includes(item)
+        if(matchItem){
+            let filter = user?.hobbies?.filter((e)=> e !== item)
+            setUser({...user, hobbies: filter})
+        }else{
+            setUser({...user, hobbies: [...user?.hobbies, item]})
+        }
+    }
+
+    // to get from data
+    const getData = (e)=>{
+        e?.preventDefault();
+        let jsonData = localStorage?.getItem("dataArray") || "[]"
+        let normalData = JSON?.parse(jsonData)
+        localStorage.setItem("dataArray", JSON.stringify([...normalData, user]))
+        setUser({
+            email : "",
+            gender : "male",
+            hobbies : [],
+            userType : "",
+            Password : ""
+        })
+    }
+
     return (
         <div>
             <Modal isOpen={modal} toggle={toggle}>
                 <ModalHeader toggle={toggle}>Sign Up</ModalHeader>
                 <ModalBody>
-                    <Form>
+                    <Form onSubmit={getData}>
                         {/* 1st box */}
                         <FormGroup>
                             <Label for="exampleEmail">Email</Label>
@@ -72,19 +96,19 @@ export default function Register_Modal({ modal, toggle }) {
                         <Label>Hobbies</Label>
                         <FormGroup>
                             <FormGroup check inline>
-                                <Input type="checkbox" />
+                                <Input checked={user?.hobbies?.includes("traveling")} onClick={()=>checkHandler("traveling")} type="checkbox" />
                                 <Label check>Traveling</Label>
                             </FormGroup>
                             <FormGroup check inline>
-                                <Input type="checkbox" />
+                                <Input checked={user?.hobbies?.includes("reading")} onClick={()=>checkHandler("reading")} type="checkbox" />
                                 <Label check>Reading</Label>
                             </FormGroup>
                             <FormGroup check inline>
-                                <Input type="checkbox" />
+                                <Input checked={user?.hobbies?.includes("sport")} onClick={()=>checkHandler("sport")} type="checkbox" />
                                 <Label check>Sport</Label>
                             </FormGroup>
                             <FormGroup check inline>
-                                <Input type="checkbox" />
+                                <Input checked={user?.hobbies?.includes("music")} onClick={()=>checkHandler("music")} type="checkbox" />
                                 <Label check>Music</Label>
                             </FormGroup>
                         </FormGroup>

@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button, Input, Label } from 'reactstrap'
 
-let nameArr = ["gaurav", "harsh", "som", "om"]
 
 export default function Home() {
     const navigate = useNavigate()
