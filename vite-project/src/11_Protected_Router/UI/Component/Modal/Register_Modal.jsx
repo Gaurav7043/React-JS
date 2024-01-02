@@ -52,6 +52,7 @@ export default function Register_Modal({ modal, toggle }) {
                         <FormGroup>
                             <Label for="exampleEmail">Email</Label>
                             <Input
+                                value={user?.email}
                                 id="exampleEmail"
                                 name="email"
                                 onChange={(e)=>setUser({...user, email : e?.target?.value})}
@@ -65,6 +66,7 @@ export default function Register_Modal({ modal, toggle }) {
                         <FormGroup tag="fieldset" className='d-flex gap-3'>
                             <FormGroup check>
                                 <Input
+                                    value={user?.gender}
                                     checked={user?.gender === "male"}
                                     name="radio1"
                                     type="radio"
@@ -74,6 +76,7 @@ export default function Register_Modal({ modal, toggle }) {
                             </FormGroup>
                             <FormGroup check>
                                 <Input
+                                    value={user?.gender}
                                     checked={user?.gender === "female"}
                                     name="radio1"
                                     type="radio"
@@ -83,6 +86,7 @@ export default function Register_Modal({ modal, toggle }) {
                             </FormGroup>
                             <FormGroup check>
                                 <Input
+                                    value={user?.gender}
                                     checked={user?.gender === "kids"}
                                     name="radio1"
                                     type="radio"
@@ -96,19 +100,19 @@ export default function Register_Modal({ modal, toggle }) {
                         <Label>Hobbies</Label>
                         <FormGroup>
                             <FormGroup check inline>
-                                <Input checked={user?.hobbies?.includes("traveling")} onClick={()=>checkHandler("traveling")} type="checkbox" />
+                                <Input value={user.hobbies} checked={user?.hobbies?.includes("traveling")} onClick={()=>checkHandler("traveling")} type="checkbox" />
                                 <Label check>Traveling</Label>
                             </FormGroup>
                             <FormGroup check inline>
-                                <Input checked={user?.hobbies?.includes("reading")} onClick={()=>checkHandler("reading")} type="checkbox" />
+                                <Input value={user?.hobbies} checked={user?.hobbies?.includes("reading")} onClick={()=>checkHandler("reading")} type="checkbox" />
                                 <Label check>Reading</Label>
                             </FormGroup>
                             <FormGroup check inline>
-                                <Input checked={user?.hobbies?.includes("sport")} onClick={()=>checkHandler("sport")} type="checkbox" />
+                                <Input value={user?.hobbies} checked={user?.hobbies?.includes("sport")} onClick={()=>checkHandler("sport")} type="checkbox" />
                                 <Label check>Sport</Label>
                             </FormGroup>
                             <FormGroup check inline>
-                                <Input checked={user?.hobbies?.includes("music")} onClick={()=>checkHandler("music")} type="checkbox" />
+                                <Input value={user?.hobbies} checked={user?.hobbies?.includes("music")} onClick={()=>checkHandler("music")} type="checkbox" />
                                 <Label check>Music</Label>
                             </FormGroup>
                         </FormGroup>
@@ -116,13 +120,14 @@ export default function Register_Modal({ modal, toggle }) {
                         {/* 4th box */}
                         <FormGroup>
                             <Label>User Type</Label>
-                            <Select onChange={(e)=>setUser({...user, userType : e?.value})} options={userTypeOptions} />
+                            <Select value={user?.userType} onChange={(e)=>setUser({...user, userType : e?.target?.value})} options={userTypeOptions} />
                         </FormGroup>
 
                         {/* 5th box */}
                         <FormGroup>
                             <Label for="examplePassword">Password</Label>
                             <Input
+                                value={user?.Password}
                                 id="examplePassword"
                                 name="password"
                                 onChange={(e)=>setUser({...user, Password : e?.target?.value})}
