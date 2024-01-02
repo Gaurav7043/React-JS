@@ -30,11 +30,11 @@ export default function Home() {
                     })
                 }
                 <div className='gap-3 d-flex'>
-                    <Input onClick={()=>checkHandler("h1")} type="checkbox" />
+                    <Input checked={check?.includes("h1")} onClick={()=>checkHandler("h1")} type="checkbox" />
                     <Label check>h1</Label>
-                    <Input onClick={()=>checkHandler("h2")} type="checkbox" />
+                    <Input checked={check?.includes("h2")} onClick={()=>checkHandler("h2")} type="checkbox" />
                     <Label check>h2</Label>
-                    <Input onClick={()=>checkHandler("h3")} type="checkbox" />
+                    <Input checked={check?.includes("h3")} onClick={()=>checkHandler("h3")} type="checkbox" />
                     <Label check>h3</Label>
                 </div>
                 <Button className='ms-2 mb-2' color='danger' onClick={()=>navigate(-1)}>Go Back</Button>

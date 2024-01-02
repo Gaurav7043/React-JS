@@ -16,6 +16,8 @@ export default function Register_Modal({ modal, toggle }) {
         userType : "",
         Password : ""
     })
+
+    const checkHandler = (item)=>{}
     return (
         <div>
             <Modal isOpen={modal} toggle={toggle}>
