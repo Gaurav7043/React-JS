@@ -136,7 +136,7 @@ export default function Register_Modal({ modal, toggle }) {
                             />
                         </FormGroup>
 
-                        <Button color='danger' className='w-100'>Submit</Button>
+                        <Button color='danger' className='w-100'>submit</Button>
                     </Form>
                 </ModalBody>
             </Modal>
