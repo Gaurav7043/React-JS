@@ -19,7 +19,7 @@ const initializeData = {
 
 export default function Register_Modal({ modal, toggle }) {
     let [user, setUser] = useState(initializeData)
-    
+
     const checkHandler = (item) => {
         const matchItem = user?.hobbies?.includes(item)
         if (matchItem) {
@@ -30,19 +30,28 @@ export default function Register_Modal({ modal, toggle }) {
         }
     }
 
-    // to get from data
+    // to get form data
     const getData = (e) => {
         e?.preventDefault();
-        let jsonData = localStorage?.getItem("dataArray") || "[]"
-        let normalData = JSON?.parse(jsonData)
-        localStorage.setItem("dataArray", JSON.stringify([...normalData, user]))
-        setUser(initializeData)
+
+        // Check if the email already exists
+        const jsonData = localStorage?.getItem("dataArray") || "[]";
+        const normalData = JSON?.parse(jsonData);
+
+        if (normalData.some(existingUser => existingUser.email === user.email)) {
+            toast.warn("Email already exists. Please use a different email.");
+            return;
+        }
+
+        localStorage.setItem("dataArray", JSON.stringify([...normalData, user]));
+        setUser(initializeData);
+
         if (user.email === "" || user.userType === "" || user.hobbies.length === 0 || user.Password === "") {
-            toast.warn("Please Fill Data")
+            toast.warn("Please Fill Data");
         } else {
-            toast.success("Data Add SuccessFully")
-            toggle()
-            setUser(initializeData)
+            toast.success("Data Add Successfully");
+            toggle();
+            setUser(initializeData);
         }
     }
 
