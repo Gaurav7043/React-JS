@@ -60,9 +60,6 @@ export default function Register_Modal({ modal, toggle }) {
 
         // Reset the user state to initial values
         setUser(initializeData);
-
-        // Clear data from local storage
-        // localStorage.removeItem("dataArray");
     }
 
     return (
