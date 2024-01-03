@@ -28,6 +28,7 @@ function Header_RS(args) {
                     <Nav className="m-auto w-100 d-flex justify-content-between align-items-center" navbar>
                         <NavItem>
                             <NavLink to="/" className='text-decoration-none'>Home</NavLink>
+                            <NavLink to="/user" className='ms-3 text-decoration-none'>User</NavLink>
                         </NavItem>
                         <NavItem className="me-3">
                             <Button color="danger" onClick={registerToggle}>Sign Up</Button>
