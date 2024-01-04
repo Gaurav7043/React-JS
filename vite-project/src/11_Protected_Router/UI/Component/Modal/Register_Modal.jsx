@@ -17,17 +17,22 @@ const initializeData = {
     Password: ""
 }
 
+let gender = ["male", "female", "kids"]
+let hobbies = ["Traveling", "Reading", "Sport", "Music"]
+
 export default function Register_Modal({ modal, toggle }) {
     let [user, setUser] = useState(initializeData)
 
     const checkHandler = (item) => {
-        const matchItem = user?.hobbies?.includes(item)
-        if (matchItem) {
-            let filter = user?.hobbies?.filter((e) => e !== item)
-            setUser({ ...user, hobbies: filter })
-        } else {
-            setUser({ ...user, hobbies: [...user?.hobbies, item] })
-        }
+        // const matchItem = user?.hobbies?.includes(item)
+        // if (matchItem) {
+        //     let filter = user?.hobbies?.filter((e) => e !== item)
+        //     setUser({ ...user, hobbies: filter })
+        // } else {
+        //     setUser({ ...user, hobbies: [...user?.hobbies, item] })
+        // }
+        const matchItem = user.hobbies.includes(item) ? user.hobbies.filter((hobbies) => hobbies !== item) : [...user.hobbies, item];
+        setUser({ ...user, hobbies: matchItem });
     }
 
     // to get form data
@@ -67,7 +72,7 @@ export default function Register_Modal({ modal, toggle }) {
             <Modal isOpen={modal} toggle={toggle}>
                 <ModalHeader toggle={handleToggle}>Sign Up</ModalHeader>
                 <ModalBody>
-                    <Form onSubmit={getData}>
+                    <Form onSubmit={getData} autoComplete='off'>
                         {/* 1st box */}
                         <FormGroup>
                             <Label for="exampleEmail">Email</Label>
@@ -84,7 +89,21 @@ export default function Register_Modal({ modal, toggle }) {
                         {/* 2nd box */}
                         <Label>Gender</Label>
                         <FormGroup tag="fieldset" className='d-flex gap-3'>
-                            <FormGroup check>
+                            {gender.map((e, i) => {
+                                return(
+                                    <FormGroup check key={i}>
+                                        <Input
+                                        value={user?.gender}
+                                        checked={user?.gender === e}
+                                        name="radio1"
+                                        type="radio"
+                                        onChange={() => setUser({ ...user, gender: e })}
+                                    />
+                                        <Label check>{e}</Label>
+                                    </FormGroup>
+                                )
+                            })}
+                            {/* <FormGroup check>
                                 <Input
                                     value={user?.gender}
                                     checked={user?.gender === "male"}
@@ -113,13 +132,24 @@ export default function Register_Modal({ modal, toggle }) {
                                     onChange={() => setUser({ ...user, gender: "kids" })}
                                 />
                                 <Label check>Kids</Label>
-                            </FormGroup>
+                            </FormGroup> */}
                         </FormGroup>
 
                         {/* 3rd box */}
                         <Label>Hobbies</Label>
-                        <FormGroup>
-                            <FormGroup check inline>
+                        <FormGroup check className='d-flex gap-5'>
+                            {hobbies?.map((e, i)=>{
+                                return (
+                                    <FormGroup key={i}>
+                                        <Input 
+                                        onChange={()=>checkHandler(e)}
+                                        checked={user?.hobbies?.includes(e)}
+                                        type='checkbox' />
+                                        <Label>{e}</Label>
+                                    </FormGroup>
+                                )
+                            })}
+                            {/* <FormGroup check inline>
                                 <Input value={user.hobbies} checked={user?.hobbies?.includes("traveling")} onClick={() => checkHandler("traveling")} type="checkbox" />
                                 <Label check>Traveling</Label>
                             </FormGroup>
@@ -134,7 +164,7 @@ export default function Register_Modal({ modal, toggle }) {
                             <FormGroup check inline>
                                 <Input value={user?.hobbies} checked={user?.hobbies?.includes("music")} onClick={() => checkHandler("music")} type="checkbox" />
                                 <Label check>Music</Label>
-                            </FormGroup>
+                            </FormGroup> */}
                         </FormGroup>
 
                         {/* 4th box */}
