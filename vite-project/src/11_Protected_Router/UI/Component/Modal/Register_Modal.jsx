@@ -44,7 +44,7 @@ export default function Register_Modal({ modal, toggle }) {
         const normalData = JSON?.parse(jsonData);
 
         if (normalData.some(existingUser => existingUser.email === user.email)) {
-            toast.warn("Email and Admin already exists. Please use a different email and admin.");
+            toast.warn("Email already exists. Please use a different email.");
             return;
         }
 
