@@ -48,6 +48,11 @@ export default function Register_Modal({ modal, toggle }) {
             return;
         }
 
+        if (user.userType === 'admin' && normalData.some(existingUser => existingUser.userType === 'admin')) {
+            toast.warn("Admin user already exists. Only one admin user is allowed.");
+            return;
+        }
+
         localStorage.setItem("dataArray", JSON.stringify([...normalData, user]));
         setUser(initializeData);
 
