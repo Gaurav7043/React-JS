@@ -5,10 +5,10 @@ export default function User() {
     let [user, setUser] = useState()
     console.log("🚀 ~ file: User.jsx:6 ~ User ~ user:", user)
 
+    let data = JSON.parse(localStorage.getItem("dataArray")) || []
     useEffect(() => {
-        let data = JSON.parse(localStorage.getItem("dataArray")) || []
         setUser(data)
-    }, [])
+    }, [data])
 
     return (
         <>
