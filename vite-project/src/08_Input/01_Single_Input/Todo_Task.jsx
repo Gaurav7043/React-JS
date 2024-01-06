@@ -119,7 +119,7 @@ export default function Todo_Task() {
                                             <div>
                                                 <FileEdit color='red' style={{ cursor: "pointer" }} onClick={() => updateHandler(e, i)} />
                                                 <Slash color='red' style={{ rotate: "-20deg" }} />
-                                                <Input type='checkbox' onChange={() => selectHandler(i)} checked={selectData.includes(i)} style={{ padding: "10px", border: "2px solid red" }} />
+                                                <Input type='checkbox' onChange={() => selectHandler(i)} checked={selectData.includes(i)} style={{ padding: "10px", border: "2px solid red", borderRadius: "50%" }} />
                                                 <Trash color='red' onClick={() => deleteHandler(i)} />
                                             </div>
                                         </div>
