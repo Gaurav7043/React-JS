@@ -44,12 +44,11 @@ export default function Todo_Task() {
     // delete with filter
     const deleteHandler = ((index) => {
         if (selectData.includes(index)) {
-        let filter_data = all_todo.filter((e, i) => i != index)
-        set_all_todo(filter_data)
-        localStorage.setItem("todo", JSON.stringify(filter_data))
-        alert("are you sore your data delete")
-        toast.info("Data Remove Successfully")
-        }else{
+            let filter_data = all_todo.filter((e, i) => i != index)
+            set_all_todo(filter_data)
+            localStorage.setItem("todo", JSON.stringify(filter_data))
+            toast.info("Data Remove Successfully")
+        } else {
             toast.error("please Selet Check Box")
         }
     })
@@ -87,8 +86,8 @@ export default function Todo_Task() {
 
     return (
         <>
-            <div className='w-25 border dark m-auto mt-3 p-3'>
-                <h1 className='text-center'>Todo_Task</h1>
+            <div className='w-25 border dark m-auto mt-3 p-3 rounded-2 bg-body-secondary'>
+                <h1 className='text-center'>Todo List</h1>
                 <hr />
                 <Label>Todo :-</Label>
                 <Input value={todo} placeholder='Enter Your Todo' onChange={(e) => todoData(e)} />
@@ -105,33 +104,37 @@ export default function Todo_Task() {
                 </div>
             </div>
 
-            {
-                all_todo.length > 0 ?
-                    <div className='w-50 border border-1 dark rounded-3 m-auto p-4 mt-5'>
-                        <h3 className='text-center'>Your Todo List</h3>
-                        <hr />
-                        {
-                            all_todo.map((e, i) => {
-                                return (
-                                    <div key={i}>
-                                        <div className='border-bottom border-1 dark pb-2 d-flex w-100 justify-content-between'>
-                                            <h6>{i + 1}. {e}</h6>
-                                            <div>
-                                                <FileEdit color='red' style={{ cursor: "pointer" }} onClick={() => updateHandler(e, i)} />
-                                                <Slash color='red' style={{ rotate: "-20deg" }} />
-                                                <Input type='checkbox' onChange={() => selectHandler(i)} checked={selectData.includes(i)} style={{ padding: "10px", border: "2px solid red", borderRadius: "50%" }} />
-                                                <Trash color='red' onClick={() => deleteHandler(i)} />
+            <div className="content">
+                <div className="notebook-page rounded-2">
+                    {
+                        all_todo.length > 0 ?
+                        <div>
+                            <h3 className='text-center mb-0'>Your Todo List</h3>
+                            {
+                                all_todo.map((e, i) => {
+                                    return (
+                                        <div key={i}>
+                                            <div className='d-flex w-100 justify-content-between'>
+                                                <h6>{i + 1}</h6>
+                                                <h6 style={{ width: "69%" }}>{e}</h6>
+                                                <div>
+                                                    <FileEdit color='red' style={{ cursor: "pointer" }} onClick={() => updateHandler(e, i)} />
+                                                    <Slash color='red' style={{ rotate: "-20deg" }} />
+                                                    <Input type='checkbox' onChange={() => selectHandler(i)} checked={selectData.includes(i)} style={{ padding: "10px", border: "2px solid green", borderRadius: "50%" }} />
+                                                    <Trash color='red' onClick={() => deleteHandler(i)} />
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                )
-                            })
-                        }
-                    </div> :
-                    (
-                        <h1 className='text-center mt-3'>Please Add Some Todo</h1>
-                    )
-            }
+                                    )
+                                })
+                            }
+                        </div> :
+                        (
+                            <h1 className='text-center m-0 fs-3'>Please Add Some Todo List</h1>
+                        )
+                    }
+                </div>
+            </div>
         </>
     )
 }
