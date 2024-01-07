@@ -85,9 +85,9 @@ export default function Todo_Task() {
     }
 
     return (
-        <>
-            <div className='w-25 border dark m-auto mt-3 p-3 rounded-2 bg-body-secondary'>
-                <h1 className='text-center'>Todo List</h1>
+        <div className='todo_list pb-4 pt-4'>
+            <div className='w-25 border dark m-auto p-3 rounded-2 bg-body-secondary'>
+                <h1 className='text-center fw-bold'>Todo List</h1>
                 <hr />
                 <Label>Todo :-</Label>
                 <Input value={todo} placeholder='Enter Your Todo' onChange={(e) => todoData(e)} />
@@ -109,13 +109,13 @@ export default function Todo_Task() {
                     {
                         all_todo.length > 0 ?
                         <div>
-                            <h3 className='text-center mb-0'>Your Todo List</h3>
+                            <h3 className='text-center mb-0 fw-bold'>Your Todo List</h3>
                             {
                                 all_todo.map((e, i) => {
                                     return (
                                         <div key={i}>
                                             <div className='d-flex w-100 justify-content-between'>
-                                                <h6>{i + 1}</h6>
+                                                <h6 className='fw-bold'>{i + 1}.</h6>
                                                 <h6 style={{ width: "69%" }}>{e}</h6>
                                                 <div>
                                                     <FileEdit color='red' style={{ cursor: "pointer" }} onClick={() => updateHandler(e, i)} />
@@ -130,11 +130,11 @@ export default function Todo_Task() {
                             }
                         </div> :
                         (
-                            <h1 className='text-center m-0 fs-3'>Please Add Some Todo List</h1>
+                            <h1 className='text-center m-0 fs-3 fw-bold'>Please Add Some Todo List</h1>
                         )
                     }
                 </div>
             </div>
-        </>
+        </div>
     )
 }
