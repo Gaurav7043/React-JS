@@ -67,28 +67,28 @@ export default function Single_Input_Rev() {
 
             {
                 taskArray.length > 0 ?
-                    <div className='w-50 m-auto border dark rounded-3 p-3 mt-5'>
-                        <h1 className='text-center'>Task List</h1>
-                        <hr style={{ padding: "5px", backgroundColor: "darkgray" }} />
-                        <ul className='list-inline'>
-                            {
-                                taskArray.map((e, i) => {
-                                    return (
-                                        <div key={i}>
-                                            <div className='d-flex align-items-center justify-content-between'>
-                                                <li className='list-inline-item'>{i + 1}. {e}</li>
-                                                <Trash3 color='red' onClick={() => deletHandler(i)} />
-                                            </div>
-                                            <hr />
+                <div className='w-50 m-auto border dark rounded-3 p-3 mt-5'>
+                    <h1 className='text-center'>Task List</h1>
+                    <hr style={{ padding: "5px", backgroundColor: "darkgray" }} />
+                    <ul className='list-inline'>
+                        {
+                            taskArray.map((e, i) => {
+                                return (
+                                    <div key={i}>
+                                        <div className='d-flex align-items-center justify-content-between'>
+                                            <li className='list-inline-item'>{i + 1}. {e}</li>
+                                            <Trash3 role='button' color='red' onClick={() => deletHandler(i)} />
                                         </div>
-                                    )
-                                })
-                            }
-                        </ul>
-                    </div>:
-                    (
-                        <h1 className='text-center mt-5'>Please Add Some Todo List</h1>
-                    )
+                                        <hr />
+                                    </div>
+                                )
+                            })
+                        }
+                    </ul>
+                </div>:
+                (
+                    <h1 className='text-center mt-5'>Please Add Some Todo List</h1>
+                )
             }
         </>
     )

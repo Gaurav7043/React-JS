@@ -44,6 +44,7 @@ import RouterSimple from './12_Protected_2/Router'
 import RouterSimp from './12_Protected_2/Task/Router'
 import Todo_Task from "./08_Input/01_Single_Input/Todo_Task";
 import Single_Input_Rev from "./08_Input/01_Single_Input/Single_Input_Rev";
+import Todo_List from "./08_Input/01_Single_Input/Todo_List";
 
 function App(){
   return(
@@ -115,8 +116,9 @@ function App(){
         {/* <Single_Input/> */}
         {/* <Single_Input_Task/> */}
         {/* <Single_Input_Revision/> */}
-        <Single_Input_Rev/>
+        {/* <Single_Input_Rev/> */}
         {/* <Todo_Task/> */}
+        <Todo_List/>
 
         {/* ------Multiple input---------- */}
         {/* <Multiple_Input/> */}
