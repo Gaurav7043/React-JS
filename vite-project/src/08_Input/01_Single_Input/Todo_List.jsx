@@ -101,28 +101,28 @@ export default function Todo_List() {
                 <div style={{ minWidth: "45%" }} className="border dark rounded-2 p-2 mt-3">
                     {
                         pendingTask.length > 0 ?
-                            <div>
-                                <h1 className="text-center">Pending Task</h1>
-                                <hr style={{ padding: "5px", backgroundColor: "darkgray" }} />
-                                <ul className='list-inline'>
-                                    {pendingTask.map((element, i) => {
-                                        return (
-                                            <div key={i}>
-                                                <div className="d-flex justify-content-between ">
-                                                    <li className='list-inline-item'>{i + 1}. {element}</li>
-                                                    <div className="d-flex gap-2">
-                                                        <CheckCircleFill role="button" color="green" onClick={() => doneTaskHandler(i)} />
-                                                    </div>
+                        <div>
+                            <h1 className="text-center">Pending Task</h1>
+                            <hr style={{ padding: "5px", backgroundColor: "darkgray" }} />
+                            <ul className='list-inline'>
+                                {pendingTask.map((element, i) => {
+                                    return (
+                                        <div key={i}>
+                                            <div className="d-flex justify-content-between ">
+                                                <li className='list-inline-item'>{i + 1}. {element}</li>
+                                                <div className="d-flex gap-2">
+                                                    <CheckCircleFill role="button" color="green" onClick={() => doneTaskHandler(i)} />
                                                 </div>
-                                                <hr />
                                             </div>
-                                        )
-                                    })}
-                                </ul>
-                            </div> :
-                            (
-                                <h1>Please Add Some Pending Data</h1>
-                            )
+                                            <hr />
+                                        </div>
+                                    )
+                                })}
+                            </ul>
+                        </div> :
+                        (
+                            <h1>Please Add Some Pending Data</h1>
+                        )
                     }
                 </div>
 
@@ -130,29 +130,29 @@ export default function Todo_List() {
                 <div style={{ minWidth: "45%" }} className="border dark rounded-2 p-2 mt-3">
                     {
                         doneTask.length > 0 ?
-                            <div>
-                                <h1 className="text-center">Done Task</h1>
-                                <hr style={{ padding: "5px", backgroundColor: "darkgray" }} />
-                                <ul className='list-inline'>
-                                    {doneTask.map((element, i) => {
-                                        return (
-                                            <div key={i}>
-                                                <div className="d-flex justify-content-between ">
-                                                    <li className='list-inline-item'>{i + 1}. {element}</li>
-                                                    <div className="d-flex gap-2">
-                                                        <CheckCircleFill role="button" color="red" onClick={() => pendingTaskHandler(i)} />
-                                                        <Trash3 onClick={() => deleteHandler(i)} color="red" />
-                                                    </div>
+                        <div>
+                            <h1 className="text-center">Done Task</h1>
+                            <hr style={{ padding: "5px", backgroundColor: "darkgray" }} />
+                            <ul className='list-inline'>
+                                {doneTask.map((element, i) => {
+                                    return (
+                                        <div key={i}>
+                                            <div className="d-flex justify-content-between ">
+                                                <li className='list-inline-item'>{i + 1}. {element}</li>
+                                                <div className="d-flex gap-2">
+                                                    <CheckCircleFill role="button" color="red" onClick={() => pendingTaskHandler(i)} />
+                                                    <Trash3 onClick={() => deleteHandler(i)} color="red" />
                                                 </div>
-                                                <hr />
                                             </div>
-                                        )
-                                    })}
-                                </ul>
-                            </div> :
-                            (
-                                <h1>Please Add Some Done Data</h1>
-                            )
+                                            <hr />
+                                        </div>
+                                    )
+                                })}
+                            </ul>
+                        </div> :
+                        (
+                            <h1>Please Add Some Done Data</h1>
+                        )
                     }
                 </div>
             </div>
