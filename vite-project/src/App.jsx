@@ -45,6 +45,7 @@ import RouterSimp from './12_Protected_2/Task/Router'
 import Todo_Task from "./08_Input/01_Single_Input/Todo_Task";
 import Single_Input_Rev from "./08_Input/01_Single_Input/Single_Input_Rev";
 import Todo_List from "./08_Input/01_Single_Input/Todo_List";
+import Todo_List_Task from "./00_Task/Todo_List_Task";
 
 function App(){
   return(
@@ -139,6 +140,8 @@ function App(){
         {/* <RouterSimple/> */}
         {/* <RouterSimp/> */}
 
+        {/* ---------task---------- */}
+        <Todo_List_Task/>
       </div>
       <ToastContainer />
     </>
