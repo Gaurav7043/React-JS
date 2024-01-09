@@ -46,6 +46,7 @@ import Todo_Task from "./08_Input/01_Single_Input/Todo_Task";
 import Single_Input_Rev from "./08_Input/01_Single_Input/Single_Input_Rev";
 import Todo_List from "./08_Input/01_Single_Input/Todo_List";
 import Todo_List_Task from "./00_Task/Todo_List_Task";
+import Check_Box from "./08_Input/Check_Box";
 
 function App(){
   return(
@@ -113,13 +114,16 @@ function App(){
         {/* <Use_Effect_Project/> */}
         {/* <Use_Effect_Pro/> */}
 
+        {/* ------Input---------- */}
+        <Check_Box/>
+
         {/* ------Single input---------- */}
         {/* <Single_Input/> */}
         {/* <Single_Input_Task/> */}
         {/* <Single_Input_Revision/> */}
         {/* <Single_Input_Rev/> */}
         {/* <Todo_Task/> */}
-        <Todo_List/>
+        {/* <Todo_List/> */}
 
         {/* ------Multiple input---------- */}
         {/* <Multiple_Input/> */}
@@ -141,7 +145,7 @@ function App(){
         {/* <RouterSimp/> */}
 
         {/* ---------task---------- */}
-        <Todo_List_Task/>
+        {/* <Todo_List_Task/> */}
       </div>
       <ToastContainer />
     </>
