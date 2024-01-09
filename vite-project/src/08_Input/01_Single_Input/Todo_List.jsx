@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Label, Input, Button } from 'reactstrap'
-import { CheckCircleFill, Trash3 } from 'react-bootstrap-icons'
+import { CheckCircleFill, Plus, Trash3 } from 'react-bootstrap-icons'
 import { toast } from 'react-toastify'
 
 export default function Todo_List() {
@@ -90,10 +90,15 @@ export default function Todo_List() {
                 <h1 className='text-center'>Add List</h1>
                 <hr />
                 <Label>Add Todo :-</Label>
-                <Input value={task} placeholder='Enter Your Data' onChange={(e) => getData(e)} />
-                <div className="text-center">
-                    <Button color='danger' className='mt-3' onClick={() => addTask()}>Add Task</Button>
+                <div className='d-flex align-items-center'>
+                    <Input value={task} placeholder='Enter Your Data' style={{borderTopRightRadius: "0px", borderBottomRightRadius: "0px"}} onChange={(e) => getData(e)} />
+                    <Button color='danger' onClick={() => addTask()} style={{borderTopLeftRadius: "0px", borderBottomLeftRadius: "0px"}}><Plus /></Button>
+                    {/* <Input value={task} placeholder='Enter Your Data' onChange={(e) => getData(e)} style={{position: "relative"}}  />
+                    <Plus style={{position : "absolute", bottom : "0px"}} /> */}
                 </div>
+                {/* <div className="text-center"> */}
+                    {/* <Button color='danger' className='mt-3' onClick={() => addTask()}>Add Task</Button> */}
+                {/* </div> */}
             </div>
 
             <div className="d-flex w-100 p-4 justify-content-between ">
