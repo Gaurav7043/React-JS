@@ -25,13 +25,13 @@ html{
 }
 
 .notebook-page {
-  padding: 0px 9px 0px 27px;
+  /* padding: 0px 9px 0px 27px; */
   background-color: #fff;
   background-image: linear-gradient(
     rgba(33, 150, 243, 0.27) 0.05em,
     transparent 0.05em
   );
-  background-size: 100% 2em;
+  /* background-size: 100% 2em; */
   position: relative;
   min-height: 500px;
   box-shadow: 0 9px 20px rgba(0, 0, 0, 0.1);
@@ -42,7 +42,7 @@ html{
     top: 0;
     width: 1px;
     height: 100%;
-    background: #ef5350;
+    /* background: #ef5350; */
   }
   .text-edit {
     display: none;
