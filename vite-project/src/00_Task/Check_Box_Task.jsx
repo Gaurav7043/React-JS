@@ -157,7 +157,7 @@ export default function CheckBoxTask() {
                             </div>
                         </div>
                         <div className='d-flex justify-content-center mb-4'>
-                            <Button style={{ backgroundColor: "rgb(60 63 121)" }} className='w-50' id="submit">Add Data</Button>
+                            <Button role='button' style={{ backgroundColor: "rgb(60 63 121)" }} className='w-50' id="submit">Add Data</Button>
                         </div>
                     </Form>
                 </div>
@@ -172,7 +172,7 @@ export default function CheckBoxTask() {
                                 <div className='p-3 d-flex flex-column justify-content-between'>
                                     <div>
                                         {todoData.length > 0 && <div className='d-flex justify-content-end pb-2'>
-                                            <Input type='checkbox' style={{ boxShadow: "none", borderRadius: "50%", fontSize: "22px", border: "none" }} onChange={checkAllTodoData} />
+                                            <Input role='button' type='checkbox' style={{ boxShadow: "none", borderRadius: "50%", fontSize: "22px", border: "none" }} onChange={checkAllTodoData} />
                                             <Label role='button' style={{ fontWeight: "bold ", fontSize: "22px" }}>Select All</Label>
                                         </div>}
                                         <ul style={{ listStyle: "none" }} >
@@ -189,6 +189,7 @@ export default function CheckBoxTask() {
                                                                     onChange={() => checkedHandlerToDoData(i)}
                                                                     checked={selectedTodoData.includes(i)}
                                                                     type='checkbox'
+                                                                    role='button'
                                                                     style={{ boxShadow: "none", borderRadius: "50%", fontSize: "22px" }}
                                                                 />
                                                             </div>
@@ -200,7 +201,7 @@ export default function CheckBoxTask() {
                                         </ul>
                                     </div>
                                     <div className=' d-flex justify-content-center gap-4 h-25' style={{ textAlign: "center", width: "100", height: "auto" }} >
-                                        {todoData.length > 0 && <Button color='danger' className='me-2' onClick={submitHandler}>Submit</Button>}
+                                        {todoData.length > 0 && <Button color='danger' role='button' className='me-2' onClick={submitHandler}>Submit</Button>}
                                     </div>
                                 </div>
                             </div>
@@ -216,7 +217,7 @@ export default function CheckBoxTask() {
                                 <div className='p-3 d-flex flex-column justify-content-between'>
                                     <div>
                                         {getData.length > 0 && <div className='d-flex justify-content-end pb-2'>
-                                            <Input type='checkbox' style={{ boxShadow: "none", borderRadius: "50%", fontSize: "22px" }} onChange={checkAllGetData} />
+                                            <Input role='button' type='checkbox' style={{ boxShadow: "none", borderRadius: "50%", fontSize: "22px" }} onChange={checkAllGetData} />
                                             <Label role='button' style={{ fontWeight: "bold ", fontSize: "22px" }}>Select All</Label>
                                         </div>}
                                         <ul style={{ listStyle: "none" }}>
@@ -232,6 +233,7 @@ export default function CheckBoxTask() {
                                                                 onChange={() => checkedHandlerGetData(i)}
                                                                 checked={selectedGetData.includes(i)}
                                                                 type='checkbox'
+                                                                role='button'
                                                                 style={{ boxShadow: "none", borderRadius: "50%", fontSize: "22px" }}
                                                             />
 
