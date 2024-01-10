@@ -172,7 +172,7 @@ export default function CheckBoxTask() {
                                 <div className='p-3 d-flex flex-column justify-content-between'>
                                     <div>
                                         {todoData.length > 0 && <div className='d-flex justify-content-end pb-2'>
-                                            <Input role='button' type='checkbox' style={{ boxShadow: "none", borderRadius: "50%", fontSize: "22px", border: "none" }} onChange={checkAllTodoData} />
+                                            <Input role='button' type='checkbox' style={{ boxShadow: "none", borderRadius: "50%", fontSize: "22px"}} onChange={checkAllTodoData} />
                                             <Label role='button' style={{ fontWeight: "bold ", fontSize: "22px" }}>Select All</Label>
                                         </div>}
                                         <ul style={{ listStyle: "none" }} >
