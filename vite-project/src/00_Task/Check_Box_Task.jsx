@@ -182,7 +182,7 @@ export default function CheckBoxTask() {
                                                         <li className='w-100 d-flex align-items-center justify-content-between  mt-0 mb-0' style={{ maxHeight: "10px" }}>
                                                             <div className='list'>
                                                                 <span style={{ fontWeight: "bold", fontSize: "25px", paddingRight: "10px" }}>{i + 1}.</span>
-                                                                <Label style={{ fontWeight: "bold", fontSize: "25px", paddingRight: "18px", paddingTop: "10px", marginLeft: "40px" }}>{e}</Label>
+                                                                <Label style={{ fontWeight: "bold", fontSize: "25px", paddingRight: "18px", paddingTop: "10px", marginLeft: "14px" }}>{e}</Label>
                                                             </div>
                                                             <div>
                                                                 <Input
@@ -225,7 +225,7 @@ export default function CheckBoxTask() {
                                                     <li className='w-100 d-flex align-items-center justify-content-between mt-0 mb-0' style={{ maxHeight: "10px" }}>
                                                         <div>
                                                             <span style={{ fontWeight: "bold", fontSize: "25px", paddingRight: "10px" }}>{i + 1}.</span>
-                                                            <Label style={{ fontWeight: "bold", fontSize: "25px", paddingRight: "18px", paddingTop: "10px", marginLeft: "40px" }}>{e}</Label>
+                                                            <Label style={{ fontWeight: "bold", fontSize: "25px", paddingRight: "18px", paddingTop: "10px", marginLeft: "14px" }}>{e}</Label>
                                                         </div>
                                                         <div className='d-flex align-items-center gap-3'>
                                                             <Input
