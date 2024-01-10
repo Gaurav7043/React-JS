@@ -143,13 +143,13 @@ export default function CheckBoxTask() {
             <div className='body'>
                 <div className='pt-5'>
                     <Form onSubmit={addData}>
-                        <div className='d-flex justify-content-center mb-2'>
+                        <div className='d-flex justify-content-center mb-3'>
                             <div className='w-50'>
                                 <Input
                                     id="input"
                                     value={data}
                                     checkData='Todo'
-                                    placeholder='Enter data'
+                                    placeholder='Enter Data'
                                     type='text'
                                     onChange={(e) => setData(e?.target?.value)}
                                     style={{ height: "50px" }}
