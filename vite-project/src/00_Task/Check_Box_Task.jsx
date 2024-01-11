@@ -172,7 +172,7 @@ export default function CheckBoxTask() {
                                     <div>
                                         {
                                             todoData.length > 0 &&
-                                            <div className='d-flex justify-content-end pb-2'>
+                                            <div className='d-flex justify-content-end pb-2 gap-2'>
                                                 <Input role='button' type='checkbox' style={{ boxShadow: "none", borderRadius: "50%", fontSize: "22px"}} onChange={checkAllTodoData} />
                                                 <Label role='button' style={{ fontWeight: "bold ", fontSize: "22px" }}>Select All</Label>
                                             </div>
@@ -214,56 +214,63 @@ export default function CheckBoxTask() {
                     </div>
 
                     <div style={{ flex: "1" }}>
-                        <div className="notebook-page">
-                            <div className='input' style={{ height: "100%" }}>
-                                <div className='header'>
-                                    <h1 className='text-center' style={{ fontWeight: "bold", fontSize: "45px", padding: "10px", color: "#131355" }}>Done Task</h1>
-                                </div>
-                                <div className='p-3 d-flex flex-column justify-content-between'>
-                                    <div>
-                                        {
-                                            getData.length > 0 && 
-                                            <div className='d-flex justify-content-end align-items-center gap-2 pb-2 mb-3'>
-                                                <Input role='button' type='checkbox' style={{ boxShadow: "none", borderRadius: "50%", fontSize: "22px" }} onChange={checkAllGetData} />
-                                                <Label role='button' className="mb-0" style={{ fontWeight: "bold ", fontSize: "22px" }}>Select All</Label>
-                                                <MinusSquare color="#ec0909" style={{ marginLeft: "10px" }} role='button' onClick={() => removeHandler()} />
-                                            </div>
-                                        }
-                                        <ul style={{ listStyle: "none" }}>
+                        {
+                            getData.length > 0 ?
+                            <div className="notebook-page">
+                                <div className='input' style={{ height: "100%" }}>
+                                    <div className='header'>
+                                        <h1 className='text-center' style={{ fontWeight: "bold", fontSize: "45px", padding: "10px", color: "#131355" }}>Done Task</h1>
+                                    </div>
+                                    <div className='p-3 d-flex flex-column justify-content-between'>
+                                        <div>
                                             {
-                                                getData.map((e, i) => (
-                                                <div key={i}>
-                                                    <li className='w-100 d-flex align-items-center justify-content-between mt-0 mb-0' style={{ maxHeight: "10px" }}>
-                                                        <div>
-                                                            <span style={{ fontWeight: "bold", fontSize: "25px", paddingRight: "10px" }}>{i + 1}.</span>
-                                                            <Label style={{ fontWeight: "bold", fontSize: "25px", paddingRight: "18px", paddingTop: "10px", marginLeft: "14px" }}>{e}</Label>
-                                                        </div>
-                                                        <div className='d-flex align-items-center gap-3'>
-                                                            <Input
-                                                                onChange={() => checkedHandlerGetData(i)}
-                                                                checked={selectedGetData.includes(i)}
-                                                                type='checkbox'
-                                                                role='button'
-                                                                style={{ boxShadow: "none", borderRadius: "50%", fontSize: "22px" }}
-                                                            />
-                                                            <MinusSquare color="#ec0909" style={{ marginLeft: "10px" }} role='button' onClick={() => removeHandler(i)} />
-                                                            <Trash role='button' onClick={() => singleDeleteHandler(i)} color="#ec0909" />
-                                                        </div>
-                                                    </li>
-                                                    <hr style={{ width: "100%" }} />
+                                                getData.length > 0 && 
+                                                <div className='d-flex justify-content-end align-items-center gap-2 pb-2 mb-3'>
+                                                    <Input role='button' className="mt-0" type='checkbox' style={{ boxShadow: "none", borderRadius: "50%", fontSize: "22px" }} onChange={checkAllGetData} />
+                                                    <Label role='button' className="mb-0" style={{ fontWeight: "bold ", fontSize: "22px" }}>Select All</Label>
+                                                    <MinusSquare color="#ec0909" style={{ marginLeft: "10px" }} role='button' onClick={() => removeHandler()} />
                                                 </div>
-                                            ))}
-                                        </ul>
-                                        {
-                                            getData.length > 0 &&
-                                            <div style={{ textAlign: "center", width: "100", height: "auto" }}>
-                                                <Button color='danger' onClick={deleteAllHandler} >Delete All</Button>
-                                            </div>
-                                        }
+                                            }
+                                            <ul style={{ listStyle: "none" }}>
+                                                {
+                                                    getData.map((e, i) => (
+                                                        <div key={i}>
+                                                            <li className='w-100 d-flex align-items-center justify-content-between mt-0 mb-0' style={{ maxHeight: "10px" }}>
+                                                                <div>
+                                                                    <span style={{ fontWeight: "bold", fontSize: "25px", paddingRight: "10px" }}>{i + 1}.</span>
+                                                                    <Label style={{ fontWeight: "bold", fontSize: "25px", paddingRight: "18px", paddingTop: "10px", marginLeft: "14px" }}>{e}</Label>
+                                                                </div>
+                                                                <div className='d-flex align-items-center gap-3'>
+                                                                    <Input
+                                                                        onChange={() => checkedHandlerGetData(i)}
+                                                                        checked={selectedGetData.includes(i)}
+                                                                        type='checkbox'
+                                                                        role='button'
+                                                                        style={{ boxShadow: "none", borderRadius: "50%", fontSize: "22px" }}
+                                                                    />
+                                                                    <MinusSquare color="#ec0909" style={{ marginLeft: "10px" }} role='button' onClick={() => removeHandler(i)} />
+                                                                    <Trash role='button' onClick={() => singleDeleteHandler(i)} color="#ec0909" />
+                                                                </div>
+                                                            </li>
+                                                            <hr style={{ width: "100%" }} />
+                                                        </div>
+                                                    ))
+                                                }
+                                            </ul>
+                                            {
+                                                getData.length > 0 &&
+                                                <div style={{ textAlign: "center", width: "100", height: "auto" }}>
+                                                    <Button color='danger' onClick={deleteAllHandler} >Delete All</Button>
+                                                </div>
+                                            }
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                            </div>:
+                            (
+                                <h1></h1>
+                            )
+                        }
                     </div>
                 </div>
             </div>
