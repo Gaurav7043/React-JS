@@ -19,7 +19,6 @@ export default function CheckBoxTask() {
     }, []);
 
     const addData = (e) => {
-        console.log("----")
         e?.preventDefault()
         if (data === "") {
             alert("please input data");
