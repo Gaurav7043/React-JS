@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Label, Input, Button } from 'reactstrap'
 import { CheckCircleFill, Trash3 } from 'react-bootstrap-icons'
-import { toast } from 'react-toastify'
 
 export default function Todo_List() {
     let [task, setTask] = useState("")
@@ -16,73 +15,26 @@ export default function Todo_List() {
 
     // add task to array
     const addTask = () => {
-        if (task.length > 0) {
-            const matchPending = pendingTask.some((e) => e === task);
-            const matchDone = doneTask.some((e) => e === task);
-
-            if (matchPending || matchDone) {
-                toast.error("Same Data Already Exists");
-            } else {
-                setPendingTask([...pendingTask, task]);
-                setTask("");
-                localStorage.setItem("task", JSON.stringify({ pendingTask: [...pendingTask, task], doneTask }));
-                toast.success("Data Added Successfully");
-            }
-        } else {
-            toast.error("Please Fill The Input");
-        }
+        let allData = [...pendingTask, task]; // combine old + new data
+        setPendingTask(allData);
+        setTask(""); // to empty input value after add task
     }
 
     // delete with filter
     const deleteHandler = (index) => {
-        let ans = window.confirm("Are you Sure ?");
+        let ans = confirm("Are you sure ?");
         if (ans) {
-            let deleteData = doneTask.filter((e, i) => i !== index);
-            setDoneTask(deleteData);
-            localStorage.setItem("task", JSON.stringify({ pendingTask, doneTask: deleteData }));
-            toast.info("Data Remove Successfully");
-        } else {
-            toast.warn("Your Data Not Remove");
+        let arr = doneTask.filter((e, i) => i !== index);
+        setDoneTask(arr);
         }
     }
 
     // single done task
     const doneTaskHandler = (index) => {
-        let done = window.confirm("Your Data Go Done Task");
-        if (done) {
-            setDoneTask([...doneTask, pendingTask[index]]);
-            let newData = pendingTask?.filter((e, i) => i !== index);
-            setPendingTask(newData);
-            localStorage.setItem("task", JSON.stringify({ pendingTask: newData, doneTask: [...doneTask, pendingTask[index]] }));
-            toast.success("Your Data Added Done Task Successfully");
-        } else {
-            toast.warn("Your Data Not Go to done Task");
-        }
+        setDoneTask([...doneTask, pendingTask[index]]);
+        let newData = pendingTask?.filter((e, i) => i !== index);
+        setPendingTask(newData);
     };
-
-    // single pending task
-    const pendingTaskHandler = (index) => {
-        let pending = window.confirm("Your Data Go Pending Task");
-        if (pending) {
-            setPendingTask([...pendingTask, doneTask[index]]);
-            let newData = doneTask?.filter((e, i) => i !== index);
-            setDoneTask(newData);
-            localStorage.setItem("task", JSON.stringify({ pendingTask: [...pendingTask, doneTask[index]], doneTask: newData }));
-            toast.success("Your Data Added Pending Task Successfully");
-        } else {
-            toast.warn("Your Data Not Go to Pending Task");
-        }
-    };
-
-    // use effect for local storage data save
-    useEffect(() => {
-        let json_data = localStorage.getItem("task");
-        let parsed_data = JSON.parse(json_data);
-        if (parsed_data) {
-            setPendingTask(parsed_data.pendingTask || []);
-            setDoneTask(parsed_data.doneTask || []);
-        }
-    }, []);
 
     return (
         <>
@@ -140,7 +92,6 @@ export default function Todo_List() {
                                             <div className="d-flex justify-content-between ">
                                                 <li className='list-inline-item'>{i + 1}. {element}</li>
                                                 <div className="d-flex gap-2">
-                                                    <CheckCircleFill role="button" color="red" onClick={() => pendingTaskHandler(i)} />
                                                     <Trash3 onClick={() => deleteHandler(i)} color="red" />
                                                 </div>
                                             </div>

@@ -124,7 +124,7 @@ function App(){
         {/* <Single_Input_Revision/> */}
         {/* <Single_Input_Rev/> */}
         {/* <Todo_Task/> */}
-        {/* <Todo_List/> */}
+        <Todo_List/>
 
         {/* ------Multiple input---------- */}
         {/* <Multiple_Input/> */}
@@ -147,7 +147,7 @@ function App(){
 
         {/* ---------task---------- */}
         {/* <Todo_List_Task/> */}
-        <CheckBoxTask/>
+        {/* <CheckBoxTask/> */}
       </div>
       <ToastContainer />
     </>
