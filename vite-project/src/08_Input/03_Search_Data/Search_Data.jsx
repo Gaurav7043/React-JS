@@ -39,10 +39,12 @@ export default function Search_Data() {
 
     // add task to array
     const addTask = () => {
-        let allData = [...pendingTask, task]; // combine old + new data
-        localStorage.setItem("pendingData", JSON.stringify(allData))
-        setPendingTask(allData);
-        setTask(""); // to empty input value after add task
+        if(task.length > 0){
+            let allData = [...pendingTask, task]; // combine old + new data
+            localStorage.setItem("pendingData", JSON.stringify(allData))
+            setPendingTask(allData);
+            setTask(""); // to empty input value after add task
+        }
     }
 
     // delete with filter
