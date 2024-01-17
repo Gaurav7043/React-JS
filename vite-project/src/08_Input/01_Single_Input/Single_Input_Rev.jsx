@@ -71,6 +71,7 @@ export default function Single_Input_Rev() {
             setTaskArray([...taskArray]);
             setTask("");
             setIndex(null);
+            localStorage.setItem("task", JSON.stringify([...taskArray]))
         } else {
             toast.warn("Please select some data for update");
         }
