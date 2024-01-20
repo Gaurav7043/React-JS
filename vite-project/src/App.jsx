@@ -45,10 +45,11 @@ import RouterSimp from './12_Protected_2/Task/Router'
 import Todo_Task from "./08_Input/01_Single_Input/Todo_Task";
 import Single_Input_Rev from "./08_Input/01_Single_Input/Single_Input_Rev";
 import Todo_List from "./08_Input/01_Single_Input/Todo_List";
-import Todo_List_Task from "./00_Task/Todo_List_Task";
+import Todo_List_Task from "./00_Task/02_Todo_List_Task";
 import Check_Box from "./08_Input/Check_Box";
-import CheckBoxTask from "./00_Task/Check_Box_Task";
+import CheckBoxTask from "./00_Task/01_Check_Box_Task";
 import Search_Data from "./08_Input/03_Search_Data/Search_Data";
+import Search_Icon from "./00_Task/03_Search_Icon";
 
 function App(){
   return(
@@ -123,7 +124,7 @@ function App(){
         {/* <Single_Input/> */}
         {/* <Single_Input_Task/> */}
         {/* <Single_Input_Revision/> */}
-        <Single_Input_Rev/>
+        {/* <Single_Input_Rev/> */}
         {/* <Todo_Task/> */}
         {/* <Todo_List/> */}
 
@@ -133,7 +134,7 @@ function App(){
         {/* <Multiple_Input_Update/> */}
 
         {/* -----search data----------- */}
-        {/* <Search_Data/> */}
+        <Search_Data/>
 
         {/* ------Local Storage---------- */}
         {/* <Local_Storage/> */}
@@ -152,6 +153,7 @@ function App(){
         {/* ---------task---------- */}
         {/* <Todo_List_Task/> */}
         {/* <CheckBoxTask/> */}
+        {/* <Search_Icon/> */}
       </div>
       <ToastContainer />
     </>

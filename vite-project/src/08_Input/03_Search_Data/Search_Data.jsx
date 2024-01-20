@@ -8,7 +8,9 @@ export default function Search_Data() {
     let [searchPending, setSearchPending] = useState("")
     let [doneTask, setDoneTask] = useState([])
     let [searchDone, setSearchDone] = useState("")
-
+    let [selectPending, setSelectPending] = useState([])
+    let [selectDone, setSelectDone] = useState([])
+    
     // get data from input
     const getData = (ele) => {
         let inputValue = ele?.target?.value
@@ -66,6 +68,32 @@ export default function Search_Data() {
         localStorage.setItem("pendingData", JSON.stringify(newData))
     };
 
+    // single pending task
+    // const pendingTaskHandler = (index) => {
+    //     setDoneTask([...doneTask, pendingTask[index]]);
+    //     let newData = pendingTask?.filter((e, i) => i !== index);
+    //     setPendingTask(newData);
+    //     localStorage.setItem("doneData", JSON.stringify([...doneTask, pendingTask[index]]))
+    //     localStorage.setItem("pendingData", JSON.stringify(newData))
+    // };
+
+    // select handler pending and done task
+    const selectHandler = (index, type)=>{
+        if(type === "pending"){
+            if(selectPending?.includes(index)){
+                setSelectPending(selectPending?.filter((e)=> e !== index))
+            }else{
+                setSelectPending([...selectPending, index])
+            }
+        }else if(type === "done"){
+            if(selectDone?.includes(index)){
+                setSelectDone(selectDone?.filter((e)=> e !== index))
+            }else{
+                setSelectDone([...selectDone, index])
+            }
+        }
+    }
+
     return (
         <>
             <div className='w-25 border dark rounded-3 p-3 mt-3 m-auto'>
@@ -93,9 +121,10 @@ export default function Search_Data() {
                                     {pendingTask.map((element, i) => {
                                         return (
                                             <div key={i}>
-                                                <div className="d-flex justify-content-between ">
+                                                <div className="d-flex justify-content-between align-items-center ">
                                                     <li className='list-inline-item'>{i + 1}. {element}</li>
-                                                    <div className="d-flex gap-2">
+                                                    <div className="d-flex gap-2 align-items-center">
+                                                        <Input role='button' checked={selectPending?.includes(i)} type='checkbox' className='m-0' style={{boxShadow: "none"}} onClick={()=>selectHandler(i, "pending")} />
                                                         <CheckCircleFill role="button" color="green" onClick={() => doneTaskHandler(i)} />
                                                     </div>
                                                 </div>
@@ -125,10 +154,12 @@ export default function Search_Data() {
                                     {doneTask.map((element, i) => {
                                         return (
                                             <div key={i}>
-                                                <div className="d-flex justify-content-between ">
+                                                <div className="d-flex justify-content-between align-items-center">
                                                     <li className='list-inline-item'>{i + 1}. {element}</li>
-                                                    <div className="d-flex gap-2">
-                                                        <Trash3 onClick={() => deleteHandler(i)} color="red" />
+                                                    <div className="d-flex gap-2 align-items-center">
+                                                        <Input role='button' checked={selectDone?.includes(i)} type='checkbox' className='m-0' style={{boxShadow: "none"}} onChange={()=>selectHandler(i, "done")} />
+                                                        <CheckCircleFill role="button" color="green" onClick={() => pendingTaskHandler(i)} />
+                                                        <Trash3 role='button' onClick={() => deleteHandler(i)} color="red" />
                                                     </div>
                                                 </div>
                                                 <hr />
