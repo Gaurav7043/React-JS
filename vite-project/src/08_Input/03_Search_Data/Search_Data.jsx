@@ -69,13 +69,12 @@ export default function Search_Data() {
     };
 
     // single pending task
-    // const pendingTaskHandler = (index) => {
-    //     setDoneTask([...doneTask, pendingTask[index]]);
-    //     let newData = pendingTask?.filter((e, i) => i !== index);
-    //     setPendingTask(newData);
-    //     localStorage.setItem("doneData", JSON.stringify([...doneTask, pendingTask[index]]))
-    //     localStorage.setItem("pendingData", JSON.stringify(newData))
-    // };
+    const pendingTaskHandler = (index) => {
+        setPendingTask([...pendingTask, doneTask[index]]);
+        let newData = doneTask?.filter((e, i) => i !== index);
+        setDoneTask(newData);
+        localStorage.setItem("task", JSON.stringify({ pendingTask: [...pendingTask, doneTask[index]], doneTask: newData }))
+    }
 
     // select handler pending and done task
     const selectHandler = (index, type)=>{
@@ -90,6 +89,23 @@ export default function Search_Data() {
                 setSelectDone(selectDone?.filter((e)=> e !== index))
             }else{
                 setSelectDone([...selectDone, index])
+            }
+        }
+    }
+
+    // select all in checkbox
+    const selectAllHandler = (type, check)=>{
+        if(type === "pending"){
+            if(check){
+                setSelectPending(pendingTask.map((e, i)=> i))
+            }else{
+                setSelectPending([])
+            }
+        }else if(type === "done"){
+            if(check){
+                setSelectDone(doneTask.map((e, i)=> i))
+            }else{
+                setSelectDone([])
             }
         }
     }
@@ -111,14 +127,19 @@ export default function Search_Data() {
                 <div style={{ minWidth: "45%" }} className="border dark rounded-2 p-2 mt-3">
                     {
                         pendingTask.length > 0 ?
-                            <div>
-                                <div className='w-100 d-flex justify-content-end p-3'>
-                                    <Input value={searchPending} className='w-50' placeholder='Search Your Task Here' onChange={(e)=>setSearchPending(e.target.value)} />
-                                </div>
-                                <h1 className="text-center">Pending Task</h1>
-                                <hr style={{ padding: "5px", backgroundColor: "darkgray" }} />
-                                <ul className='list-inline'>
-                                    {pendingTask.map((element, i) => {
+                        <div>
+                            <div className='w-100 d-flex justify-content-end p-3'>
+                                <Input value={searchPending} className='w-50' placeholder='Search Your Task Here' onChange={(e)=>setSearchPending(e.target.value)} />
+                            </div>
+                            <h1 className="text-center">Pending Task</h1>
+                            <div className='d-flex align-items-center justify-content-end gap-2'>
+                                <Input type='checkbox' className='m-0 rounded-5 p-2' checked={pendingTask.length === selectPending.length} onClick={(e)=>selectAllHandler("pending", e.target.checked)}/>
+                                <Label className='m-0 fw-bold'>Select All</Label>
+                            </div>
+                            <hr style={{ padding: "5px", backgroundColor: "darkgray" }} />
+                            <ul className='list-inline'>
+                                {
+                                    pendingTask.map((element, i) => {
                                         return (
                                             <div key={i}>
                                                 <div className="d-flex justify-content-between align-items-center ">
@@ -131,12 +152,13 @@ export default function Search_Data() {
                                                 <hr />
                                             </div>
                                         )
-                                    })}
-                                </ul>
-                            </div> :
-                            (
-                                <h1>Please Add Some Pending Data</h1>
-                            )
+                                    })
+                                }
+                            </ul>
+                        </div> :
+                        (
+                            <h1>Please Add Some Pending Data</h1>
+                        )
                     }
                 </div>
 
@@ -144,14 +166,19 @@ export default function Search_Data() {
                 <div style={{ minWidth: "45%" }} className="border dark rounded-2 p-2 mt-3">
                     {
                         doneTask.length > 0 ?
-                            <div>
-                                <div className='w-100 d-flex justify-content-end p-3'>
-                                    <Input value={searchDone} className='w-50' placeholder='Search Your Task Here' onChange={(e)=>setSearchDone(e.target.value)} />
-                                </div>
-                                <h1 className="text-center">Done Task</h1>
-                                <hr style={{ padding: "5px", backgroundColor: "darkgray" }} />
-                                <ul className='list-inline'>
-                                    {doneTask.map((element, i) => {
+                        <div>
+                            <div className='w-100 d-flex justify-content-end p-3'>
+                                <Input value={searchDone} className='w-50' placeholder='Search Your Task Here' onChange={(e)=>setSearchDone(e.target.value)} />
+                            </div>
+                            <h1 className="text-center">Done Task</h1>
+                            <div className='d-flex align-items-center justify-content-end gap-2'>
+                                <Input type='checkbox' className='m-0 rounded-5 p-2' checked={doneTask.length === selectDone.length} onClick={(e)=>selectAllHandler("done", e.target.checked)} />
+                                <Label className='m-0 fw-bold'>Select All</Label>
+                            </div>
+                            <hr style={{ padding: "5px", backgroundColor: "darkgray" }} />
+                            <ul className='list-inline'>
+                                {
+                                    doneTask.map((element, i) => {
                                         return (
                                             <div key={i}>
                                                 <div className="d-flex justify-content-between align-items-center">
@@ -165,12 +192,13 @@ export default function Search_Data() {
                                                 <hr />
                                             </div>
                                         )
-                                    })}
-                                </ul>
-                            </div> :
-                            (
-                                <h1>Please Add Some Done Data</h1>
-                            )
+                                    })
+                                }
+                            </ul>
+                        </div> :
+                        (
+                            <h1>Please Add Some Done Data</h1>
+                        )
                     }
                 </div>
             </div>
