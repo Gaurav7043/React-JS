@@ -159,7 +159,7 @@ function App(){
 
         {/* ---------task---------- */}
         {/* <Simple_API/> */}
-        <Product_Page/>
+        {/* <Product_Page/> */}
       </div>
       <ToastContainer />
     </>
