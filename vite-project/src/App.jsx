@@ -50,6 +50,7 @@ import Check_Box from "./08_Input/Check_Box";
 import CheckBoxTask from "./00_Task/01_Check_Box_Task";
 import Search_Data from "./08_Input/03_Search_Data/Search_Data";
 import Search_Icon from "./00_Task/03_Search_Icon";
+import Simple_API from "./13_API/Simple_API";
 
 function App(){
   return(
@@ -134,7 +135,7 @@ function App(){
         {/* <Multiple_Input_Update/> */}
 
         {/* -----search data----------- */}
-        <Search_Data/>
+        {/* <Search_Data/> */}
 
         {/* ------Local Storage---------- */}
         {/* <Local_Storage/> */}
@@ -154,6 +155,9 @@ function App(){
         {/* <Todo_List_Task/> */}
         {/* <CheckBoxTask/> */}
         {/* <Search_Icon/> */}
+
+        {/* ---------task---------- */}
+        <Simple_API/>
       </div>
       <ToastContainer />
     </>
