@@ -51,6 +51,7 @@ import CheckBoxTask from "./00_Task/01_Check_Box_Task";
 import Search_Data from "./08_Input/03_Search_Data/Search_Data";
 import Search_Icon from "./00_Task/03_Search_Icon";
 import Simple_API from "./13_API/Simple_API";
+import Product_Page from "./13_API/Product_Page";
 
 function App(){
   return(
@@ -157,7 +158,8 @@ function App(){
         {/* <Search_Icon/> */}
 
         {/* ---------task---------- */}
-        <Simple_API/>
+        {/* <Simple_API/> */}
+        <Product_Page/>
       </div>
       <ToastContainer />
     </>
