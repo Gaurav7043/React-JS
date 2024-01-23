@@ -53,6 +53,7 @@ import Search_Icon from "./00_Task/03_Search_Icon";
 import Simple_API from "./13_API/Simple_API";
 import Product_Page from "./13_API/Product_Page";
 import ToDoList from "./00_Task/Todo_List/ToDoList";
+import ProtectedRouter from "./00_Task/Protected_Router/Router/Router";
 
 function App(){
   return(
@@ -157,7 +158,8 @@ function App(){
         {/* <Todo_List_Task/> */}
         {/* <CheckBoxTask/> */}
         {/* <Search_Icon/> */}
-        <ToDoList/>
+        {/* <ToDoList/> */}
+        <ProtectedRouter/>
 
         {/* ---------API---------- */}
         {/* <Simple_API/> */}
