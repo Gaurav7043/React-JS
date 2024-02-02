@@ -42,7 +42,7 @@ export default function Product() {
                                         <img src={e?.thumbnail} alt="" height="50px" />
                                     </td>
                                     <td>{e?.title}</td>
-                                    <td>{e?.price}</td>
+                                    <td>₹ {e?.price}</td>
                                     <td>
                                         <div className="d-flex gap-2 justify-content-center">
                                             {
