@@ -56,6 +56,7 @@ import ToDoList from "./00_Task/Todo_List/ToDoList";
 import ProtectedRouter from "./00_Task/Protected_Router/Router/Router";
 import Product from "./13_API/Product/Product";
 import Product_API from "./00_Task/04_Product_API";
+import Input_Data_Post from "./13_API/Product/Input_Data_Post";
 
 function App() {
   return (
@@ -167,7 +168,8 @@ function App() {
         {/* ---------API---------- */}
         {/* <Simple_API/> */}
         {/* <Product_Page/> */}
-        <Product />
+        {/* <Product /> */}
+        <Input_Data_Post/>
       </div>
       <ToastContainer />
     </>
