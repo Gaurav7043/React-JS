@@ -1,26 +1,165 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
-import { Table } from 'reactstrap'
+import { Table, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input } from 'reactstrap'
+import Select from 'react-select'
+
+const intialProduct = {
+    title: "", // text
+    description: "", // text
+    brand: "", // text
+    gender: "", // radio
+    price: "", // number
+    discountPercentage: "", // text
+    availableStock: "", // text
+    category: [], // select
+    thumbnail: "", // text
+    color: [], // select
+    size: [], // checkbox
+}
+
+const colorOptions = [
+    { value: 'red', label: 'Red' },
+    { value: 'green', label: 'Green' },
+    { value: 'yellow', label: 'Yellow' },
+    { value: 'blue', label: 'Blue' },
+    { value: 'black', label: 'Black' },
+    { value: 'white', label: 'White' },
+    { value: 'pink', label: 'Pink' },
+]
+
+let gender = ["male", "Female", "kid`s"]
+
+let categoryOptions = [
+    { value: "casual", label: "Casual" },
+    { value: "highlength", label: "Highlength" },
+]
+
+let sizeOptions = ["45", "44", "43", "42"]
 
 export default function Input_Data_Post() {
-    let [product, setProduct] = useState([])
+
+    const [modal, setModal] = useState(false);
+    const toggle = () => setModal(!modal);
+
+    let [product, setProduct] = useState(intialProduct)
+    let [allProduct, setAllProduct] = useState([])
 
     useEffect(() => {
         axios({
             method: "get",
             url: "http://localhost:9999/product/getAll",
         }).then((res) => {
-            console.log("----->", res.data.data)
-            setProduct(res?.data?.data)
+            // console.log("----->", res.data)
+            setAllProduct(res?.data?.data)
         }).catch((err) => {
             toast.error(err)
         })
     }, [])
 
+    let submitHandler = () => {
+        axios({
+            method: "post",
+            url: "http://localhost:9999/product/create",
+            data: product,
+        }).then((res) => {
+            // console.log("----->", res.data.data)
+            setAllProduct(res?.data?.data)
+            toast.success("Data Added")
+        }).catch((err) => {
+            toast.error(err)
+        })
+    }
+
+    const checkBoxHandler = (sizeValue) => {
+        if (product.size.includes(sizeValue)) {
+            setProduct({ ...product, size: product.size.filter((size) => size !== sizeValue) });
+        } else {
+            setProduct({ ...product, size: [...product.size, sizeValue] });
+        }
+    };
+
     return (
         <>
-            <h1 className='text-center'>Product</h1>
+            <div className='d-flex align-items-center mb-4'>
+                <div style={{ flex: "1", textAlign: "center" }}>
+                    <h1 className='m-0'>Product</h1>
+                </div>
+                <div>
+                    <Button color="danger" onClick={toggle}>Add Product</Button>
+                    <Modal isOpen={modal} toggle={toggle}>
+                        <ModalHeader toggle={toggle}>Product From</ModalHeader>
+                        <ModalBody>
+                            <Form>
+                                <FormGroup>
+                                    <Label for="title">Title</Label>
+                                    <Input value={product?.title} id="title" name="email" placeholder="Enter Tittle" type="text" onChange={(e) => setProduct({ ...product, title: e?.target?.value })} />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="description">Description</Label>
+                                    <Input value={product?.description} id="description" name="email" placeholder="Enter Description" type="text" onChange={(e) => setProduct({ ...product, description: e?.target?.value })} />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="brand">Brand</Label>
+                                    <Input value={product?.brand} id="brand" name="email" placeholder="Enter Brand" type="text" onChange={(e) => setProduct({ ...product, brand: e?.target?.value })} />
+                                </FormGroup>
+                                <FormGroup tag="fieldset">
+                                    <Label>Gender</Label>
+                                    <div className="d-flex gap-3">
+                                        {
+                                            gender?.map((e, i) => {
+                                                return (
+                                                    <FormGroup className="d-flex" key={i}>
+                                                        <Input value={product?.gender} type="radio" name="name" id='gender' onChange={() => setProduct({ ...product, gender: e })} />
+                                                        <Label className='ps-2' for="gender">{e}</Label>
+                                                    </FormGroup>
+                                                );
+                                            })
+                                        }
+                                    </div>
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="price">Price</Label>
+                                    <Input value={product?.price} id="price" name="email" placeholder="Enter Price" type="text" onChange={(e) => setProduct({ ...product, price: e?.target?.value })} />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="discount">Discount Percentage</Label>
+                                    <Input value={product?.discountPercentage} id='discount' type="text" onChange={(e) => setProduct({ ...product, discountPercentage: e?.target?.value })} />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="stock">Available Stock</Label>
+                                    <Input value={product?.availableStock} id='stock' type="text" onChange={(e) => setProduct({ ...product, availableStock: e?.target?.value })} />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="category">Category</Label>
+                                    <Select value={product?.category} id='category' isMulti options={categoryOptions} onChange={(e) => setProduct({ ...product, category: e?.target?.value })} />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="thumbnail">Thumbnail</Label>
+                                    <Input value={product?.thumbnail} id='thumbnail' type="text" onChange={(e) => setProduct({ ...product, thumbnail: e?.target?.value })} />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label>Color</Label>
+                                    <Select value={product?.color} isMulti options={colorOptions} onChange={(e) => setProduct({ ...product, color: e?.target?.value })} />
+                                </FormGroup>
+                                <Label>Size</Label>
+                                <div className="d-flex">
+                                    {
+                                        sizeOptions?.map((size, index) => (
+                                            <FormGroup key={index} className="d-flex gap-2 ps-3">
+                                                <Input id='size' value={product?.size} type="checkbox" onChange={() => checkBoxHandler(size)} checked={product?.size?.includes(size)} />
+                                                <Label for="size">{size}</Label>
+                                            </FormGroup>
+                                        ))
+                                    }
+                                </div>
+                                <Button color='danger' className='w-100' onClick={() => submitHandler()}>Submit</Button>
+                            </Form>
+                        </ModalBody>
+                    </Modal>
+                </div>
+            </div >
+
             <Table striped className='text-center'>
                 <thead>
                     <tr>
@@ -34,7 +173,7 @@ export default function Input_Data_Post() {
                 </thead>
                 <tbody>
                     {
-                        product?.map((e, i) => {
+                        allProduct?.map((e, i) => {
                             return (
                                 <tr key={i}>
                                     <td>{i + 1}</td>
@@ -64,3 +203,28 @@ export default function Input_Data_Post() {
         </>
     )
 }
+
+/*
+const obj = {
+    gender: "male", // radio
+    title: "Nike airJordan-440", // text
+    description: "shose with comfort", // text
+    price: 1999, // number
+    discountPercentage: 70, // text
+    availableStock: 10, // text
+    brand: "nike", // text
+    category: ["casual", "highlength"], // select
+    thumbnail: "url", // text
+    color: ["black", "white", "yellow", "green"], // select
+    size: ["45", "44", "43", "42"], // checkbox
+}
+*/
+/*
+let [select, setSelect] = useState([])
+const selectHandler = (e) => {
+    // console.log("------>", e?.value)
+    let color = e.map((e) => e?.value)
+    // console.log(color)
+    setSelect(color)
+}
+*/
