@@ -54,9 +54,11 @@ import Simple_API from "./13_API/Simple_API";
 import Product_Page from "./13_API/Product_Page";
 import ToDoList from "./00_Task/Todo_List/ToDoList";
 import ProtectedRouter from "./00_Task/Protected_Router/Router/Router";
+import Product from "./13_API/Product/Product";
+import Product_API from "./00_Task/04_Product_API";
 
-function App(){
-  return(
+function App() {
+  return (
     <>
       <div className="appContainer">
         {/* ---------------component----------------- */}
@@ -159,11 +161,13 @@ function App(){
         {/* <CheckBoxTask/> */}
         {/* <Search_Icon/> */}
         {/* <ToDoList/> */}
-        <ProtectedRouter/>
+        {/* <ProtectedRouter/> */}
+        <Product_API />
 
         {/* ---------API---------- */}
         {/* <Simple_API/> */}
         {/* <Product_Page/> */}
+        {/* <Product /> */}
       </div>
       <ToastContainer />
     </>
