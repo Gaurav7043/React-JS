@@ -43,11 +43,11 @@ export default function Product_API() {
                                     <td>
                                         <img src={e?.thumbnail} alt="" height="50px" />
                                     </td>
-                                    <td>{e?.title}</td>
-                                    <td>{e?.price}</td>
+                                    <td style={{width: "20%"}}>{e?.title}</td>
+                                    <td>₹ {e?.price}</td>
                                     <td>{e?.discountPercentage || 0} %</td>
-                                    <td>{e?.price - ((e?.price * e?.discountPercentage) / 100).toFixed(2) || "not discount"}</td>
-                                    <td>    
+                                    <td style={{width: "15%"}}> {e?.price - ((e?.price * e?.discountPercentage) / 100).toFixed(2) || "not discount"}</td>
+                                    <td style={{width: "0px"}}>    
                                         <div className="d-flex gap-2 justify-content-center">
                                             {
                                                 e?.color?.map((color, i) => {
