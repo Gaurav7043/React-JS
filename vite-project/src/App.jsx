@@ -162,12 +162,12 @@ function App() {
         {/* <Search_Icon/> */}
         {/* <ToDoList/> */}
         {/* <ProtectedRouter/> */}
-        <Product_API />
+        {/* <Product_API /> */}
 
         {/* ---------API---------- */}
         {/* <Simple_API/> */}
         {/* <Product_Page/> */}
-        {/* <Product /> */}
+        <Product />
       </div>
       <ToastContainer />
     </>
