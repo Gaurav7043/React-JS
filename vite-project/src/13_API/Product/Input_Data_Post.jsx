@@ -57,18 +57,29 @@ export default function Input_Data_Post() {
         })
     }, [])
 
-    let submitHandler = () => {
+    let submitHandler = (e) => {
+        e.preventDefault()
+        console.log(product)
         axios({
             method: "post",
             url: "http://localhost:9999/product/create",
             data: product,
         }).then((res) => {
-            // console.log("----->", res.data.data)
-            setAllProduct(res?.data?.data)
+            // setAllProduct(res?.data?.data)
             toast.success("Data Added")
         }).catch((err) => {
             toast.error(err)
         })
+    }
+
+    const selectHandler = (e, type) => {
+        if(type === "color"){
+            let color = e.map((e) => e?.value)
+            setProduct({...product, color: color})
+        }else if(type === "category"){
+            let category = e.map((e) => e?.value)
+            setProduct({...product, category: category})
+        }
     }
 
     const checkBoxHandler = (sizeValue) => {
@@ -90,7 +101,7 @@ export default function Input_Data_Post() {
                     <Modal isOpen={modal} toggle={toggle}>
                         <ModalHeader toggle={toggle}>Product From</ModalHeader>
                         <ModalBody>
-                            <Form>
+                            <Form onSubmit={submitHandler} >
                                 <FormGroup>
                                     <Label for="title">Title</Label>
                                     <Input value={product?.title} id="title" name="email" placeholder="Enter Tittle" type="text" onChange={(e) => setProduct({ ...product, title: e?.target?.value })} />
@@ -120,19 +131,19 @@ export default function Input_Data_Post() {
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="price">Price</Label>
-                                    <Input value={product?.price} id="price" name="email" placeholder="Enter Price" type="text" onChange={(e) => setProduct({ ...product, price: e?.target?.value })} />
+                                    <Input value={product?.price} id="price" name="email" placeholder="Enter Price" type="number" onChange={(e) => setProduct({ ...product, price: e?.target?.value })} />
                                 </FormGroup>
                                 <FormGroup>
-                                    <Label for="discount">Discount Percentage</Label>
+                                    <Label for="discount">Discount</Label>
                                     <Input value={product?.discountPercentage} id='discount' type="text" onChange={(e) => setProduct({ ...product, discountPercentage: e?.target?.value })} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="stock">Available Stock</Label>
-                                    <Input value={product?.availableStock} id='stock' type="text" onChange={(e) => setProduct({ ...product, availableStock: e?.target?.value })} />
+                                    <Input value={product?.availableStock} id='stock' type="number" onChange={(e) => setProduct({ ...product, availableStock: e?.target?.value })} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="category">Category</Label>
-                                    <Select value={product?.category} id='category' isMulti options={categoryOptions} onChange={(e) => setProduct({ ...product, category: e?.target?.value })} />
+                                    <Select id='category' isMulti options={categoryOptions} onChange={(e) => selectHandler(e, "category")} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="thumbnail">Thumbnail</Label>
@@ -140,7 +151,7 @@ export default function Input_Data_Post() {
                                 </FormGroup>
                                 <FormGroup>
                                     <Label>Color</Label>
-                                    <Select value={product?.color} isMulti options={colorOptions} onChange={(e) => setProduct({ ...product, color: e?.target?.value })} />
+                                    <Select isMulti options={colorOptions} onChange={(e) => selectHandler(e, "color")} />
                                 </FormGroup>
                                 <Label>Size</Label>
                                 <div className="d-flex">
@@ -153,7 +164,7 @@ export default function Input_Data_Post() {
                                         ))
                                     }
                                 </div>
-                                <Button color='danger' className='w-100' onClick={() => submitHandler()}>Submit</Button>
+                                <Button color='danger' className='w-100'>Submit</Button>
                             </Form>
                         </ModalBody>
                     </Modal>
