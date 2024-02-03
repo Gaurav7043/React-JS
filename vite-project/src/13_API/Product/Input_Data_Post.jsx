@@ -33,6 +33,9 @@ let gender = ["male", "Female", "kid`s"]
 let categoryOptions = [
     { value: "casual", label: "Casual" },
     { value: "highlength", label: "Highlength" },
+    { value: "sports", label: "sports" },
+  { value: "formal", label: "formal" },
+  { value: "party-Wear", label: "party Wear" },
 ]
 
 let sizeOptions = ["45", "44", "43", "42"]
@@ -139,7 +142,7 @@ export default function Input_Data_Post() {
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="stock">Available Stock</Label>
-                                    <Input value={product?.availableStock} id='stock' type="number" onChange={(e) => setProduct({ ...product, availableStock: e?.target?.value })} />
+                                    <Input value={product?.availableStock} id='stock' type="text" onChange={(e) => setProduct({ ...product, availableStock: e?.target?.value })} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="category">Category</Label>
