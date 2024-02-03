@@ -26,6 +26,7 @@ const colorOptions = [
     { value: 'black', label: 'Black' },
     { value: 'white', label: 'White' },
     { value: 'pink', label: 'Pink' },
+    { value: 'orangered', label: 'Orangered'}
 ]
 
 let gender = ["male", "Female", "kid`s"]
