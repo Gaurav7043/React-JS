@@ -38,7 +38,7 @@ let categoryOptions = [
     { value: "party-Wear", label: "party Wear" },
 ]
 
-let sizeOptions = ["45", "44", "43", "42"]
+let sizeOptions = ["41", "42", "43", "44", "45"]
 
 export default function Input_Data_Post() {
 
