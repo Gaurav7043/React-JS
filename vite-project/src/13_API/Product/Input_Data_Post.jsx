@@ -47,6 +47,8 @@ export default function Input_Data_Post() {
 
     let [product, setProduct] = useState(intialProduct)
     let [allProduct, setAllProduct] = useState([])
+    const [refetch, setRefetch] = useState(true);
+    const refetchData = () => setRefetch(!refetch);
 
     useEffect(() => {
         axios({
@@ -58,30 +60,37 @@ export default function Input_Data_Post() {
         }).catch((err) => {
             toast.error(err)
         })
-    }, [])
+    }, [refetch])
 
     let submitHandler = (e) => {
         e.preventDefault()
         console.log(product)
-        axios({
-            method: "post",
-            url: "http://localhost:9999/product/create",
-            data: product,
-        }).then((res) => {
-            // setAllProduct(res?.data?.data)
-            toast.success("Data Added")
-        }).catch((err) => {
-            toast.error(err)
-        })
+        if (product.title.length > 0 && product.description.length > 0 && product.brand.length > 0 && product.gender.length > 0 && product.price.length > 0 && product.discountPercentage.length > 0 && product.availableStock.length > 0 && product.category.length > 0 && product.thumbnail.length > 0 && product.color.length > 0 && product.size.length > 0) {
+            axios({
+                method: "post",
+                url: "http://localhost:9999/product/create",
+                data: product,
+            }).then((res) => {
+                // setAllProduct(res?.data?.data)
+                toast.success("Data Added")
+                setProduct(intialProduct)
+                toggle()
+                refetchData()
+            }).catch((err) => {
+                toast.error(err)
+            })
+        } else {
+            toast.warn("Please Fill Data")
+        }
     }
 
     const selectHandler = (e, type) => {
-        if(type === "color"){
+        if (type === "color") {
             let color = e.map((e) => e?.value)
-            setProduct({...product, color: color})
-        }else if(type === "category"){
+            setProduct({ ...product, color: color })
+        } else if (type === "category") {
             let category = e.map((e) => e?.value)
-            setProduct({...product, category: category})
+            setProduct({ ...product, category: category })
         }
     }
 
@@ -104,7 +113,7 @@ export default function Input_Data_Post() {
                     <Modal isOpen={modal} toggle={toggle}>
                         <ModalHeader toggle={toggle}>Product From</ModalHeader>
                         <ModalBody>
-                            <Form onSubmit={submitHandler} >
+                            <Form onSubmit={(e) => submitHandler(e)} >
                                 <FormGroup>
                                     <Label for="title">Title</Label>
                                     <Input value={product?.title} id="title" name="email" placeholder="Enter Tittle" type="text" onChange={(e) => setProduct({ ...product, title: e?.target?.value })} />
