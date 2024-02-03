@@ -55,7 +55,6 @@ export default function Input_Data_Post() {
             method: "get",
             url: "http://localhost:9999/product/getAll",
         }).then((res) => {
-            // console.log("----->", res.data)
             setAllProduct(res?.data?.data)
         }).catch((err) => {
             toast.error(err)
