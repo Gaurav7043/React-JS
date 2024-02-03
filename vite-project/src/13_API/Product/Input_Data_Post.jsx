@@ -63,7 +63,7 @@ export default function Input_Data_Post() {
     }, [refetch])
 
     let submitHandler = (e) => {
-        e.preventDefault()
+        e?.preventDefault()
         console.log(product)
         if (product.title.length > 0 && product.description.length > 0 && product.brand.length > 0 && product.gender.length > 0 && product.price.length > 0 && product.discountPercentage.length > 0 && product.availableStock.length > 0 && product.category.length > 0 && product.thumbnail.length > 0 && product.color.length > 0 && product.size.length > 0) {
             axios({
@@ -86,19 +86,19 @@ export default function Input_Data_Post() {
 
     const selectHandler = (e, type) => {
         if (type === "color") {
-            let color = e.map((e) => e?.value)
+            let color = e?.map((e) => e?.value)
             setProduct({ ...product, color: color })
         } else if (type === "category") {
-            let category = e.map((e) => e?.value)
+            let category = e?.map((e) => e?.value)
             setProduct({ ...product, category: category })
         }
     }
 
     const checkBoxHandler = (sizeValue) => {
-        if (product.size.includes(sizeValue)) {
-            setProduct({ ...product, size: product.size.filter((size) => size !== sizeValue) });
+        if (product?.size?.includes(sizeValue)) {
+            setProduct({ ...product, size: product?.size?.filter((size) => size !== sizeValue) });
         } else {
-            setProduct({ ...product, size: [...product.size, sizeValue] });
+            setProduct({ ...product, size: [...product?.size, sizeValue] });
         }
     };
 
