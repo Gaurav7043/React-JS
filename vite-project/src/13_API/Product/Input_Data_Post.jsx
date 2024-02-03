@@ -113,7 +113,7 @@ export default function Input_Data_Post() {
                     <Modal isOpen={modal} toggle={toggle}>
                         <ModalHeader toggle={toggle}>Product From</ModalHeader>
                         <ModalBody>
-                            <Form onSubmit={(e) => submitHandler(e)} >
+                            <Form onSubmit={(e) => submitHandler(e)} autoComplete='off' >
                                 <FormGroup>
                                     <Label for="title">Title</Label>
                                     <Input value={product?.title} id="title" name="email" placeholder="Enter Tittle" type="text" onChange={(e) => setProduct({ ...product, title: e?.target?.value })} />
