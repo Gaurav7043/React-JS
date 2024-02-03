@@ -33,9 +33,9 @@ let gender = ["male", "Female", "kid`s"]
 let categoryOptions = [
     { value: "casual", label: "Casual" },
     { value: "highlength", label: "Highlength" },
-    { value: "sports", label: "sports" },
-    { value: "formal", label: "formal" },
-    { value: "party-Wear", label: "party Wear" },
+    { value: "sports", label: "Sports" },
+    { value: "formal", label: "Formal" },
+    { value: "party-wear", label: "Party Wear" },
 ]
 
 let sizeOptions = ["41", "42", "43", "44", "45"]
