@@ -155,7 +155,7 @@ export default function Input_Data_Post() {
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="category">Category</Label>
-                                    <Select id='category' isMulti options={categoryOptions} onChange={(e) => selectHandler(e, "category")} />
+                                    <Select value={product?.category?.map((category)=>({value: category, label: category}))} id='category' isMulti options={categoryOptions} onChange={(e) => selectHandler(e, "category")} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="thumbnail">Image</Label>
@@ -163,7 +163,7 @@ export default function Input_Data_Post() {
                                 </FormGroup>
                                 <FormGroup>
                                     <Label>Color</Label>
-                                    <Select isMulti options={colorOptions} onChange={(e) => selectHandler(e, "color")} />
+                                    <Select value={product?.color?.map((color)=>({value: color, label: color}))} isMulti options={colorOptions} onChange={(e) => selectHandler(e, "color")} />
                                 </FormGroup>
                                 <Label>Size</Label>
                                 <div className="d-flex">
