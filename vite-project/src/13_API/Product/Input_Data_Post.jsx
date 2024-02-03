@@ -26,7 +26,7 @@ const colorOptions = [
     { value: 'black', label: 'Black' },
     { value: 'white', label: 'White' },
     { value: 'pink', label: 'Pink' },
-    { value: 'orangered', label: 'Orangered'}
+    { value: 'orangered', label: 'Orangered' }
 ]
 
 let gender = ["male", "Female", "kid`s"]
@@ -153,6 +153,10 @@ export default function Input_Data_Post() {
                                     <Label for="stock">Available Stock</Label>
                                     <Input value={product?.availableStock} id='stock' type="text" onChange={(e) => setProduct({ ...product, availableStock: e?.target?.value })} />
                                 </FormGroup>
+                                {/* <FormGroup>
+                                    <Label for="category">Category</Label>
+                                    <Select value={product?.category?.map((category) => ({ value: category, label: category }))} id='category' isMulti options={categoryOptions} onChange={(e) => setProduct({ ...product, category: e.map((ele) => ele.value) })} />
+                                </FormGroup> */}
                                 <FormGroup>
                                     <Label for="category">Category</Label>
                                     <Select value={product?.category?.map((category)=>({value: category, label: category}))} id='category' isMulti options={categoryOptions} onChange={(e) => selectHandler(e, "category")} />
@@ -163,7 +167,7 @@ export default function Input_Data_Post() {
                                 </FormGroup>
                                 <FormGroup>
                                     <Label>Color</Label>
-                                    <Select value={product?.color?.map((color)=>({value: color, label: color}))} isMulti options={colorOptions} onChange={(e) => selectHandler(e, "color")} />
+                                    <Select value={product?.color?.map((color) => ({ value: color, label: color }))} isMulti options={colorOptions} onChange={(e) => selectHandler(e, "color")} />
                                 </FormGroup>
                                 <Label>Size</Label>
                                 <div className="d-flex">
