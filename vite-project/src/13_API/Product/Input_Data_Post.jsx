@@ -133,7 +133,7 @@ export default function Input_Data_Post() {
                                             gender?.map((e, i) => {
                                                 return (
                                                     <FormGroup className="d-flex" key={i}>
-                                                        <Input value={product?.gender} type="radio" name="name" id='gender' onChange={() => setProduct({ ...product, gender: e })} />
+                                                        <Input value={product?.gender} type="radio" name="name" id='gender' checked={product?.gender === e} onChange={() => setProduct({ ...product, gender: e })} />
                                                         <Label className='ps-2' for="gender">{e}</Label>
                                                     </FormGroup>
                                                 );
@@ -158,7 +158,7 @@ export default function Input_Data_Post() {
                                     <Select id='category' isMulti options={categoryOptions} onChange={(e) => selectHandler(e, "category")} />
                                 </FormGroup>
                                 <FormGroup>
-                                    <Label for="thumbnail">Thumbnail</Label>
+                                    <Label for="thumbnail">Image</Label>
                                     <Input value={product?.thumbnail} id='thumbnail' type="text" onChange={(e) => setProduct({ ...product, thumbnail: e?.target?.value })} />
                                 </FormGroup>
                                 <FormGroup>
