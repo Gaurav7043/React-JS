@@ -34,8 +34,8 @@ let categoryOptions = [
     { value: "casual", label: "Casual" },
     { value: "highlength", label: "Highlength" },
     { value: "sports", label: "sports" },
-  { value: "formal", label: "formal" },
-  { value: "party-Wear", label: "party Wear" },
+    { value: "formal", label: "formal" },
+    { value: "party-Wear", label: "party Wear" },
 ]
 
 let sizeOptions = ["45", "44", "43", "42"]
