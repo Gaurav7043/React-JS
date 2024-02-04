@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
-import { Table, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input } from 'reactstrap'
+import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input } from 'reactstrap'
 import Select from 'react-select'
 
 const intialProduct = {
@@ -36,7 +36,7 @@ let categoryOptions = [
     { value: "highlength", label: "High Length" },
     { value: "sports", label: "Sports" },
     { value: "formal", label: "Formal" },
-    { value: "party-wear", label: "Party Wear" },
+    { value: "party wear", label: "Party Wear" },
 ]
 
 let sizeOptions = ["41", "42", "43", "44", "45"]
@@ -56,6 +56,7 @@ export default function Input_Data_Post() {
             method: "get",
             url: "http://localhost:9999/product/getAll",
         }).then((res) => {
+            console.log(res?.data?.data)
             setAllProduct(res?.data?.data)
         }).catch((err) => {
             toast.error(err)
@@ -102,12 +103,21 @@ export default function Input_Data_Post() {
         }
     };
 
+    const deleteHandler = (index) => {
+        console.log("Delete Product id :-", index)
+    }
+    
+    const updateHandler = (index)=>{
+        console.log("Update Product Data :-", allProduct?.find((e)=> e === index))
+    }
+
     return (
         <>
             <div className='d-flex align-items-center mb-4'>
                 <div style={{ flex: "1", textAlign: "center" }}>
-                    <h1 className='m-0'>Product</h1>
+                    <h1 className='m-0 ps-5 ms-5'>Product</h1>
                 </div>
+
                 <div>
                     <Button color="danger" onClick={toggle}>Add Product</Button>
                     <Modal isOpen={modal} toggle={toggle}>
@@ -185,7 +195,8 @@ export default function Input_Data_Post() {
                         </ModalBody>
                     </Modal>
                 </div>
-            </div >
+
+            </div>
 
             <div className='pt-3 pb-3'>
                 <div className="container">
@@ -257,6 +268,10 @@ export default function Input_Data_Post() {
                                                 </div>
                                                 <div>
                                                     <span className='fw-bold'>Category :-</span> {`${e?.category}`}
+                                                </div>
+                                                <div className='text-center mt-3'>
+                                                    <Button color='danger' className='me-5' onClick={() => deleteHandler(e?._id)}>Delete</Button>
+                                                    <Button color='danger' onClick={()=> updateHandler(e)}>Update</Button>
                                                 </div>
                                             </div>
                                         </div>
