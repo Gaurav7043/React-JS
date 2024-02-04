@@ -268,66 +268,10 @@ export default function Input_Data_Post() {
                     </div>
                 </div>
             </div>
-
-            {/* <Table striped className='text-center'>
-                <thead>
-                    <tr>
-                        <th>Sr.No</th>
-                        <th>Image</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Color</th>
-                        <th>Size</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        allProduct?.map((e, i) => {
-                            return (
-                                <tr key={i}>
-                                    <td>{i + 1}</td>
-                                    <td>
-                                        <img src={e?.thumbnail} alt="" height="50px" />
-                                    </td>
-                                    <td>{e?.title}</td>
-                                    <td>₹ {e?.price}</td>
-                                    <td>
-                                        <div className="d-flex gap-2 justify-content-center">
-                                            {
-                                                e?.color?.map((color, i) => {
-                                                    return (
-                                                        <div key={i} style={{ height: "10px", width: "10px", border: "1px solid black", borderRadius: "50%", background: color }}></div>
-                                                    )
-                                                })
-                                            }
-                                        </div>
-                                    </td>
-                                    <td>{e?.size}</td>
-                                </tr>
-                            )
-                        })
-                    }
-                </tbody>
-            </Table> */}
         </>
     )
 }
 
-/*
-const obj = {
-    gender: "male", // radio
-    title: "Nike airJordan-440", // text
-    description: "shose with comfort", // text
-    price: 1999, // number
-    discountPercentage: 70, // text
-    availableStock: 10, // text
-    brand: "nike", // text
-    category: ["casual", "highlength"], // select
-    thumbnail: "url", // text
-    color: ["black", "white", "yellow", "green"], // select
-    size: ["45", "44", "43", "42"], // checkbox
-}
-*/
 /*
 let [select, setSelect] = useState([])
 const selectHandler = (e) => {
