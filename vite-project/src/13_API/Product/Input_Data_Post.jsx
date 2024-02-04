@@ -187,7 +187,7 @@ export default function Input_Data_Post() {
                 </div>
             </div >
 
-            <div className='bg-info pt-3 pb-3'>
+            <div className='pt-3 pb-3'>
                 <div className="container">
                     <div className="grid_box">
                         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "10px" }}>
@@ -255,7 +255,6 @@ export default function Input_Data_Post() {
                                                         }
                                                     </div>
                                                 </div>
-
                                                 <div>
                                                     <span className='fw-bold'>Category :-</span> {`${e?.category}`}
                                                 </div>
