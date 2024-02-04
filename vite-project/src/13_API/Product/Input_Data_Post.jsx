@@ -270,24 +270,24 @@ export default function Input_Data_Post() {
                                                         {
                                                             e?.size?.map((size, i) => {
                                                                 return (
-                                                                    <div 
-                                                                        key={i} 
+                                                                    <div
+                                                                        key={i}
                                                                         style=
                                                                         {
-                                                                            size == 41 ? 
-                                                                            { 
-                                                                                backgroundColor: "green", 
-                                                                                color: "white", 
-                                                                                border: "1px solid black", 
-                                                                                padding: "0px 5px", 
-                                                                                textAlign: "center" 
-                                                                            } : 
-                                                                            { 
-                                                                                color: "gray", 
-                                                                                border: "1px solid black", 
-                                                                                padding: "0px 5px", 
-                                                                                textAlign: "center" 
-                                                                            }
+                                                                            size == 41 ?
+                                                                                {
+                                                                                    backgroundColor: "green",
+                                                                                    color: "white",
+                                                                                    border: "1px solid black",
+                                                                                    padding: "0px 5px",
+                                                                                    textAlign: "center"
+                                                                                } :
+                                                                                {
+                                                                                    color: "gray",
+                                                                                    border: "1px solid black",
+                                                                                    padding: "0px 5px",
+                                                                                    textAlign: "center"
+                                                                                }
                                                                         }
                                                                     >
                                                                         {size}
