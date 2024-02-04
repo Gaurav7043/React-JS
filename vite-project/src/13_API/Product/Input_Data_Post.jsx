@@ -56,7 +56,7 @@ export default function Input_Data_Post() {
             method: "get",
             url: "http://localhost:9999/product/getAll",
         }).then((res) => {
-            console.log(res?.data?.data)
+            // console.log(res?.data?.data)
             setAllProduct(res?.data?.data)
         }).catch((err) => {
             toast.error(err)
@@ -88,23 +88,23 @@ export default function Input_Data_Post() {
     const selectHandler = (e, type) => {
         if (type === "color") {
             // let color = e?.map((e) => e?.value)
-            let color = e?.map((e)=>{
-                return(
-                    <div style={{textTransform: "capitalize"}}>{e?.value}</div>
+            let color = e?.map((e) => {
+                return (
+                    <div style={{ textTransform: "capitalize" }}>{e?.value}</div>
                 )
             })
             setProduct({ ...product, color: color })
         } else if (type === "category") {
             // let category = e?.map((e) => e?.value)
-            let category = e?.map((e) =>{
-                return(
-                    <div style={{textTransform: "capitalize"}}>{e?.value}</div>
+            let category = e?.map((e) => {
+                return (
+                    <div style={{ textTransform: "capitalize" }}>{e?.value}</div>
                 )
             })
             setProduct({ ...product, category: category })
         }
     }
-    
+
     const checkBoxHandler = (sizeValue) => {
         if (product?.size?.includes(sizeValue)) {
             setProduct({ ...product, size: product?.size?.filter((size) => size !== sizeValue) });
@@ -116,9 +116,9 @@ export default function Input_Data_Post() {
     const deleteHandler = (index) => {
         console.log("Delete Product id :-", index)
     }
-    
-    const updateHandler = (index)=>{
-        console.log("Update Product Data :-", allProduct?.find((e)=> e === index))
+
+    const updateHandler = (index) => {
+        console.log("Update Product Data :-", allProduct?.find((e) => e === index))
     }
 
     return (
@@ -270,7 +270,7 @@ export default function Input_Data_Post() {
                                                         {
                                                             e?.size?.map((size, i) => {
                                                                 return (
-                                                                    <div key={i} style={{ border: "1px solid black", padding: "0px 5px", textAlign: "center" }}>{size}</div>
+                                                                    <div key={i} style={size == 41 ? { backgroundColor: "green", color: "white", border: "1px solid black", padding: "0px 5px", textAlign: "center" } : { color: "gray", border: "1px solid black", padding: "0px 5px", textAlign: "center" }}>{size}</div>
                                                                 )
                                                             })
                                                         }
@@ -281,7 +281,7 @@ export default function Input_Data_Post() {
                                                 </div>
                                                 <div className='text-center mt-3'>
                                                     <Button color='danger' className='me-5' onClick={() => deleteHandler(e?._id)}>Delete</Button>
-                                                    <Button color='danger' onClick={()=> updateHandler(e)}>Update</Button>
+                                                    <Button color='danger' onClick={() => updateHandler(e)}>Update</Button>
                                                 </div>
                                             </div>
                                         </div>
