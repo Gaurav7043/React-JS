@@ -19,24 +19,24 @@ const intialProduct = {
 }
 
 const colorOptions = [
-    { value: 'red', label: 'Red' },
-    { value: 'green', label: 'Green' },
-    { value: 'yellow', label: 'Yellow' },
-    { value: 'blue', label: 'Blue' },
-    { value: 'black', label: 'Black' },
-    { value: 'white', label: 'White' },
-    { value: 'pink', label: 'Pink' },
-    { value: 'orangered', label: 'Orangered' }
+    { value: 'red', label: 'red' },
+    { value: 'green', label: 'green' },
+    { value: 'yellow', label: 'yellow' },
+    { value: 'blue', label: 'blue' },
+    { value: 'black', label: 'black' },
+    { value: 'white', label: 'white' },
+    { value: 'pink', label: 'pink' },
+    { value: 'orangered', label: 'orangered' }
 ]
 
-let gender = ["male", "Female", "kid`s"]
+let gender = ["Male", "Female", "Kid`s"]
 
 let categoryOptions = [
-    { value: "casual", label: "Casual" },
-    { value: "highlength", label: "High Length" },
-    { value: "sports", label: "Sports" },
-    { value: "formal", label: "Formal" },
-    { value: "party wear", label: "Party Wear" },
+    { value: "casual", label: "casual" },
+    { value: "high length", label: "high length" },
+    { value: "sports", label: "sports" },
+    { value: "formal", label: "formal" },
+    { value: "party wear", label: "party wear" },
 ]
 
 let sizeOptions = ["41", "42", "43", "44", "45"]
@@ -87,14 +87,24 @@ export default function Input_Data_Post() {
 
     const selectHandler = (e, type) => {
         if (type === "color") {
-            let color = e?.map((e) => e?.value)
+            // let color = e?.map((e) => e?.value)
+            let color = e?.map((e)=>{
+                return(
+                    <div style={{textTransform: "capitalize"}}>{e?.value}</div>
+                )
+            })
             setProduct({ ...product, color: color })
         } else if (type === "category") {
-            let category = e?.map((e) => e?.value)
+            // let category = e?.map((e) => e?.value)
+            let category = e?.map((e) =>{
+                return(
+                    <div style={{textTransform: "capitalize"}}>{e?.value}</div>
+                )
+            })
             setProduct({ ...product, category: category })
         }
     }
-
+    
     const checkBoxHandler = (sizeValue) => {
         if (product?.size?.includes(sizeValue)) {
             setProduct({ ...product, size: product?.size?.filter((size) => size !== sizeValue) });
