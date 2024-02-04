@@ -85,6 +85,14 @@ export default function Input_Data_Post() {
         }
     }
 
+    const CustomColorOption = ({ innerProps, label, data }) => (
+        <div {...innerProps} style={{ padding: "0px 10px", display: 'flex', alignItems: 'center', justifyContent: "space-between", borderBottom: "1px solid #dee2e6", background: "#dee9", cursor: "pointer" }}>
+            {label}
+            <div style={{ backgroundColor: data.value, width: '20px', height: '20px', marginRight: '8px', borderRadius: '50%' }}></div>
+        </div>
+    )
+
+
     const selectHandler = (e, type) => {
         if (type === "color") {
             // let color = e?.map((e) => e?.value)
@@ -182,12 +190,12 @@ export default function Input_Data_Post() {
                                     <Select value={product?.category?.map((category) => ({ value: category, label: category }))} id='category' isMulti options={categoryOptions} onChange={(e) => selectHandler(e, "category")} />
                                 </FormGroup>
                                 <FormGroup>
-                                    <Label for="thumbnail">Image</Label>
-                                    <Input value={product?.thumbnail} id='thumbnail' type="text" onChange={(e) => setProduct({ ...product, thumbnail: e?.target?.value })} />
+                                    <Label>Color</Label>
+                                    <Select value={product?.color?.map((color) => ({ value: color, label: color }))} isMulti options={colorOptions} onChange={(e) => selectHandler(e, "color")} components={{ Option: CustomColorOption }} />
                                 </FormGroup>
                                 <FormGroup>
-                                    <Label>Color</Label>
-                                    <Select value={product?.color?.map((color) => ({ value: color, label: color }))} isMulti options={colorOptions} onChange={(e) => selectHandler(e, "color")} />
+                                    <Label for="thumbnail">Image</Label>
+                                    <Input value={product?.thumbnail} id='thumbnail' type="text" onChange={(e) => setProduct({ ...product, thumbnail: e?.target?.value })} />
                                 </FormGroup>
                                 <Label>Size</Label>
                                 <div className="d-flex">
@@ -223,7 +231,7 @@ export default function Input_Data_Post() {
                                                 <div>
                                                     <span className='fw-bold'>Title :-</span> {e?.title}
                                                 </div>
-                                                <div className='d-flex align-items-center justify-content-between gap-5'>
+                                                <div className='d-flex align-items-center justify-content-between'>
                                                     <div>
                                                         <span className='fw-bold'>Brand :-</span> {e?.brand}
                                                     </div>
@@ -232,7 +240,7 @@ export default function Input_Data_Post() {
                                                     </div>
 
                                                 </div>
-                                                <div className='d-flex align-items-center justify-content-between gap-3'>
+                                                <div className='d-flex align-items-center justify-content-between'>
                                                     <div>
                                                         <span className='fw-bold'>Price :-</span> {e?.price}
                                                     </div>
@@ -241,7 +249,7 @@ export default function Input_Data_Post() {
                                                     </div>
 
                                                 </div>
-                                                <div className='d-flex align-items-center justify-content-between gap-5'>
+                                                <div className='d-flex align-items-center justify-content-between'>
                                                     <div>
                                                         <span className='fw-bold'>After Discount :- </span>
                                                         {
@@ -261,7 +269,7 @@ export default function Input_Data_Post() {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div className='d-flex align-items-center justify-content-between gap-5'>
+                                                <div className='d-flex align-items-center justify-content-between'>
                                                     <div>
                                                         <span className='fw-bold'>Gender :-</span> {e?.gender}
                                                     </div>
