@@ -15,7 +15,7 @@ export default function Style(){
             <hr />
             <div style={div_style}>style variable</div>
             <hr />
-            <div className="container">Hello External CSS</div>
+            <div className="container sty">Hello External CSS</div>
             <hr />
             <div>
                 <h1 className="text-danger text-center text-decoration-line-through m-4 border border-black p-3">Hello Bootstrap</h1>

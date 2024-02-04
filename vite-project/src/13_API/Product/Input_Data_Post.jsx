@@ -159,7 +159,7 @@ export default function Input_Data_Post() {
                                 </FormGroup> */}
                                 <FormGroup>
                                     <Label for="category">Category</Label>
-                                    <Select value={product?.category?.map((category)=>({value: category, label: category}))} id='category' isMulti options={categoryOptions} onChange={(e) => selectHandler(e, "category")} />
+                                    <Select value={product?.category?.map((category) => ({ value: category, label: category }))} id='category' isMulti options={categoryOptions} onChange={(e) => selectHandler(e, "category")} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="thumbnail">Image</Label>
@@ -187,7 +187,32 @@ export default function Input_Data_Post() {
                 </div>
             </div >
 
-            <Table striped className='text-center'>
+            <div>
+                <div className="container">
+                    <div>
+                        <div className="grid_box">
+                            {
+                                allProduct?.map((e, i) => {
+                                    return (
+                                        <>
+                                            <div>
+                                                <img src={e?.thumbnail} alt="" style={{ height: "250px", maxWidth: "100%" }} />
+                                            </div>
+                                            <div>
+                                                <span>{e?.title}</span>
+                                                <span>{e?.price}</span>
+                                                <span>{e?.laptopPrice}</span>
+                                            </div>
+                                        </>
+                                    )
+                                })
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* <Table striped className='text-center'>
                 <thead>
                     <tr>
                         <th>Sr.No</th>
@@ -226,7 +251,7 @@ export default function Input_Data_Post() {
                         })
                     }
                 </tbody>
-            </Table>
+            </Table> */}
         </>
     )
 }
