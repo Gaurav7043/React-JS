@@ -33,7 +33,7 @@ let gender = ["male", "Female", "kid`s"]
 
 let categoryOptions = [
     { value: "casual", label: "Casual" },
-    { value: "highlength", label: "Highlength" },
+    { value: "highlength", label: "High Length" },
     { value: "sports", label: "Sports" },
     { value: "formal", label: "Formal" },
     { value: "party-wear", label: "Party Wear" },
@@ -187,23 +187,80 @@ export default function Input_Data_Post() {
                 </div>
             </div >
 
-            <div>
+            <div className='bg-info pt-3 pb-3'>
                 <div className="container">
-                    <div>
-                        <div className="grid_box">
+                    <div className="grid_box">
+                        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "10px" }}>
                             {
                                 allProduct?.map((e, i) => {
                                     return (
-                                        <>
+                                        <div key={i} className='border-2 dark border rounded-2 bg-white'>
                                             <div>
-                                                <img src={e?.thumbnail} alt="" style={{ height: "250px", maxWidth: "100%" }} />
+                                                <img src={e?.thumbnail} alt="" style={{ height: "300px", width: "100%", borderTopLeftRadius: "0.3rem", borderTopRightRadius: "0.3rem" }} />
                                             </div>
-                                            <div>
-                                                <span>{e?.title}</span>
-                                                <span>{e?.price}</span>
-                                                <span>{e?.laptopPrice}</span>
+                                            <div className='pt-3 pb-3 ps-2 pe-2'>
+                                                <div>
+                                                    <span className='fw-bold'>Title :-</span> {e?.title}
+                                                </div>
+                                                <div className='d-flex align-items-center justify-content-between gap-5'>
+                                                    <div>
+                                                        <span className='fw-bold'>Brand :-</span> {e?.brand}
+                                                    </div>
+                                                    <div>
+                                                        <span className='fw-bold'>Discount :-</span> {e?.discountPercentage || 0}
+                                                    </div>
+
+                                                </div>
+                                                <div className='d-flex align-items-center justify-content-between gap-3'>
+                                                    <div>
+                                                        <span className='fw-bold'>Price :-</span> {e?.price}
+                                                    </div>
+                                                    <div>
+                                                        <span className='fw-bold'>Available Stock :-</span> {e?.availableStock || "out of stock"}
+                                                    </div>
+
+                                                </div>
+                                                <div className='d-flex align-items-center justify-content-between gap-5'>
+                                                    <div>
+                                                        <span className='fw-bold'>After Discount :- </span>
+                                                        {
+                                                            e?.price - ((e?.price * e?.discountPercentage) / 100).toFixed(0) || "not"
+                                                        }
+                                                    </div>
+                                                    <div className='d-flex align-items-center gap-2'>
+                                                        <span className='fw-bold'>Color :-</span>
+                                                        <div className="d-flex gap-2 justify-content-center">
+                                                            {
+                                                                e?.color?.map((color, i) => {
+                                                                    return (
+                                                                        <div key={i} style={{ height: "10px", width: "10px", border: "1px solid black", borderRadius: "50%", background: color }}></div>
+                                                                    )
+                                                                })
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className='d-flex align-items-center justify-content-between gap-5'>
+                                                    <div>
+                                                        <span className='fw-bold'>Gender :-</span> {e?.gender}
+                                                    </div>
+                                                    <div className='d-flex'>
+                                                        <span className='fw-bold'>Size :- </span>
+                                                        {
+                                                            e?.size?.map((size, i) => {
+                                                                return (
+                                                                    <div key={i} style={{ border: "1px solid black", padding: "0px 5px", textAlign: "center" }}>{size}</div>
+                                                                )
+                                                            })
+                                                        }
+                                                    </div>
+                                                </div>
+
+                                                <div>
+                                                    <span className='fw-bold'>Category :-</span> {`${e?.category}`}
+                                                </div>
                                             </div>
-                                        </>
+                                        </div>
                                     )
                                 })
                             }
