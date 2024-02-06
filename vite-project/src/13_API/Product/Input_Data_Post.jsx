@@ -276,7 +276,7 @@ export default function Input_Data_Post() {
                                                     <div className='d-flex'>
                                                         <span className='fw-bold'>Size :- </span>
                                                         {
-                                                            e?.size?.map((size, i) => {
+                                                            [41, 42, 43, 44, 45]?.map((size, i) => {
                                                                 return (
                                                                     <div
                                                                         key={i}
