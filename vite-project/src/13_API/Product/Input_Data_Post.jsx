@@ -69,7 +69,7 @@ export default function Input_Data_Post() {
     const submitHandler = (e) => {
         e?.preventDefault()
         console.log("---------->", product);
-        if(product?.title?.length > 0 && product?.description?.length > 0 && product?.brand?.length > 0 && product?.gender?.length > 0 && product?.price?.length > 0 && product?.discountPercentage?.length > 0 && product?.availableStock?.length > 0 && product?.category?.length > 0 && product?.thumbnail?.length > 0 && product?.color?.length > 0 && product?.size?.length > 0){
+        if (product?.title?.length > 0 && product?.description?.length > 0 && product?.brand?.length > 0 && product?.gender?.length > 0 && product?.price?.length > 0 && product?.discountPercentage?.length > 0 && product?.availableStock?.length > 0 && product?.category?.length > 0 && product?.thumbnail?.length > 0 && product?.color?.length > 0 && product?.size?.length > 0) {
             axios({
                 method: "post",
                 url: "http://localhost:9999/product/create",
@@ -83,7 +83,7 @@ export default function Input_Data_Post() {
             })?.catch((err) => {
                 toast.error(err)
             })
-        }else{
+        } else {
             toast.warn("Please Fill Data")
         }
     }
@@ -155,7 +155,7 @@ export default function Input_Data_Post() {
                     <Modal isOpen={modal} toggle={toggle} backdrop='static'>
                         <ModalHeader toggle={toggle}>Product From</ModalHeader>
                         <ModalBody>
-                            <Form onSubmit={(e) => submitHandler(e)}>
+                            <Form onSubmit={(e) => submitHandler(e)} autoComplete='off'>
                                 <FormGroup>
                                     <Label for="title">Title</Label>
                                     <Input value={product?.title} id="title" placeholder="Enter Title" type="text" onChange={(e) => setProduct({ ...product, title: e?.target?.value })} />
