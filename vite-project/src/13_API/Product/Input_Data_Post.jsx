@@ -175,7 +175,7 @@ export default function Input_Data_Post() {
                                             return (
                                                 <FormGroup key={i}>
                                                     <Input value={product?.gender} type='radio' id='gender' checked={product?.gender === e} onChange={() => setProduct({ ...product, gender: e })} />
-                                                    <Label className='ps-2'>{e}</Label>
+                                                    <Label for="gender" className='ps-2'>{e}</Label>
                                                 </FormGroup>
                                             )
                                         })

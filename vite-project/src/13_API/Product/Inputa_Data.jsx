@@ -52,12 +52,30 @@ export default function Inputa_Data() {
             method: "get",
             url: "http://localhost:9999/product/getAll"
         }).then((res) => {
-            console.log("---->", res?.data?.data)
+            // console.log("---->", res?.data?.data)
             setAllProduct(res?.data?.data)
         }).catch((err) => {
             toast.error(err)
         })
     }, [])
+
+    const submitHandler = (e) => {
+        e?.preventDefault()
+        console.log(product)
+        axios({
+            method: "post",
+            url: "http://localhost:9999/product/create",
+            data: product
+        }).then((res) => {
+            // console.log("---->", res?.data)
+            toast.success("Data Added")
+            setProduct(intialProduct)
+            toggle()
+            // refetchData()
+        }).catch((err) => {
+            toast.error(err)
+        })
+    }
 
     const selectHandler = (e, type) => {
         if (type === "color") {
@@ -66,6 +84,14 @@ export default function Inputa_Data() {
         } else if (type === "category") {
             let category = e?.map((e) => e?.value)
             setProduct({ ...product, category: category })
+        }
+    }
+
+    const checkBoxHandler = (sizeValue) => {
+        if (product?.size?.includes(sizeValue)) {
+            setProduct({ ...product, size: product?.size?.filter((size) => size !== sizeValue) });
+        } else {
+            setProduct({ ...product, size: [...product?.size, sizeValue] });
         }
     }
 
@@ -100,7 +126,7 @@ export default function Inputa_Data() {
                                             return (
                                                 <FormGroup key={i}>
                                                     <Input value={product?.gender} type="radio" id='gender' checked={product?.gender === e} onChange={() => setProduct({ ...product, gender: e })} />
-                                                    <Label className='ps-2'>{e}</Label>
+                                                    <Label for="gender" className='ps-2'>{e}</Label>
                                                 </FormGroup>
                                             )
                                         })
@@ -130,9 +156,19 @@ export default function Inputa_Data() {
                                     <Label for="color">Color</Label>
                                     <Select value={product?.color?.map((color) => ({ value: color, label: color }))} id='color' isMulti placeholder="Select Color" options={colorOptions} onChange={(e) => selectHandler(e, "color")} />
                                 </FormGroup>
-                                <FormGroup>
-
-                                </FormGroup>
+                                <Label>Size</Label>
+                                <div className='d-flex gap-3'>
+                                    {
+                                        sizeOption?.map((e, i) => {
+                                            return (
+                                                <FormGroup key={i}>
+                                                    <Input value={product?.size} type="checkbox" id='size' checked={product?.size?.includes(e)} onChange={() => checkBoxHandler(e)} />
+                                                    <Label for="size" className='ps-2'>{e}</Label>
+                                                </FormGroup>
+                                            )
+                                        })
+                                    }
+                                </div>
                                 <Button color='danger' className='w-100'>Submit</Button>
                             </Form>
                         </ModalBody>
