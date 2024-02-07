@@ -257,7 +257,7 @@ export default function Input_Data_Post() {
                                     </td>
                                     <td style={{ width: "20%" }}>{e?.title}</td>
                                     <td>₹ {e?.price}</td>
-                                    <td>₹ {e?.discountPercentage || 0} %</td>
+                                    <td>{e?.discountPercentage || 0} %</td>
                                     <td style={{ width: "15%" }}> {e?.price - ((e?.price * e?.discountPercentage) / 100).toFixed(1) || "not discount"}</td>
                                     <td style={{ width: "0px" }}>
                                         <div className="d-flex gap-2 justify-content-center">
@@ -284,7 +284,7 @@ export default function Input_Data_Post() {
                                     </td>
                                     <td>
                                         <Edit role='button' color="#81adef" onClick={() => editHandler(e)} />
-                                        <Slash role='button' style={{ rotate: "-21deg" }} />
+                                        <Slash style={{ rotate: "-21deg" }} />
                                         <Trash role='button' color="#f22b2b" onClick={() => deleteHandler(e?._id)} />
                                     </td>
                                 </tr>
