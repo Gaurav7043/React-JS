@@ -168,21 +168,19 @@ export default function Input_Data_Post() {
                                     <Label for="brand">Brand</Label>
                                     <Input value={product?.brand} id="brand" placeholder="Enter Brand" type="text" onChange={(e) => setProduct({ ...product, brand: e?.target?.value })} />
                                 </FormGroup>
-                                <FormGroup tag="fieldset">
-                                    <Label>Gender</Label>
-                                    <div className='d-flex gap-3'>
-                                        {
-                                            gender?.map((e, i) => {
-                                                return (
-                                                    <FormGroup key={i}>
-                                                        <Input value={product?.gender} type='radio' id='gender' checked={product?.gender === e} onChange={() => setProduct({ ...product, gender: e })} />
-                                                        <Label className='ps-2'>{e}</Label>
-                                                    </FormGroup>
-                                                )
-                                            })
-                                        }
-                                    </div>
-                                </FormGroup>
+                                <Label>Gender</Label>
+                                <div className='d-flex gap-3'>
+                                    {
+                                        gender?.map((e, i) => {
+                                            return (
+                                                <FormGroup key={i}>
+                                                    <Input value={product?.gender} type='radio' id='gender' checked={product?.gender === e} onChange={() => setProduct({ ...product, gender: e })} />
+                                                    <Label className='ps-2'>{e}</Label>
+                                                </FormGroup>
+                                            )
+                                        })
+                                    }
+                                </div>
                                 <FormGroup>
                                     <Label for="price">Price</Label>
                                     <Input value={product?.price} id="price" placeholder="Enter Price" type="number" onChange={(e) => setProduct({ ...product, price: e?.target?.value })} />
@@ -201,11 +199,11 @@ export default function Input_Data_Post() {
                                 </FormGroup> */}
                                 <FormGroup>
                                     <Label for="category">Category</Label>
-                                    <Select value={product?.category?.map((category) => ({ value: category, label: category }))} isMulti options={categoryOptions} id="category" placeholder="Enter category" type="text" onChange={(e) => selectHandler(e, "category")} />
+                                    <Select value={product?.category?.map((category) => ({ value: category, label: category }))} isMulti options={categoryOptions} id="category" placeholder="Select category" type="text" onChange={(e) => selectHandler(e, "category")} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="color">Color</Label>
-                                    <Select value={product?.color?.map((color) => ({ value: color, label: color }))} isMulti options={colorOptions} id="category" placeholder="Enter Color" type="text" onChange={(e) => selectHandler(e, "color")} />
+                                    <Select value={product?.color?.map((color) => ({ value: color, label: color }))} isMulti options={colorOptions} id="category" placeholder="Select Color" type="text" onChange={(e) => selectHandler(e, "color")} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="thumbnail">Image</Label>
