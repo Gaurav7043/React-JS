@@ -69,19 +69,23 @@ export default function Input_Data_Post() {
     const submitHandler = (e) => {
         e?.preventDefault()
         console.log("---------->", product);
-        axios({
-            method: "post",
-            url: "http://localhost:9999/product/create",
-            data: product,
-        })?.then((res) => {
-            // console.log(res?.data)
-            toast.success("Data Added")
-            setProduct(intialProduct)
-            toggle()
-            refetchData()
-        })?.catch((err) => {
-            toast.error(err)
-        })
+        if(product?.title?.length > 0 && product?.description?.length > 0 && product?.brand?.length > 0 && product?.gender?.length > 0 && product?.price?.length > 0 && product?.discountPercentage?.length > 0 && product?.availableStock?.length > 0 && product?.category?.length > 0 && product?.thumbnail?.length > 0 && product?.color?.length > 0 && product?.size?.length > 0){
+            axios({
+                method: "post",
+                url: "http://localhost:9999/product/create",
+                data: product,
+            })?.then((res) => {
+                // console.log(res?.data)
+                toast.success("Data Added")
+                setProduct(intialProduct)
+                toggle()
+                refetchData()
+            })?.catch((err) => {
+                toast.error(err)
+            })
+        }else{
+            toast.warn("Please Fill Data")
+        }
     }
 
     const selectHandler = (e, type) => {
@@ -254,7 +258,7 @@ export default function Input_Data_Post() {
                                     <td style={{ width: "20%" }}>{e?.title}</td>
                                     <td>₹ {e?.price}</td>
                                     <td>₹ {e?.discountPercentage || 0} %</td>
-                                    <td style={{ width: "15%" }}> {e?.price - ((e?.price * e?.discountPercentage) / 100).toFixed(2) || "not discount"}</td>
+                                    <td style={{ width: "15%" }}> {e?.price - ((e?.price * e?.discountPercentage) / 100).toFixed(1) || "not discount"}</td>
                                     <td style={{ width: "0px" }}>
                                         <div className="d-flex gap-2 justify-content-center">
                                             {
