@@ -51,6 +51,7 @@ export default function Input_Data_Post() {
     const toggle = () => {
         setModal(!modal)
         setUpdateMode(false)
+        setProduct(intialProduct)
     }
 
     useEffect(() => {
