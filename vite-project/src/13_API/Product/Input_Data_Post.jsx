@@ -47,12 +47,12 @@ export default function Input_Data_Post() {
     const [refetch, setRefetch] = useState(true)
     const refetchData = () => setRefetch(!refetch)
     const [updateMode, setUpdateMode] = useState(false)
-    
+
     const toggle = () => {
         setModal(!modal)
         setUpdateMode(false)
     }
-    
+
     useEffect(() => {
         axios({
             method: "get",
@@ -101,7 +101,7 @@ export default function Input_Data_Post() {
         }
     }
 
-    const deleteHandler = (id)=>{
+    const deleteHandler = (id) => {
         // console.log("delete product id", id)
         axios({
             method: "delete",
@@ -114,14 +114,14 @@ export default function Input_Data_Post() {
         })
     }
 
-    const editHandler = (data)=>{
+    const editHandler = (data) => {
         // console.log("update product id", data)
         toggle()
         setProduct(data)
         setUpdateMode(true)
     }
 
-    const updataData = ()=>{
+    const updataData = () => {
         // console.log("======>", product?._id)
         axios({
             method: "put",
@@ -219,8 +219,8 @@ export default function Input_Data_Post() {
                                 </div>
                                 {
                                     updateMode ?
-                                    <Button color='danger' className='w-100' onClick={()=>updataData()}>Update</Button> :
-                                    <Button color='danger' className='w-100'>Submit</Button>
+                                        <Button color='danger' className='w-100' onClick={() => updataData()}>Update</Button> :
+                                        <Button color='danger' className='w-100'>Submit</Button>
                                 }
                             </Form>
                         </ModalBody>
@@ -264,22 +264,23 @@ export default function Input_Data_Post() {
                                                 })
                                             }
                                         </div>
+                                        {/* <div>{e?.color?.map((e)=> e).join(" -- ")}</div> */}
                                     </td>
                                     <td>
-                                        <div className='d-flex'>
+                                        <div className='d-flex gap-1'>
                                             {
                                                 sizeOptions?.map((size, i) => {
                                                     return (
-                                                        <div key={i} style={{padding: "5px", border: "1px solid black", flex: "0.5", textAlign: "center" }}>{size}</div>
+                                                        <div key={i} style={{ border: "1px solid black", padding: "6px", color: e?.size?.find((e) => e == size) ? "black" : "gray" }}>{size}</div>
                                                     )
                                                 })
                                             }
                                         </div>
                                     </td>
                                     <td>
-                                        <Edit role='button' color="#81adef" onClick={()=>editHandler(e)} />
-                                        <Slash role='button' style={{rotate: "-21deg"}} />
-                                        <Trash role='button' color="#f22b2b" onClick={()=>deleteHandler(e?._id)} />
+                                        <Edit role='button' color="#81adef" onClick={() => editHandler(e)} />
+                                        <Slash role='button' style={{ rotate: "-21deg" }} />
+                                        <Trash role='button' color="#f22b2b" onClick={() => deleteHandler(e?._id)} />
                                     </td>
                                 </tr>
                             )
