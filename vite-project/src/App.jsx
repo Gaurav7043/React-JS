@@ -109,7 +109,7 @@ function App() {
 
         {/* ---------Hook_Use_Callback----------- */}
         {/* <Use_CallBack /> */}
-        <UseCallBack />
+        {/* <UseCallBack /> */}
 
         {/* ----------Fragment--------------- */}
         {/* <Fragment_Com/>
@@ -181,7 +181,7 @@ function App() {
         {/* <Product_Page/> */}
         {/* <Product /> */}
         {/* <ProductData /> */}
-        {/* <ProductSelectIcon /> */}
+        <ProductSelectIcon />
       </div>
       <ToastContainer />
     </>
