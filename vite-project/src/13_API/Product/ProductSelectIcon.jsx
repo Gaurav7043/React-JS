@@ -275,7 +275,25 @@ export default function ProductSelectIcon() {
                                     <td>₹ {e?.price}</td>
                                     <td>{e?.discountPercentage || 0} %</td>
                                     <td style={{ width: "15%" }}> {e?.price - ((e?.price * e?.discountPercentage) / 100).toFixed(1) || "not discount"}</td>
-                                    <td>{`${e?.color}`}</td>
+                                    <td style={{ width: "0px" }}>
+                                        <div className="d-flex gap-2 justify-content-center">
+                                            {
+                                                e?.color?.map((color, i) => {
+                                                    return (
+                                                        <div key={i} style={{ height: "10px", width: "10px", borderRadius: "50%", background: color, marginRight: '10px' }}>
+                                                            {color === 'Car' && <Car />}
+                                                            {color === 'Bike' && <Bike />}
+                                                            {color === 'Bus' && <Bus />}
+                                                            {color === 'Train' && <TramFront />}
+                                                            {color === 'Plane' && <Plane />}
+                                                            {color === 'Truck' && <Truck />}
+                                                            {color === 'Tractor' && <Tractor />}
+                                                        </div>
+                                                    )
+                                                })
+                                            }
+                                        </div>
+                                    </td>
                                     <td>
                                         <div className='d-flex gap-1'>
                                             {
