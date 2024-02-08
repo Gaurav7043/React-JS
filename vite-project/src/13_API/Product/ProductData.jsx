@@ -40,7 +40,7 @@ const categoryOptions = [
 const gender = ["male", "female", "kids"]
 const sizeOptions = [41, 42, 43, 44, 45]
 
-export default function Product_Data_Post() {
+export default function ProductData() {
     const [product, setProduct] = useState(intialProduct);
     const [allProduct, setAllProduct] = useState([]);
     const [modal, setModal] = useState(false);
@@ -216,7 +216,7 @@ export default function Product_Data_Post() {
                                 <Label>Size</Label>
                                 <div className="d-flex">
                                     {
-                                        sizeOptions?.map((size, index) => (
+                                        ["41", "42", "43", "44", "45"]?.map((size, index) => (
                                             <FormGroup key={index} className="d-flex gap-2 ps-3">
                                                 <Input id='size' value={product?.size} type="checkbox" onChange={() => checkBoxHandler(size)} checked={product?.size?.includes(size)} />
                                                 <Label for="size">{size}</Label>
