@@ -319,13 +319,3 @@ export default function ProductSelectIcon() {
         </>
     )
 }
-
-/*
-let [select, setSelect] = useState([])
-const selectHandler = (e) => {
-    // console.log("------>", e?.value)
-    let color = e.map((e) => e?.value)
-    // console.log(color)
-    setSelect(color)
-}
-*/
