@@ -116,6 +116,7 @@ export default function ProductSelectIcon() {
                         {data.value === 'Plane' && <Plane />}
                         {data.value === 'Truck' && <Truck />}
                         {data.value === 'Tractor' && <Tractor />}
+                        {data.value === 'Cycle' && <Bike />}
                     </div>
                 </div>
             </div>
