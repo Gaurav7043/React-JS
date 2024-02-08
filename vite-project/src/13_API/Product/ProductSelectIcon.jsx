@@ -105,7 +105,7 @@ export default function ProductSelectIcon() {
 
     const CustomColorOption = ({ innerProps, label, data }) => {
         return (
-            <div {...innerProps} style={{ padding: "0px 10px", display: 'flex', alignItems: 'center', justifyContent: "space-between", borderBottom: "1px solid #dee2e6", background: "#dee9", cursor: "pointer" }}>
+            <div {...innerProps} style={{ padding: "5px 10px", display: 'flex', alignItems: 'center', justifyContent: "space-between", borderBottom: "1px solid #dee2e6", background: "#dee9", cursor: "pointer" }}>
                 {label}
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <div style={{ backgroundColor: data.value, width: '20px', height: '20px', borderRadius: '50%' }}>
