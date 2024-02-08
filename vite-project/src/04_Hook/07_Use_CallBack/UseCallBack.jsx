@@ -8,7 +8,7 @@ function fun(count) {
     return arr
 }
 
-export default function Use_CallBack() {
+export default function UseCallBack() {
     let [count, setCount] = useState(0)
     let [amount, setAmount] = useState(0)
     let [arr, setArr] = useState([])
