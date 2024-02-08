@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import Select from 'react-select'
 import { Table, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input } from 'reactstrap'
-import { Edit, Slash, Trash } from 'lucide-react'
+import { Bike, Bus, Car, Edit, Plane, Slash, Tractor, TramFront, Trash, Truck } from 'lucide-react'
 
 const intialProduct = {
     title: "", // text
@@ -28,6 +28,14 @@ const colorOptions = [
     { value: "White", label: "White" },
     { value: "Pink", label: "Pink" },
     { value: "Orangered", label: "Orangered" },
+    { value: "Car", label: "Car" },
+    { value: "Bike", label: "Bike" },
+    { value: "Bus", label: "Bus" },
+    { value: "Train", label: "Train" },
+    { value: "Plane", label: "Plane" },
+    { value: "Truck", label: "Truck" },
+    { value: "Tractor", label: "Tractor" },
+    { value: "Cycle", label: "Cycle" },
 ]
 
 const categoryOptions = [
@@ -40,7 +48,7 @@ const categoryOptions = [
 const gender = ["male", "female", "kids"]
 const sizeOptions = [41, 42, 43, 44, 45]
 
-export default function ProductData() {
+export default function ProductSelectIcon() {
     const [product, setProduct] = useState(intialProduct);
     const [allProduct, setAllProduct] = useState([]);
     const [modal, setModal] = useState(false);
@@ -98,7 +106,16 @@ export default function ProductData() {
     const CustomColorOption = ({ innerProps, label, data }) => (
         <div {...innerProps} style={{ padding: "0px 10px", display: 'flex', alignItems: 'center', justifyContent: "space-between", borderBottom: "1px solid #dee2e6", background: "#dee9", cursor: "pointer" }}>
             {label}
-            <div style={{ backgroundColor: data.value, width: '20px', height: '20px', marginRight: '8px', borderRadius: '50%' }}></div>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+                {data.value === 'Car' && <Car />}
+                {data.value === 'Bike' && <Bike />}
+                {data.value === 'Bus' && <Bus />}
+                {data.value === 'Train' && <TramFront />}
+                {data.value === 'Plane' && <Plane />}
+                {data.value === 'Truck' && <Truck />}
+                {data.value === 'Tractor' && <Tractor />}
+                <div style={{ backgroundColor: data.value, width: '20px', height: '20px', borderRadius: '50%' }}></div>
+            </div>
         </div>
     )
 
@@ -197,17 +214,13 @@ export default function ProductData() {
                                     <Label for="stock">Available Stock</Label>
                                     <Input value={product?.availableStock} id="stock" placeholder="Enter Available Stock" type="text" onChange={(e) => setProduct({ ...product, availableStock: e?.target?.value })} />
                                 </FormGroup>
-                                {/* <FormGroup>
-                                    <Label for="category">Category</Label>
-                                    <Select value={product?.category?.map((category)=>({value: category, label: category}))} isMulti options={categoryOptions} id="category" placeholder="Enter category" type="text" onChange={(e)=>setProduct({...product, category: e?.map((ele)=> ele.value)})} />
-                                </FormGroup> */}
                                 <FormGroup>
                                     <Label for="category">Category</Label>
                                     <Select value={product?.category?.map((category) => ({ value: category, label: category }))} isMulti options={categoryOptions} id="category" placeholder="Select category" type="text" onChange={(e) => selectHandler(e, "category")} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="color">Color</Label>
-                                    <Select value={product?.color?.map((color) => ({ value: color, label: color }))} isMulti options={colorOptions} id="color" placeholder="Select Color" type="text" onChange={(e) => selectHandler(e, "color")} components={{ Option: CustomColorOption }} />
+                                    <Select value={product?.color?.map((color) => ({ value: color, label: color }))} isMulti options={colorOptions} id="color" placeholder="Select color" type="text" onChange={(e) => selectHandler(e, "color")} components={{ Option: CustomColorOption }} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="thumbnail">Image</Label>
@@ -261,18 +274,7 @@ export default function ProductData() {
                                     <td>₹ {e?.price}</td>
                                     <td>{e?.discountPercentage || 0} %</td>
                                     <td style={{ width: "15%" }}> {e?.price - ((e?.price * e?.discountPercentage) / 100).toFixed(1) || "not discount"}</td>
-                                    <td style={{ width: "0px" }}>
-                                        <div className="d-flex gap-2 justify-content-center">
-                                            {
-                                                e?.color?.map((color, i) => {
-                                                    return (
-                                                        <div key={i} style={{ height: "10px", width: "10px", border: "1px solid black", borderRadius: "50%", background: color }}></div>
-                                                    )
-                                                })
-                                            }
-                                        </div>
-                                        {/* <div>{e?.color?.map((e)=> e).join(" -- ")}</div> */}
-                                    </td>
+                                    <td>{`${e?.color}`}</td>
                                     <td>
                                         <div className='d-flex gap-1'>
                                             {

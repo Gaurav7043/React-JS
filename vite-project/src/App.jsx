@@ -57,6 +57,7 @@ import ProtectedRouter from "./00_Task/Protected_Router/Router/Router";
 import Product from "./13_API/Product/Product";
 import Product_API from "./00_Task/04_Product_API";
 import ProductData from "./13_API/Product/ProductData";
+import ProductSelectIcon from "./13_API/Product/ProductSelectIcon";
 
 function App() {
   return (
@@ -169,7 +170,8 @@ function App() {
         {/* <Simple_API/> */}
         {/* <Product_Page/> */}
         {/* <Product /> */}
-        <ProductData />
+        {/* <ProductData /> */}
+        <ProductSelectIcon />
       </div>
       <ToastContainer />
     </>
