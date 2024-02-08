@@ -103,7 +103,7 @@ export default function ProductSelectIcon() {
         }
     }
 
-    const CustomColorOption = ({ innerProps, label, data }) => (
+    const CustomColorOption = ({ innerProps, label, data }) => {
         <div {...innerProps} style={{ padding: "0px 10px", display: 'flex', alignItems: 'center', justifyContent: "space-between", borderBottom: "1px solid #dee2e6", background: "#dee9", cursor: "pointer" }}>
             {label}
             <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -118,7 +118,7 @@ export default function ProductSelectIcon() {
                 </div>
             </div>
         </div>
-    )
+    }
 
     const checkBoxHandler = (sizeValue) => {
         if (product?.size?.includes(sizeValue)) {
