@@ -96,10 +96,12 @@ export default function ProductData() {
     }
 
     const CustomColorOption = ({ innerProps, label, data }) => {
-        <div {...innerProps} style={{ padding: "0px 10px", display: 'flex', alignItems: 'center', justifyContent: "space-between", borderBottom: "1px solid #dee2e6", background: "#dee9", cursor: "pointer" }}>
-            {label}
-            <div style={{ backgroundColor: data.value, width: '20px', height: '20px', marginRight: '8px', borderRadius: '50%' }}></div>
-        </div>
+        return (
+            <div {...innerProps} style={{ padding: "0px 10px", display: 'flex', alignItems: 'center', justifyContent: "space-between", borderBottom: "1px solid #dee2e6", background: "#dee9", cursor: "pointer" }}>
+                {label}
+                <div style={{ backgroundColor: data.value, width: '20px', height: '20px', marginRight: '8px', borderRadius: '50%' }}></div>
+            </div>
+        )
     }
 
     const checkBoxHandler = (sizeValue) => {
