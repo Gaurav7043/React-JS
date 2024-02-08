@@ -58,6 +58,7 @@ import Product from "./13_API/Product/Product";
 import Product_API from "./00_Task/04_Product_API";
 import ProductData from "./13_API/Product/ProductData";
 import ProductSelectIcon from "./13_API/Product/ProductSelectIcon";
+import Use_Memo from "./04_Hook/06_Use_Memo/Use_Memo";
 
 function App() {
   return (
@@ -100,6 +101,12 @@ function App() {
         {/* <Use_Reducer_With_PayLoad/> */}
         {/* <Use_Reducer_With_PayLoad_Input/> */}
         {/* <Use_Reducer_Component_Obj_Task/> */}
+
+        {/* ---------Hook_Use_Memo----------- */}
+        <Use_Memo />
+
+        {/* ---------Hook_Use_Callback----------- */}
+
 
         {/* ----------Fragment--------------- */}
         {/* <Fragment_Com/>
@@ -171,7 +178,7 @@ function App() {
         {/* <Product_Page/> */}
         {/* <Product /> */}
         {/* <ProductData /> */}
-        <ProductSelectIcon />
+        {/* <ProductSelectIcon /> */}
       </div>
       <ToastContainer />
     </>

@@ -276,7 +276,7 @@ export default function ProductSelectIcon() {
                                     <td>{e?.discountPercentage || 0} %</td>
                                     <td style={{ width: "15%" }}> {e?.price - ((e?.price * e?.discountPercentage) / 100).toFixed(1) || "not discount"}</td>
                                     <td style={{ width: "0px" }}>
-                                        <div className="d-flex gap-2 justify-content-center">
+                                        <div className="d-flex gap-2 justify-content-center align-items-baseline">
                                             {
                                                 e?.color?.map((color, i) => {
                                                     return (
