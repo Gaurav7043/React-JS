@@ -107,14 +107,15 @@ export default function ProductSelectIcon() {
         <div {...innerProps} style={{ padding: "0px 10px", display: 'flex', alignItems: 'center', justifyContent: "space-between", borderBottom: "1px solid #dee2e6", background: "#dee9", cursor: "pointer" }}>
             {label}
             <div style={{ display: 'flex', alignItems: 'center' }}>
-                {data.value === 'Car' && <Car />}
-                {data.value === 'Bike' && <Bike />}
-                {data.value === 'Bus' && <Bus />}
-                {data.value === 'Train' && <TramFront />}
-                {data.value === 'Plane' && <Plane />}
-                {data.value === 'Truck' && <Truck />}
-                {data.value === 'Tractor' && <Tractor />}
-                <div style={{ backgroundColor: data.value, width: '20px', height: '20px', borderRadius: '50%' }}></div>
+                <div style={{ backgroundColor: data.value, width: '20px', height: '20px', borderRadius: '50%' }}>
+                    {data.value === 'Car' && <Car />}
+                    {data.value === 'Bike' && <Bike />}
+                    {data.value === 'Bus' && <Bus />}
+                    {data.value === 'Train' && <TramFront />}
+                    {data.value === 'Plane' && <Plane />}
+                    {data.value === 'Truck' && <Truck />}
+                    {data.value === 'Tractor' && <Tractor />}
+                </div>
             </div>
         </div>
     )
