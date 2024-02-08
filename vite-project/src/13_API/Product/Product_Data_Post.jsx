@@ -40,7 +40,7 @@ const categoryOptions = [
 const gender = ["male", "female", "kids"]
 const sizeOptions = [41, 42, 43, 44, 45]
 
-export default function Input_Data_Post() {
+export default function Product_Data_Post() {
     const [product, setProduct] = useState(intialProduct);
     const [allProduct, setAllProduct] = useState([]);
     const [modal, setModal] = useState(false);
@@ -69,23 +69,20 @@ export default function Input_Data_Post() {
     const submitHandler = (e) => {
         e?.preventDefault()
         console.log("---------->", product);
-        if (product?.title?.length > 0 && product?.description?.length > 0 && product?.brand?.length > 0 && product?.gender?.length > 0 && product?.price?.length > 0 && product?.discountPercentage?.length > 0 && product?.availableStock?.length > 0 && product?.category?.length > 0 && product?.thumbnail?.length > 0 && product?.color?.length > 0 && product?.size?.length > 0) {
-            axios({
-                method: "post",
-                url: "http://localhost:9999/product/create",
-                data: product,
-            })?.then((res) => {
-                // console.log(res?.data)
-                toast.success("Data Added")
-                setProduct(intialProduct)
-                toggle()
-                refetchData()
-            })?.catch((err) => {
-                toast.error(err)
-            })
-        } else {
-            toast.warn("Please Fill Data")
-        }
+        axios({
+            method: "post",
+            url: "http://localhost:9999/product/create",
+            data: product,
+        })?.then((res) => {
+            // console.log(res?.data)
+            toast.success("Data Added")
+            setProduct(intialProduct)
+            toggle()
+            refetchData()
+        })?.catch((err) => {
+            toast.error(err)
+        })
+
     }
 
     const selectHandler = (e, type) => {
@@ -97,6 +94,13 @@ export default function Input_Data_Post() {
             setProduct({ ...product, category: category })
         }
     }
+
+    const CustomColorOption = ({ innerProps, label, data }) => (
+        <div {...innerProps} style={{ padding: "0px 10px", display: 'flex', alignItems: 'center', justifyContent: "space-between", borderBottom: "1px solid #dee2e6", background: "#dee9", cursor: "pointer" }}>
+            {label}
+            <div style={{ backgroundColor: data.value, width: '20px', height: '20px', marginRight: '8px', borderRadius: '50%' }}></div>
+        </div>
+    )
 
     const checkBoxHandler = (sizeValue) => {
         if (product?.size?.includes(sizeValue)) {
@@ -203,7 +207,7 @@ export default function Input_Data_Post() {
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="color">Color</Label>
-                                    <Select value={product?.color?.map((color) => ({ value: color, label: color }))} isMulti options={colorOptions} id="category" placeholder="Select Color" type="text" onChange={(e) => selectHandler(e, "color")} />
+                                    <Select value={product?.color?.map((color) => ({ value: color, label: color }))} isMulti options={colorOptions} id="category" placeholder="Select Color" type="text" onChange={(e) => selectHandler(e, "color")} components={{ Option: CustomColorOption }} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="thumbnail">Image</Label>
