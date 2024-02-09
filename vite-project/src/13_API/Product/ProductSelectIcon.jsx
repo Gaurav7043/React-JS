@@ -228,7 +228,15 @@ export default function ProductSelectIcon() {
                                         // value: color, label: color,
                                         value: color, label: (
                                             <div key={i} style={{ display: "flex", alignItems: "center" }}>
-                                                <div style={{ height: "20px", width: "20px", borderRadius: "50%", background: color, marginRight: "5px" }} />
+                                                <div style={{ height: "20px", width: "20px", borderRadius: "50%", background: color, marginRight: "5px" }}>
+                                                    {color === 'Car' && <Car />}
+                                                    {color === 'Bike' && <Bike />}
+                                                    {color === 'Bus' && <Bus />}
+                                                    {color === 'Train' && <TramFront />}
+                                                    {color === 'Plane' && <Plane />}
+                                                    {color === 'Truck' && <Truck />}
+                                                    {color === 'Tractor' && <Tractor />}
+                                                </div>
                                                 {color?.charAt(0)?.toUpperCase() + color?.slice(1)}
                                             </div>
                                         )
