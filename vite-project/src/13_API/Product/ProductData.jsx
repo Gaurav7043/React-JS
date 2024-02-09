@@ -209,7 +209,20 @@ export default function ProductData() {
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="color">Color</Label>
-                                    <Select value={product?.color?.map((color) => ({ value: color, label: color }))} isMulti options={colorOptions} id="color" placeholder="Select Color" type="text" onChange={(e) => selectHandler(e, "color")} components={{ Option: CustomColorOption }} />
+                                    <Select value={product.color?.map((color, i) => {
+                                        return (
+                                            {
+                                                // value: color, label: color,
+                                                value: color, label: (
+                                                    <div key={i} style={{ display: "flex", alignItems: "center" }}>
+                                                        <div style={{ height: "20px", width: "20px", borderRadius: "50%", background: color, marginRight: "5px" }} />
+                                                        {color?.charAt(0)?.toUpperCase() + color?.slice(1)}
+                                                    </div>
+                                                )
+                                            }
+
+                                        )
+                                    })} isMulti options={colorOptions} id="color" placeholder="Select Color" onChange={(e) => selectHandler(e, "color")} components={{ Option: CustomColorOption }} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="thumbnail">Image</Label>
@@ -268,7 +281,7 @@ export default function ProductData() {
                                             {
                                                 e?.color?.map((color, i) => {
                                                     return (
-                                                        <div key={i} style={{ height: "10px", width: "10px", border: "1px solid black", borderRadius: "50%", background: color }}></div>
+                                                        <div key={i} style={{ height: "10px", width: "10px", border: "1px solid black", borderRadius: "50%", background: color }}>{ }</div>
                                                     )
                                                 })
                                             }

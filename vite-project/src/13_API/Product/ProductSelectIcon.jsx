@@ -220,11 +220,19 @@ export default function ProductSelectIcon() {
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="category">Category</Label>
-                                    <Select value={product?.category?.map((category) => ({ value: category, label: category }))} isMulti options={categoryOptions} id="category" placeholder="Select category" type="text" onChange={(e) => selectHandler(e, "category")} />
+                                    <Select value={product?.category?.map((category) => ({ value: category, label: category }))} isMulti options={categoryOptions} id="category" placeholder="Select category" onChange={(e) => selectHandler(e, "category")} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="color">Color</Label>
-                                    <Select value={product?.color?.map((color) => ({ value: color, label: color }))} isMulti options={colorOptions} id="color" placeholder="Select color" type="text" onChange={(e) => selectHandler(e, "color")} components={{ Option: CustomColorOption }} />
+                                    <Select value={product?.color?.map((color, i) => ({
+                                        // value: color, label: color,
+                                        value: color, label: (
+                                            <div key={i} style={{ display: "flex", alignItems: "center" }}>
+                                                <div style={{ height: "20px", width: "20px", borderRadius: "50%", background: color, marginRight: "5px" }} />
+                                                {color?.charAt(0)?.toUpperCase() + color?.slice(1)}
+                                            </div>
+                                        )
+                                    }))} isMulti options={colorOptions} id="color" placeholder="Select color" onChange={(e) => selectHandler(e, "color")} components={{ Option: CustomColorOption }} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="thumbnail">Image</Label>
