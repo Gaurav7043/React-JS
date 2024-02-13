@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Button } from 'reactstrap'
-import { incOne} from '../../Redux/Fetures/Count'
+import { incOne, incTen} from '../../Redux/Fetures/Count'
 
 export default function CountUpdate() {
     let dispatch = useDispatch()
@@ -10,7 +10,8 @@ export default function CountUpdate() {
         <>
             <hr style={{width: "25%", margin: "auto"}} />
             <div className='text-center mt-3'>
-                <Button color="danger" onClick={()=>dispatch(incOne())}>Inc-1</Button>
+                <Button className='me-3' color="danger" onClick={()=>dispatch(incOne())}>Inc-1</Button>
+                <Button color="danger" onClick={()=>dispatch(incTen())}>Inc-10</Button>
             </div>
         </>
     )

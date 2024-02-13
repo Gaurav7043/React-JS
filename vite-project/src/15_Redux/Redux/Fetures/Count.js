@@ -5,11 +5,15 @@ const countSlice = createSlice({
     initialState: {count: 999},
     reducers: {
         incOne: (state, action)=>{
-            console.log("====state===>", state?.count)
+            console.log("====stateOne===>", state?.count)
             state.count++
+        },
+        incTen: (state, action)=>{
+            console.log("====stateTen===>", state?.count)
+            state.count += 10
         }
     },
 })
 
 export default countSlice.reducer
-export const { incOne } = countSlice?.actions
+export const { incOne, incTen } = countSlice?.actions
