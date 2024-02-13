@@ -7,11 +7,11 @@ export default configureStore({
     }
 })
 
-let store = {
-    COUNT: {
-        count: 999,
-    }
-}
+// let store = {
+//     COUNT: {
+//         count: 999,
+//     }
+// }
 
 /*
 function Print(params){
