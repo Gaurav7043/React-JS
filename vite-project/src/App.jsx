@@ -65,6 +65,7 @@ import { Child, Parent } from "./14_Lifting_State_Up/Lifting_State_Up";
 import Productt from "./13_API/Product/Productt";
 import AppRedux from "./15_Redux/AppRedux";
 import ReduxApp from "./00_Task/Redux/AppRedux";
+import Crud from "./00_Task/05_Crud";
 
 function App() {
   return (
@@ -179,6 +180,8 @@ function App() {
         {/* <ToDoList/> */}
         {/* <ProtectedRouter/> */}
         {/* <Product_API /> */}
+        <Crud />
+
 
         {/* ---------API---------- */}
         {/* <Simple_API/> */}
@@ -187,7 +190,7 @@ function App() {
         {/* <ProductData /> */}
         {/* <ProductSelectIcon /> */}
         {/* <Productt /> */}
-        <ReduxApp />
+        {/* <ReduxApp /> */}
 
         {/* ---------Lifting_Starte_Up---------- */}
         {/* <Parent />
