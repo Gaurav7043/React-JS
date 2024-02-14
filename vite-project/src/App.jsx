@@ -64,6 +64,7 @@ import UseCallBack from "./04_Hook/07_Use_CallBack/UseCallBack";
 import { Child, Parent } from "./14_Lifting_State_Up/Lifting_State_Up";
 import Productt from "./13_API/Product/Productt";
 import AppRedux from "./15_Redux/AppRedux";
+import ReduxApp from "./00_Task/Redux/AppRedux";
 
 function App() {
   return (
@@ -186,13 +187,14 @@ function App() {
         {/* <ProductData /> */}
         {/* <ProductSelectIcon /> */}
         {/* <Productt /> */}
+        <ReduxApp />
 
         {/* ---------Lifting_Starte_Up---------- */}
         {/* <Parent />
         <Child /> */}
 
         {/* ---------Redux---------- */}
-        <AppRedux />
+        {/* <AppRedux /> */}
 
       </div>
       <ToastContainer />
