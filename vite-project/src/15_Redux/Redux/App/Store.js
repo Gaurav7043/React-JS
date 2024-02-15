@@ -18,12 +18,12 @@ let store = {
     }
 }
 
-/*
 function Print(params){
     return "store"
 }
 
-Print("jjjjjjjjjjjj")
+const PrintFun = Print("sjk")
+console.log("===>", PrintFun)
 
-export default Print("jjjjjjjjjjjj")
-*/
+const PrintFun1 = Print
+console.log("===>", PrintFun1)
