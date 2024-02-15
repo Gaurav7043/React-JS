@@ -8,7 +8,6 @@ export default function CountUpdate() {
 
     return (
         <>
-            <hr style={{width: "25%", margin: "auto"}} />
             <div className='text-center mt-3'>
                 <Button className='me-3' color="danger" onClick={()=>dispatch(incOne())}>Inc-1</Button>
                 <Button color="danger" onClick={()=>dispatch(incTen())}>Inc-10</Button>

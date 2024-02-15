@@ -180,8 +180,8 @@ function App() {
         {/* <ToDoList/> */}
         {/* <ProtectedRouter/> */}
         {/* <Product_API /> */}
-        <Crud />
-
+        {/* <Crud /> */}
+        {/* <ReduxApp /> */}
 
         {/* ---------API---------- */}
         {/* <Simple_API/> */}
@@ -190,14 +190,13 @@ function App() {
         {/* <ProductData /> */}
         {/* <ProductSelectIcon /> */}
         {/* <Productt /> */}
-        {/* <ReduxApp /> */}
 
         {/* ---------Lifting_Starte_Up---------- */}
         {/* <Parent />
         <Child /> */}
 
         {/* ---------Redux---------- */}
-        {/* <AppRedux /> */}
+        <AppRedux />
 
       </div>
       <ToastContainer />
