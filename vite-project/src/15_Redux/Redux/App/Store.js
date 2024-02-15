@@ -18,6 +18,7 @@ let store = {
     }
 }
 
+/*
 function Print(params){
     return "store"
 }
@@ -38,3 +39,4 @@ const print = (x) =>{
     console.log("----gau--->", x)
 }
 print("hello world")
+*/
