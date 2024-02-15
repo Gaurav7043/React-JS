@@ -21,9 +21,20 @@ let store = {
 function Print(params){
     return "store"
 }
-
 const PrintFun = Print("sjk")
-console.log("===>", PrintFun)
+console.log("====value return karaga==>", PrintFun)
 
 const PrintFun1 = Print
-console.log("===>", PrintFun1)
+console.log("==function return karaga=>", PrintFun1)
+
+
+function Printt(y){
+    return y
+}
+const d = Printt("hello user")
+console.log("==ddd==>",d)
+
+const print = (x) =>{
+    console.log("----gau--->", x)
+}
+print("hello world")
