@@ -5,7 +5,6 @@ const amtSlice = createSlice({
     initialState: { amount: 200.1 },
     reducers: {
         incAmt: (state, action) => {
-            // console.log("========action=====>", action)
             state.amount += 30.1
         }
     },
