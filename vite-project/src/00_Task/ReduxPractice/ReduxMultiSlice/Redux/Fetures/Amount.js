@@ -4,9 +4,15 @@ const amtSlice = createSlice({
     name: "amount",
     initialState: { amount: 200.1 },
     reducers: {
-        incAmt: (state, action)=>{
+        incAmt: (state, action) => {
+            // console.log("========action=====>", action)
             state.amount += 30.1
         }
+    },
+    extraReducers: (builder)=>{
+        builder.addCase("count/incCount", (state, action)=>{
+            state.amount += 10
+        })
     }
 })
 
