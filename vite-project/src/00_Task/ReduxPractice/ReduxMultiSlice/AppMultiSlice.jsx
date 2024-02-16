@@ -4,6 +4,7 @@ import Count from './UI/Count/Count'
 import { Provider } from 'react-redux'
 import Store from './Redux/App/Store'
 import Number from './UI/Number/Number'
+import Point from './UI/Point/Point'
 
 export default function AppMultiSlice() {
     return (
@@ -12,6 +13,7 @@ export default function AppMultiSlice() {
                 <Amount />
                 <Count />
                 <Number />
+                <Point />
             </Provider>
         </>
     )
