@@ -3,6 +3,7 @@ import AppAmountRedux from './Amount/AppAmountRedux'
 import AppCountRedux from './Count/AppCountRedux'
 import AppNumberRedux from './Number/AppNumberRedux'
 import AppPointRedux from './Point/AppPointRedux'
+import AppMultiSlice from './ReduxMultiSlice/AppMultiSlice'
 
 export default function ReduxPratice() {
     return (
@@ -10,7 +11,10 @@ export default function ReduxPratice() {
             {/* <AppAmountRedux /> */}
             {/* <AppCountRedux /> */}
             {/* <AppNumberRedux /> */}
-            <AppPointRedux />
+            {/* <AppPointRedux /> */}
+
+            {/* =====ReducerMultiSlice===== */}
+            <AppMultiSlice />
         </>
     )
 }
