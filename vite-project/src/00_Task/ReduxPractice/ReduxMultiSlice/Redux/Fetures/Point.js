@@ -6,9 +6,12 @@ const pointSlice = createSlice({
     reducers: {
         incPoint: (state, action)=>{
             state.point += 300
+        },
+        incByInput: (state, action)=>{
+            state.point += +action.payload
         }
     }
 })
 
 export default pointSlice.reducer
-export const { incPoint } = pointSlice.actions
+export const { incPoint, incByInput } = pointSlice.actions

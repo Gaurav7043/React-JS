@@ -8,7 +8,7 @@ const numSlice = createSlice({
             state.num += 100
         },
         incByInput: (state, action)=>{
-            state.num += action.payload
+            state.num += +action.payload
         }
     }
 })
