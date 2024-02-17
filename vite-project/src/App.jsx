@@ -183,7 +183,7 @@ function App() {
         {/* <Product_API /> */}
         {/* <Crud /> */}
         {/* <ReduxApp /> */}
-        <ReduxPratice />
+        {/* <ReduxPratice /> */}
 
         {/* ---------API---------- */}
         {/* <Simple_API/> */}
@@ -198,7 +198,7 @@ function App() {
         <Child /> */}
 
         {/* ---------Redux---------- */}
-        {/* <AppRedux /> */}
+        <AppRedux />
 
       </div>
       <ToastContainer />
