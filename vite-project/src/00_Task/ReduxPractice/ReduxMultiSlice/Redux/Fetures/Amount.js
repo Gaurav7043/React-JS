@@ -6,6 +6,9 @@ const amtSlice = createSlice({
     reducers: {
         incAmt: (state, action) => {
             state.amount += 30.1
+        },
+        incByInput: (state, action)=>{
+            state.amount += +action.payload
         }
     },
     extraReducers: (builder)=>{
@@ -16,4 +19,4 @@ const amtSlice = createSlice({
 })
 
 export default amtSlice.reducer
-export const { incAmt } = amtSlice.actions
+export const { incAmt, incByInput } = amtSlice.actions

@@ -10,9 +10,12 @@ const countAmount = createSlice({
         },
         incOne: (state, action) => {
             state.count += 30
+        },
+        incByInput: (state, action)=>{
+            state.amount += +action.payload
         }
     }
 })
 
 export default countAmount.reducer
-export const { incCount, incOne } = countAmount.actions
+export const { incCount, incOne, incByInput } = countAmount.actions
