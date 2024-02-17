@@ -6,9 +6,12 @@ const amountSlice = createSlice({
     reducers: {
         incAmt: (state, action)=>{
             state.amount += 20
+        },
+        inputBy: (state, action)=>{
+            state.amount += +action.payload
         }
     }
 })
 
 export default amountSlice.reducer
-export const { incAmt } = amountSlice.actions
+export const { incAmt, inputBy } = amountSlice.actions
