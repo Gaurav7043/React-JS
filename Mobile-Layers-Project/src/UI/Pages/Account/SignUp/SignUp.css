@@ -1,0 +1,7 @@
+.form-check-input:checked {
+    background-color: black !important;
+}
+textarea.form-control {
+    padding: 15px !important;
+    border-width: 2px !important;
+}
