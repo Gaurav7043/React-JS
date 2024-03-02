@@ -24,6 +24,7 @@ export default function SignUp() {
 
     const submitHandler = (e) => {
         e?.preventDefault()
+        setRegister(initializeData)
         console.log("===alldata=====>", register)
     }
 
@@ -34,31 +35,31 @@ export default function SignUp() {
                 <h1 className='heading'>Create Account</h1>
                 <Form autoComplete='off' style={{ paddingBottom: "60px" }} onSubmit={(e) => submitHandler(e)}>
                     <FormGroup>
-                        <Input type='text' placeholder='Name' className='txt' onChange={(e) => setRegister({ ...register, name: e?.target?.value })} />
+                        <Input value={register?.name} type='text' placeholder='Name' className='txt' onChange={(e) => setRegister({ ...register, name: e?.target?.value })} />
                     </FormGroup>
                     <FormGroup>
-                        <Input placeholder="Email" type="text" className='txt' onChange={(e) => setRegister({ ...register, email: e?.target?.value })} />
+                        <Input value={register?.email} placeholder="Email" type="email" className='txt' onChange={(e) => setRegister({ ...register, email: e?.target?.value })} />
                     </FormGroup>
                     <FormGroup>
-                        <Input type='text' className='txt' placeholder='Date Of Birth' onChange={(e) => setRegister({ ...register, age: e?.target?.value })} />
+                        <Input value={register?.age} type='text' className='txt' placeholder='Enter Age' onChange={(e) => setRegister({ ...register, age: e?.target?.value })} />
                     </FormGroup>
                     <FormGroup>
-                        <Input type='text' className='txt' placeholder='Mobile Number' onChange={(e) => setRegister({ ...register, num: e?.target?.value })} />
+                        <Input value={register?.num} type='text' className='txt' placeholder='Mobile Number' onChange={(e) => setRegister({ ...register, num: e?.target?.value })} />
                     </FormGroup>
                     <FormGroup>
-                        <Input type='text' className='txt' placeholder='Enter Area' onChange={(e) => setRegister({ ...register, address: [{ ...register?.address[0], add: e?.target?.value }] })} />
+                        <Input value={register?.address[0]?.add} type='text' className='txt' placeholder='Enter Area' onChange={(e) => setRegister({ ...register, address: [{ ...register?.address[0], add: e?.target?.value }] })} />
                     </FormGroup>
                     <FormGroup>
-                        <Input type='text' className='txt' placeholder='Enter City' onChange={(e) => setRegister({ ...register, address: [{ ...register?.address[0], city: e?.target?.value }] })} />
+                        <Input value={register?.address[0]?.city} type='text' className='txt' placeholder='Enter City' onChange={(e) => setRegister({ ...register, address: [{ ...register?.address[0], city: e?.target?.value }] })} />
                     </FormGroup>
                     <FormGroup>
-                        <Input type='text' className='txt' placeholder='Enter State' onChange={(e) => setRegister({ ...register, address: [{ ...register?.address[0], state: e?.target?.value }] })} />
+                        <Input value={register?.address[0]?.state} type='text' className='txt' placeholder='Enter State' onChange={(e) => setRegister({ ...register, address: [{ ...register?.address[0], state: e?.target?.value }] })} />
                     </FormGroup>
                     <FormGroup>
-                        <Input type='text' className='txt' placeholder='Enter Pincode' onChange={(e) => setRegister({ ...register, address: [{ ...register?.address[0], pincode: e?.target?.value }] })} />
+                        <Input value={register?.address[0]?.pincode} type='text' className='txt' placeholder='Enter Pincode' onChange={(e) => setRegister({ ...register, address: [{ ...register?.address[0], pincode: e?.target?.value }] })} />
                     </FormGroup>
                     <FormGroup>
-                        <Input placeholder="Password" type="password" className='txt' onChange={(e) => setRegister({ ...register, password: e?.target?.value })} />
+                        <Input value={register?.password} placeholder="Password" type="password" className='txt' onChange={(e) => setRegister({ ...register, password: e?.target?.value })} />
                     </FormGroup>
                     <Button className='signin'>CREATE</Button>
                     <div className='d-flex align-items-center pb-3'>
