@@ -1,0 +1,4 @@
+.collection .home:hover{
+    opacity: 1 !important;
+    transition: 0.5s all ease-in;
+}

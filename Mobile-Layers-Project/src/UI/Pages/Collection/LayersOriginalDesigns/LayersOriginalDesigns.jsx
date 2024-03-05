@@ -72,7 +72,7 @@ export default function LayersOriginalDesigns() {
                             layersData.map((e, i) => {
                                 return (
                                     <div key={i} className='layer'>
-                                        <NavLink className="text-decoration-none text-black">
+                                        <NavLink to={"/collection"} className="text-decoration-none text-black">
                                             <div className='layer_image'>
                                                 <img src={e?.layersImg} alt="" style={{ height: "auto", maxWidth: "100%" }} />
                                                 <span className='text-white laye_text'>{e?.layerText}</span>
