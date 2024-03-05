@@ -18,7 +18,9 @@ export default function Home() {
             </NavLink>
             <SelectBrand />
             <LayersOriginalDesigns />
-            <Carou />
+            <NavLink to={"/brand"}>
+                <Carou />
+            </NavLink>
             <BestSellingMobileSkin />
             <ShopNow />
             <BestSellingLaptopSkin />

@@ -72,7 +72,7 @@ export default function BestSellingMobileSkin() {
                             mobileData.map((e, i) => {
                                 return (
                                     <div key={i} className='mobile_skin'>
-                                        <NavLink className="text-decoration-none text-black">
+                                        <NavLink to={"/collection"} className="text-decoration-none text-black">
                                             <div className='mobile_image'>
                                                 <img src={e?.mobileImg} alt="" style={{ height: "auto", maxWidth: "100%" }} />
                                                 <span className='text-white mobile_text'>{e?.mobileText}</span>
