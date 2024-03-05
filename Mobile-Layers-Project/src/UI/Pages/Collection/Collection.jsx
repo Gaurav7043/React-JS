@@ -73,23 +73,26 @@ export default function Collection() {
                 <div style={{ opacity: "0.58" }}>/</div>
                 <div>Collection</div>
             </div>
-            <div className=' border-top dark'>
-                <h1 className='text-center mt-3 mb-3' style={{ fontWeight: "400" }}>Select Your Brand</h1>
-                <div className="d-grid" style={{ gridTemplateColumns: "1fr 1fr 1fr 1fr" }}>
-                    {
-                        brandData?.map((e, i) => {
-                            return (
-                                <div key={i} className='collect  border border-2 border-black'>
-                                    <NavLink>
-                                        <div className='collect_image' style={{ width: "250px", height: "250px", margin: "auto" }}>
-                                            <img src={e?.brandImg} alt="" className='img-fluid' style={{ width: "250px", width: "250px" }} />
-                                            <span className='collect_hover'>{e?.brandText}</span>
-                                        </div>
-                                    </NavLink>
-                                </div>
-                            )
-                        })
-                    }
+
+            <h1 className='text-center mt-3 mb-3' style={{ fontWeight: "400", borderTop: "1px solid #00000014", padding: "15px" }}>Select Your Brand</h1>
+            <div className='collect'>
+                <div className="container">
+                    <div className='collect_grid'>
+                        {
+                            brandData.map((e, i) => {
+                                return (
+                                    <div key={i} className='collection'>
+                                        <NavLink to={"/collection"} className="text-decoration-none text-black">
+                                            <div className='collect_image'>
+                                                <img src={e?.brandImg} alt="" style={{ height: "auto", maxWidth: "100%" }} />
+                                                <span className='text-white collect_text'>{e?.brandText}</span>
+                                            </div>
+                                        </NavLink>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
             </div>
         </>
