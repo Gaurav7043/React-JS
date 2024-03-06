@@ -86,7 +86,7 @@ export default function Collection() {
                             brandData.map((e, i) => {
                                 return (
                                     <div key={i} className='collection'>
-                                        <NavLink to={"/collection"} className="text-decoration-none text-black">
+                                        <NavLink className="text-decoration-none text-black">
                                             <div className='collect_image'>
                                                 <img src={e?.brandImg} alt="" style={{ height: "auto", maxWidth: "100%" }} />
                                                 <span className='text-white collect_text'>{e?.brandText}</span>
