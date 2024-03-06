@@ -2,6 +2,7 @@ import React, { useLayoutEffect, useState } from 'react'
 import { Form, Button, Input, FormGroup } from 'reactstrap'
 import '../Login/Login.css'
 import "./SignUp.css"
+import { NavLink } from 'react-router-dom'
 
 const initializeData = {
     name: "",
@@ -72,6 +73,10 @@ export default function SignUp() {
                         </span>
                     </div>
                     <p className='or'>Or login using</p>
+                    <span style={{ opacity: ".62" }}>Already have Account ? </span>
+                    <NavLink to={"/login"} className="text-decoration-none">
+                        <span role='button' className='signup'>Login</span>
+                    </NavLink>
                 </Form>
             </div>
         </>
@@ -121,6 +126,10 @@ export default function SignUp() {
                         </span>
                     </div>
                     <p className='or'>Or login using</p>
+                    <span style={{ opacity: ".62" }}>Already have Account ? </span>
+                    <NavLink to={"/login"} className="text-decoration-none">
+                        <span role='button' className='signup'>Login</span>
+                    </NavLink>
                 </Form>
             </div>
         </>
