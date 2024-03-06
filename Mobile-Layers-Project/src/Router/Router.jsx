@@ -18,6 +18,7 @@ import FAQ from '../UI/Pages/FAQ/FAQ'
 import SelectBrand from '../UI/Pages/Collection/SelectBrand/SelectBrand'
 import Collection from '../UI/Pages/Collection/Collection'
 import LaptopCollect from '../UI/Pages/Collection/LaptopCollect'
+import LayerCollection from '../UI/Pages/Collection/LayerCollection'
 
 export default function Router() {
     return (
@@ -41,6 +42,7 @@ export default function Router() {
                     <Route path='*' Component={Error} />
                     <Route path='/collection' Component={Collection} />
                     <Route path='/collect' Component={LaptopCollect} />
+                    <Route path='/layercollect' Component={LayerCollection} />
                 </Routes>
                 <Footer/>
             </BrowserRouter>
