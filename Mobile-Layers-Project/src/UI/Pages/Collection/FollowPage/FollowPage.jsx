@@ -57,7 +57,7 @@ export default function FollowPage() {
                         followData.map((e, i) => {
                             return (
                                 <div key={i} className='follow_us'>
-                                    <NavLink className="text-decoration-none text-black">
+                                    <a href='https://www.instagram.com/p/C3sVZEJvO0X/' target='_blank' className="text-decoration-none text-black">
                                         <div className='follow_image pb-1'>
                                             <div className='follow_im follow_img'>
                                                 <img src={e?.followImg} alt="" style={{ height: "405px", maxWidth: "100%" }} />
@@ -66,7 +66,7 @@ export default function FollowPage() {
                                                 <FontAwesomeIcon icon={e?.followIcon} />
                                             </span>
                                         </div>
-                                    </NavLink>
+                                    </a>
                                 </div>
                             )
                         })
