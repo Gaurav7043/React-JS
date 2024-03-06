@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import apple from '../../../../public/iPhone-logo.webp'
 import dell from '../../../../public/dell.webp'
@@ -11,6 +11,10 @@ import asus from '../../../../public/Asus-logo.webp'
 import "./Collection.css"
 
 export default function LaptopCollect() {
+    useLayoutEffect(()=>{
+        window.scrollTo(0, 0)
+    })
+    
     let brandData = [
         {
             brandImg: apple,

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import './BestSellingMobileSkin.css'
 import deadpool from '../../../../../public/Deadpool-logo.webp'
@@ -11,6 +11,10 @@ import MoonKnightRising from '../../../../../public/Moon_Knight_Rising-logo.webp
 import astonishing from '../../../../../public/astonishing-logo.webp'
 
 export default function BestSellingMobileSkin() {
+    useLayoutEffect(()=>{
+        window.scrollTo(0, 0)
+    })
+    
     let mobileData = [
         {
             mobileImg: deadpool,

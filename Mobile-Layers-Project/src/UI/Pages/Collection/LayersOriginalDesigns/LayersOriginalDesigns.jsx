@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import './LayersOriginalDesigns.css'
 import blackcart from '../../../../../public/blackcrack-logo.webp'
 import astrorainbow from '../../../../../public/astrorainbow-logo.webp'
@@ -11,6 +11,10 @@ import kindness from '../../../../../public/kindness-logo.webp'
 import { NavLink } from 'react-router-dom'
 
 export default function LayersOriginalDesigns() {
+    useLayoutEffect(()=>{
+        window.scrollTo(0, 0)
+    })
+    
     let layersData = [
         {
             layersImg: blackcart,

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import './BestSellingLaptopSkin.css'
 import jediattack from '../../../../../public/jediattack-logo.webp'
@@ -11,6 +11,10 @@ import abstrack from '../../../../../public/abstrack-logo.webp'
 import oceanic from '../../../../../public/oceanic-logo.webp'
 
 export default function BestSellingLaptopSkin() {
+    useLayoutEffect(()=>{
+        window.scrollTo(0, 0)
+    })
+    
     let laptopData = [
         {
             laptopImg: jediattack,

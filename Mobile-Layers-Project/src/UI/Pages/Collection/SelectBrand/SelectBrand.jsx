@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import apple from '../../../../../public/iPhone-logo.webp'
 import samsung from '../../../../../public/Samsung-logo.webp'
@@ -16,6 +16,10 @@ import motorola from '../../../../../public/motoroloa-logo.png'
 import lenovo from '../../../../../public/lenovo.png'
 
 export default function SelectBrand() {
+    useLayoutEffect(()=>{
+        window.scrollTo(0, 0)
+    })
+    
     let brandData = [
         {
             brandImg: apple,

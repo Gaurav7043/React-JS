@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import Caro from './Carousel'
 import SelectBrand from '../Collection/SelectBrand/SelectBrand'
 import Carou from './Carou'
@@ -11,6 +11,10 @@ import ProductDispatch from '../Collection/ProductDispatch/ProductDispatch'
 import { NavLink } from 'react-router-dom'
 
 export default function Home() {
+    useLayoutEffect(()=>{
+        window.scrollTo(0, 0)
+    })
+    
     return (
         <>
             <NavLink to={"/brand"}>

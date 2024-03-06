@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import "./FAQ.css"
 
 export default function FAQ() {
+    useLayoutEffect(()=>{
+        window.scrollTo(0, 0)
+    })
+    
     return (
         <>
             <div className="accordion" id="accordionExample" style={{fontFamily: "'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif", paddingBottom: "90px"}}>

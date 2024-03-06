@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fa1 } from '@fortawesome/free-solid-svg-icons'
 
 export default function TermsAndCondition() {
+    useLayoutEffect(()=>{
+        window.scrollTo(0, 0)
+    })
+    
     return (
         <>
             <div className="terms" style={{paddingBottom: "80px"}}>

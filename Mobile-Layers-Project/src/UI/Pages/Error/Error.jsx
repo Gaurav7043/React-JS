@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import { Button } from 'reactstrap'
 import './Error.css'
 
 export default function Error() {
+    useLayoutEffect(()=>{
+        window.scrollTo(0, 0)
+    })
+    
     return (
         <>
             <div className="error">

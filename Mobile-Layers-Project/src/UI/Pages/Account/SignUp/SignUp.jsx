@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import { Form, Button, Input, FormGroup } from 'reactstrap'
 import '../Login/Login.css'
 import "./SignUp.css"
@@ -27,7 +27,10 @@ export default function SignUp() {
         setRegister(initializeData)
         console.log("===alldata=====>", register)
     }
-
+    
+    useLayoutEffect(()=>{
+        window.scrollTo(0, 0)
+    })
 
     return (
         <>

@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import { Button, Form, FormGroup, Input } from 'reactstrap'
 import './Contact.css'
 
 export default function Contact() {
+    useLayoutEffect(()=>{
+        window.scrollTo(0, 0)
+    })
+    
     return (
         <>
             <div className="contact">

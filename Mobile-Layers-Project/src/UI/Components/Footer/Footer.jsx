@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import './Footer.css'
 import { NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookSquare, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons'
 
 export default function Footer() {
+    useLayoutEffect(()=>{
+        window.scrollTo(0, 0)
+    })
+
     return (
         <>
             <div className='footer'>

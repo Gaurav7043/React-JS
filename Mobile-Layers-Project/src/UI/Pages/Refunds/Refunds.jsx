@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 
 export default function Refunds() {
+    useLayoutEffect(()=>{
+        window.scrollTo(0, 0)
+    })
+    
     return (
         <>
             <div className="refund" style={{ paddingBottom: "80px" }}>

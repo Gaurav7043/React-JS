@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import { Form, Button, Input, FormGroup } from 'reactstrap'
 
 export default function ForgotPassword() {
+    useLayoutEffect(()=>{
+        window.scrollTo(0, 0)
+    })
+    
     return (
         <>
             <div className='w-50 text-center m-auto ps-5 pe-5'>

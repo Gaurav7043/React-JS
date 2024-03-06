@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import logo from '../../../../public/logo.webp'
 import "./Header.css"
 import { NavLink } from 'react-router-dom'
@@ -8,6 +8,10 @@ import { BoxSeam, Cart } from 'react-bootstrap-icons'
 import { Moon } from 'lucide-react'
 
 export default function Header() {
+    useLayoutEffect(()=>{
+        window.scrollTo(0, 0)
+    })
+    
     return (
         <>
             <div className="header" style={{borderBottom: "1px solid #00000014"}}>

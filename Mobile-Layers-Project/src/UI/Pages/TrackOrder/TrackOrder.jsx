@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import { Form, Button, Input, FormGroup, Label } from 'reactstrap'
 import './TrackOrder.css'
 
 export default function TrackOrder() {
+    useLayoutEffect(()=>{
+        window.scrollTo(0, 0)
+    })
+    
     return (
         <>
             <div className='w-50 text-center m-auto ps-5 pe-5'>

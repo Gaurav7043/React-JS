@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 
 export default function PrivacyPolicy() {
+    useLayoutEffect(()=>{
+        window.scrollTo(0, 0)
+    })
+    
     return (
         <>
             <div className="privacy" style={{ paddingBottom: "80px" }}>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import './FollowPage.css'
 import follow1 from '../../../../../public/follow1-logo.jpg'
@@ -13,6 +13,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagram } from '@fortawesome/free-brands-svg-icons'
 
 export default function FollowPage() {
+    useLayoutEffect(()=>{
+        window.scrollTo(0, 0)
+    })
+    
     let followData = [
         {
             followImg: follow1,

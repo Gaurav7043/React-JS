@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import './ProductDispatch.css'
 import { BoxSeam } from 'react-bootstrap-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTruckFast, faClockRotateLeft } from '@fortawesome/free-solid-svg-icons'
 
 export default function ProductDispatch() {
+    useLayoutEffect(()=>{
+        window.scrollTo(0, 0)
+    })
+    
     return (
         <>
             <div className='product'>
