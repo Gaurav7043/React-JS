@@ -17,6 +17,7 @@ import Refunds from '../UI/Pages/Refunds/Refunds'
 import FAQ from '../UI/Pages/FAQ/FAQ'
 import SelectBrand from '../UI/Pages/Collection/SelectBrand/SelectBrand'
 import Collection from '../UI/Pages/Collection/Collection'
+import LaptopCollect from '../UI/Pages/Collection/LaptopCollect'
 
 export default function Router() {
     return (
@@ -39,6 +40,7 @@ export default function Router() {
                     <Route path='/faq' element={<FAQ/>} />
                     <Route path='*' Component={Error} />
                     <Route path='/collection' Component={Collection} />
+                    <Route path='/collect' Component={LaptopCollect} />
                 </Routes>
                 <Footer/>
             </BrowserRouter>

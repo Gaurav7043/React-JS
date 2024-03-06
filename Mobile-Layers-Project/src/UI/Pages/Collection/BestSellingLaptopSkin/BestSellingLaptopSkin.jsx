@@ -75,7 +75,7 @@ export default function BestSellingLaptopSkin() {
                             laptopData?.map((e, i) => {
                                 return (
                                     <div key={i} className='laptop_skin'>
-                                        <NavLink className="text-decoration-none text-black">
+                                        <NavLink to={"/collect"} className="text-decoration-none text-black">
                                             <div className='laptop_image'>
                                                 <img src={e?.laptopImg} alt="" style={{ height: "auto", maxWidth: "100%" }} />
                                                 <span className='text-white laptop_hover'>{e?.laptopText}</span>
