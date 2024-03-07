@@ -1,11 +1,12 @@
 import axios from 'axios'
 import React, { useEffect, useRef, useState } from 'react'
-import { Form, Button, Input, FormGroup } from 'reactstrap'
+import { Form, Button, Input, FormGroup, Label } from 'reactstrap'
 import '../Login/Login.css'
 import "./SignUp.css"
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useDispatch } from "react-redux"
 import { toast } from 'react-toastify'
+import { Eye, EyeOff } from 'lucide-react'
 import { login } from '../../../../Redux/Fetures/Auth/AuthSlice'
 
 const initializeData = {
@@ -14,9 +15,11 @@ const initializeData = {
     number: "",
     password: "",
     conPassword: "",
-    // gender: "",
+    gender: "",
     age: "",
 }
+
+const gender = ["male", "female", "kids"]
 
 const initializeAddress = {
     add: "",
@@ -28,8 +31,20 @@ const initializeAddress = {
 export default function SignUp(props) {
     const [user, setUser] = useState(initializeData)
     const [address, setAddress] = useState(initializeAddress)
+    const [showPassword, setShowPassword] = useState(false)
+    const [conShowPassword, setConShowPassword] = useState(false)
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const quantityInputRef = useRef(null)
+
+    // password show & hide
+    const passwordShowHideHandler = (field)=>{
+        if(field === "password"){
+            setShowPassword(!showPassword)
+        }else if(field === "conPassword"){
+            setConShowPassword(!conShowPassword)
+        }
+    }
 
     const submitHandler = (e) => {
         e?.preventDefault()
@@ -48,15 +63,14 @@ export default function SignUp(props) {
         })
     }
 
-    const quantityInputRef = useRef(null);
-
     useEffect(() => {
         window.scrollTo(0, 0)
         const ignoreScroll = (e) => {
             e.preventDefault();
-            quantityInputRef.current && quantityInputRef.current.addEventListener("wheel", ignoreScroll);
-        };
-    }, [quantityInputRef]);
+            quantityInputRef.current && quantityInputRef.current.addEventListener("wheel", ignoreScroll)
+        }
+    }, [quantityInputRef])
+
     return (
         <>
             <div className='w-50 text-center m-auto'>
@@ -71,6 +85,19 @@ export default function SignUp(props) {
                     <FormGroup>
                         <Input value={user?.age} type='text' className='txt' placeholder='Enter Age' onChange={(e) => setUser({ ...user, age: e?.target?.value })} />
                     </FormGroup>
+                        <FormGroup tag="fieldset" className='d-flex gap-3' style={{border: "2px solid #dee2e6", padding: "15px", borderRadius: "0.375rem"}}>
+                            <Label className='m-0' style={{color: "#212529", opacity: ".7"}}>Gender</Label>
+                            {
+                                gender.map((e, i) => {
+                                    return(
+                                        <FormGroup check key={i}>
+                                            <Input value={user?.gender} checked={user?.gender === e} name="radio1" type="radio" onChange={() => setUser({ ...user, gender: e })} />
+                                            <Label className='m-0' style={{color: "#212529", opacity: ".7"}} check>{e}</Label>
+                                        </FormGroup>
+                                    )
+                                })
+                            }
+                        </FormGroup>
                     <FormGroup>
                         <Input value={user?.number} type='text' className='txt' placeholder='Mobile Number' onChange={(e) => setUser({ ...user, number: e?.target?.value })} />
                     </FormGroup>
@@ -86,64 +113,29 @@ export default function SignUp(props) {
                     <FormGroup>
                         <Input value={address?.pincode} type='text' className='txt' placeholder='Enter Pincode' onChange={(e) => setAddress({ ...address, pincode: e?.target?.value })} />
                     </FormGroup>
-                    <FormGroup>
-                        <Input ref={quantityInputRef} value={user?.password} placeholder="Password" type="password" className='txt' onChange={(e) => setUser({ ...user, password: e?.target?.value })} {...props} />
+                    <FormGroup className='position-relative'>
+                        <Input ref={quantityInputRef} value={user?.password} placeholder="Password" type={showPassword ? "text" : "password"} className='txt' onChange={(e) => setUser({ ...user, password: e?.target?.value })} {...props} />
+                        {
+                            showPassword ?
+                            <div className='eye_hover'>
+                                <EyeOff color='black' role='button' onClick={()=>passwordShowHideHandler("password")} /> 
+                            </div> :
+                            <div className='eye_hover'>
+                                <Eye role='button' onClick={()=>passwordShowHideHandler("password")} />
+                            </div>
+                        }
                     </FormGroup>
-                    <FormGroup>
-                        <Input value={user?.conPassword} placeholder="Confirm Password" type="password" className='txt' onChange={(e) => setUser({ ...user, conPassword: e?.target?.value })} />
-                    </FormGroup>
-                    <Button className='signin'>CREATE</Button>
-                    <div className='d-flex align-items-center pb-3'>
-                        <Input className='m-0' type='checkbox' />
-                        <span className='ps-2' style={{ fontSize: "14px" }}>
-                            Sign up for our newsletter. Get 10% off on 1sh purchase by using Coupon code: <span className='fw-bold'>WELCOME10</span>
-                        </span>
-                    </div>
-                    <p className='or'>Or login using</p>
-                    <span style={{ opacity: ".62" }}>Already have Account ? </span>
-                    <NavLink to={"/login"} className="text-decoration-none">
-                        <span role='button' className='signup'>Login</span>
-                    </NavLink>
-                </Form>
-            </div>
-        </>
-    )
-}
-
-/*
-import React from 'react'
-import { Form, Button, Input, FormGroup, Label } from 'reactstrap'
-import '../Login/Login.css'
-import "./SignUp.css"
-
-export default function SignUp() {
-
-    return (
-        <>
-            <div className='w-50 text-center m-auto'>
-                <h1 className='heading'>Create Account</h1>
-                <Form autoComplete='off' style={{ paddingBottom: "60px" }}>
-                    <FormGroup>
-                        <Input type='text' placeholder='Name' className='txt' />
-                    </FormGroup>
-                    <FormGroup>
-                        <Input placeholder="Email" type="email" className='txt' />
-                    </FormGroup>
-                    <FormGroup>
-                        <Input type='text' className='txt' placeholder='Date Of Birth'></Input>
-                    </FormGroup>
-                    <FormGroup>
-                        <Input type='text' className='txt' placeholder='Mobile Number' />
-                    </FormGroup>
-                    <FormGroup>
-                        <Input placeholder="Password" type="password" className='txt' />
-                    </FormGroup>
-                    <FormGroup>
-                        <Input placeholder="Confirm Password" type="password" className='txt' />
-                    </FormGroup>
-                    <FormGroup>
-                        <Input type="checkbox" className='shadow-none border-black me-2' />
-                        <Label>Show Password</Label>
+                    <FormGroup className='position-relative'>
+                        <Input value={user?.conPassword} placeholder="Confirm Password" type={conShowPassword ? "text" : "password"} className='txt' onChange={(e) => setUser({ ...user, conPassword: e?.target?.value })} />
+                        {
+                            conShowPassword ?
+                            <div className='eye_hover'>
+                                <EyeOff color='black' role='button' onClick={()=>passwordShowHideHandler("conPassword")} />
+                            </div> :
+                            <div className='eye_hover'>
+                                    <Eye role='button' onClick={()=>passwordShowHideHandler("conPassword")} />
+                                </div>
+                        }
                     </FormGroup>
                     <Button className='signin'>CREATE</Button>
                     <div className='d-flex align-items-center pb-3'>
@@ -162,4 +154,3 @@ export default function SignUp() {
         </>
     )
 }
-*/
