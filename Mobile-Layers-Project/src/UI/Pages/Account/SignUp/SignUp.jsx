@@ -1,37 +1,56 @@
+import axios from 'axios'
 import React, { useLayoutEffect, useState } from 'react'
 import { Form, Button, Input, FormGroup } from 'reactstrap'
 import '../Login/Login.css'
 import "./SignUp.css"
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { useDispatch } from "react-redux"
+import { toast } from 'react-toastify'
+import { login } from '../../../../Redux/Fetures/Auth/AuthSlice'
 
 const initializeData = {
     name: "",
     email: "",
-    num: "",
+    number: "",
     password: "",
+    conPassword: "",
+    // gender: "",
     age: "",
-    address: [
-        {
-            add: "",
-            city: "",
-            state: "",
-            pincode: "",
-        }
-    ],
+}
+
+const initializeAddress = {
+    add: "",
+    city: "",
+    state: "",
+    pincode: "",
 }
 
 export default function SignUp() {
-    const [register, setRegister] = useState(initializeData)
+    const [user, setUser] = useState(initializeData)
+    const [address, setAddress] = useState(initializeAddress)
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const submitHandler = (e) => {
         e?.preventDefault()
-        setRegister(initializeData)
-        console.log("===alldata=====>", register)
+        if(user.password !== user.conPassword) return toast.error("Password and confirm password does not match")
+        axios({
+            method: "post",
+            url: "http://localhost:9999/user/signup",
+            data: {...user, address: [address]}
+        }).then((res)=>{
+            dispatch(login(res?.data))
+            toast.success("User login success")
+            console.log("====res_data===>", res.data)
+            navigate("/")
+        }).catch((err)=>{
+            toast.error("Something is Wrong")
+        })
     }
     
-    useLayoutEffect(()=>{
-        window.scrollTo(0, 0)
-    })
+    // useLayoutEffect(()=>{
+    //     window.scrollTo(0, 0)
+    // })
 
     return (
         <>
@@ -39,31 +58,34 @@ export default function SignUp() {
                 <h1 className='heading'>Create Account</h1>
                 <Form autoComplete='off' style={{ paddingBottom: "60px" }} onSubmit={(e) => submitHandler(e)}>
                     <FormGroup>
-                        <Input value={register?.name} type='text' placeholder='Name' className='txt' onChange={(e) => setRegister({ ...register, name: e?.target?.value })} />
+                        <Input value={user?.name} type='text' placeholder='Name' className='txt' onChange={(e) => setUser({ ...user, name: e?.target?.value })} />
                     </FormGroup>
                     <FormGroup>
-                        <Input value={register?.email} placeholder="Email" type="email" className='txt' onChange={(e) => setRegister({ ...register, email: e?.target?.value })} />
+                        <Input value={user?.email} placeholder="Email" type="email" className='txt' onChange={(e) => setUser({ ...user, email: e?.target?.value })} />
                     </FormGroup>
                     <FormGroup>
-                        <Input value={register?.age} type='text' className='txt' placeholder='Enter Age' onChange={(e) => setRegister({ ...register, age: e?.target?.value })} />
+                        <Input value={user?.age} type='text' className='txt' placeholder='Enter Age' onChange={(e) => setUser({ ...user, age: e?.target?.value })} />
                     </FormGroup>
                     <FormGroup>
-                        <Input value={register?.num} type='text' className='txt' placeholder='Mobile Number' onChange={(e) => setRegister({ ...register, num: e?.target?.value })} />
+                        <Input value={user?.number} type='text' className='txt' placeholder='Mobile Number' onChange={(e) => setUser({ ...user, number: e?.target?.value })} />
                     </FormGroup>
                     <FormGroup>
-                        <Input value={register?.address[0]?.add} type='text' className='txt' placeholder='Enter Area' onChange={(e) => setRegister({ ...register, address: [{ ...register?.address[0], add: e?.target?.value }] })} />
+                        <Input value={address?.add} type='text' className='txt' placeholder='Enter Area' onChange={(e) => setAddress({ ...address, add: e?.target?.value })} />
                     </FormGroup>
                     <FormGroup>
-                        <Input value={register?.address[0]?.city} type='text' className='txt' placeholder='Enter City' onChange={(e) => setRegister({ ...register, address: [{ ...register?.address[0], city: e?.target?.value }] })} />
+                        <Input value={address?.city} type='text' className='txt' placeholder='Enter City' onChange={(e) => setAddress({ ...address, city: e?.target?.value })} />
                     </FormGroup>
                     <FormGroup>
-                        <Input value={register?.address[0]?.state} type='text' className='txt' placeholder='Enter State' onChange={(e) => setRegister({ ...register, address: [{ ...register?.address[0], state: e?.target?.value }] })} />
+                        <Input value={address?.state} type='text' className='txt' placeholder='Enter State' onChange={(e) => setAddress({ ...address, state: e?.target?.value })} />
                     </FormGroup>
                     <FormGroup>
-                        <Input value={register?.address[0]?.pincode} type='text' className='txt' placeholder='Enter Pincode' onChange={(e) => setRegister({ ...register, address: [{ ...register?.address[0], pincode: e?.target?.value }] })} />
+                        <Input value={address?.pincode} type='text' className='txt' placeholder='Enter Pincode' onChange={(e) => setAddress({ ...address, pincode: e?.target?.value })} />
                     </FormGroup>
                     <FormGroup>
-                        <Input value={register?.password} placeholder="Password" type="password" className='txt' onChange={(e) => setRegister({ ...register, password: e?.target?.value })} />
+                        <Input value={user?.password} placeholder="Password" type="password" className='txt' onChange={(e) => setUser({ ...user, password: e?.target?.value })} />
+                    </FormGroup>
+                    <FormGroup>
+                        <Input value={user?.conPassword} placeholder="Password" type="password" className='txt' onChange={(e) => setUser({ ...user, conPassword: e?.target?.value })} />
                     </FormGroup>
                     <Button className='signin'>CREATE</Button>
                     <div className='d-flex align-items-center pb-3'>

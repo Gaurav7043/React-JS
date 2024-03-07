@@ -19,32 +19,36 @@ import SelectBrand from '../UI/Pages/Collection/SelectBrand/SelectBrand'
 import Collection from '../UI/Pages/Collection/Collection'
 import LaptopCollect from '../UI/Pages/Collection/LaptopCollect'
 import LayerCollection from '../UI/Pages/Collection/LayerCollection'
+import { Provider } from 'react-redux'
+import store from '../Redux/App/store'
 
 export default function Router() {
     return (
         <>
             <BrowserRouter>
-                <Header />
-                <Routes>
-                    <Route path='/' Component={Home} />
-                    <Route path='/login' element={<Login/>} />
-                    <Route path='/mobileskin' Component={MobileSkin} />
-                    <Route path='/forgotPassword' Component={ForgotPassword} />
-                    <Route path='/signup' Component={SignUp} />
-                    <Route path='/trackorder' element={<TrackOrder/>} />
-                    <Route path='/brand' element={<SelectBrand/>} />
-                    <Route path="/about" element={<About/>} />
-                    <Route path='/contact' element={<Contact/>} />
-                    <Route path='/tandc' Component={TermsAndCondition} />
-                    <Route path='/privacy-policy' Component={PrivacyPolicy} />
-                    <Route path='/refunds' Component={Refunds} />
-                    <Route path='/faq' element={<FAQ/>} />
-                    <Route path='*' Component={Error} />
-                    <Route path='/collection' Component={Collection} />
-                    <Route path='/collect' Component={LaptopCollect} />
-                    <Route path='/layercollect' Component={LayerCollection} />
-                </Routes>
-                <Footer/>
+                <Provider store={store}>
+                    <Header />
+                    <Routes>
+                        <Route path='/' Component={Home} />
+                        <Route path='/login' element={<Login />} />
+                        <Route path='/mobileskin' Component={MobileSkin} />
+                        <Route path='/forgotPassword' Component={ForgotPassword} />
+                        <Route path='/signup' Component={SignUp} />
+                        <Route path='/trackorder' element={<TrackOrder />} />
+                        <Route path='/brand' element={<SelectBrand />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path='/contact' element={<Contact />} />
+                        <Route path='/tandc' Component={TermsAndCondition} />
+                        <Route path='/privacy-policy' Component={PrivacyPolicy} />
+                        <Route path='/refunds' Component={Refunds} />
+                        <Route path='/faq' element={<FAQ />} />
+                        <Route path='*' Component={Error} />
+                        <Route path='/collection' Component={Collection} />
+                        <Route path='/collect' Component={LaptopCollect} />
+                        <Route path='/layercollect' Component={LayerCollection} />
+                    </Routes>
+                    <Footer />
+                </Provider>
             </BrowserRouter>
         </>
     )
