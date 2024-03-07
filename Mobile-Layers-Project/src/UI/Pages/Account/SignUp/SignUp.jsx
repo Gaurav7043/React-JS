@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useLayoutEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Form, Button, Input, FormGroup } from 'reactstrap'
 import '../Login/Login.css'
 import "./SignUp.css"
@@ -25,7 +25,7 @@ const initializeAddress = {
     pincode: "",
 }
 
-export default function SignUp() {
+export default function SignUp(props) {
     const [user, setUser] = useState(initializeData)
     const [address, setAddress] = useState(initializeAddress)
     const navigate = useNavigate()
@@ -33,25 +33,30 @@ export default function SignUp() {
 
     const submitHandler = (e) => {
         e?.preventDefault()
-        if(user.password !== user.conPassword) return toast.error("Password and confirm password does not match")
+        if (user.password !== user.conPassword) return toast.error("Password and confirm password does not match")
         axios({
             method: "post",
             url: "http://localhost:9999/user/signup",
-            data: {...user, address: [address]}
-        }).then((res)=>{
+            data: { ...user, address: [address] }
+        }).then((res) => {
             dispatch(login(res?.data))
             toast.success("User login success")
             console.log("====res_data===>", res.data)
             navigate("/")
-        }).catch((err)=>{
+        }).catch((err) => {
             toast.error("Something is Wrong")
         })
     }
-    
-    // useLayoutEffect(()=>{
-    //     window.scrollTo(0, 0)
-    // })
 
+    const quantityInputRef = useRef(null);
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+        const ignoreScroll = (e) => {
+            e.preventDefault();
+            quantityInputRef.current && quantityInputRef.current.addEventListener("wheel", ignoreScroll);
+        };
+    }, [quantityInputRef]);
     return (
         <>
             <div className='w-50 text-center m-auto'>
@@ -82,10 +87,10 @@ export default function SignUp() {
                         <Input value={address?.pincode} type='text' className='txt' placeholder='Enter Pincode' onChange={(e) => setAddress({ ...address, pincode: e?.target?.value })} />
                     </FormGroup>
                     <FormGroup>
-                        <Input value={user?.password} placeholder="Password" type="password" className='txt' onChange={(e) => setUser({ ...user, password: e?.target?.value })} />
+                        <Input ref={quantityInputRef} value={user?.password} placeholder="Password" type="password" className='txt' onChange={(e) => setUser({ ...user, password: e?.target?.value })} {...props} />
                     </FormGroup>
                     <FormGroup>
-                        <Input value={user?.conPassword} placeholder="Password" type="password" className='txt' onChange={(e) => setUser({ ...user, conPassword: e?.target?.value })} />
+                        <Input value={user?.conPassword} placeholder="Confirm Password" type="password" className='txt' onChange={(e) => setUser({ ...user, conPassword: e?.target?.value })} />
                     </FormGroup>
                     <Button className='signin'>CREATE</Button>
                     <div className='d-flex align-items-center pb-3'>
