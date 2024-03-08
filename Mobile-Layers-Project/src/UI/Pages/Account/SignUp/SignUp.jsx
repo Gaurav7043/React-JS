@@ -58,6 +58,8 @@ export default function SignUp(props) {
             toast.success("User login success")
             console.log("====res_data===>", res.data)
             navigate("/")
+            setUser(initializeData)
+            setAddress(initializeAddress)
         }).catch((err) => {
             toast.error("Something is Wrong")
         })
