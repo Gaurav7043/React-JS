@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useState } from 'react'
 import { Form, Button, Input, FormGroup } from 'reactstrap'
 import './Login.css'
 import '../SignUp/SignUp.css'
-import { NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { Eye, EyeOff } from 'lucide-react'
 import axios from 'axios'
 
@@ -26,6 +26,7 @@ export default function Login() {
     
     const submitHandler = (e)=>{
         e?.preventDefault()
+        const { email, password } = user
         axios({
             method: "post",
             url: "http://localhost:9999/user/login",
@@ -36,7 +37,7 @@ export default function Login() {
             console.log("=======err======>", err)
         })
     }
-    
+
     return (
         <>
             <div className='w-50 text-center m-auto ps-5 pe-5'>
