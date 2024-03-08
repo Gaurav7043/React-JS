@@ -20,13 +20,13 @@ import Collection from '../UI/Pages/Collection/Collection'
 import LaptopCollect from '../UI/Pages/Collection/LaptopCollect'
 import LayerCollection from '../UI/Pages/Collection/LayerCollection'
 import { Provider } from 'react-redux'
-import store from '../Redux/App/store'
+import Store from '../Redux/App/Store'
 
 export default function Router() {
     return (
         <>
             <BrowserRouter>
-                <Provider store={store}>
+                <Provider store={Store}>
                     <Header />
                     <Routes>
                         <Route path='/' Component={Home} />

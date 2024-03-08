@@ -85,19 +85,19 @@ export default function SignUp(props) {
                     <FormGroup>
                         <Input value={user?.age} type='text' className='txt' placeholder='Enter Age' onChange={(e) => setUser({ ...user, age: e?.target?.value })} />
                     </FormGroup>
-                        <FormGroup tag="fieldset" className='d-flex gap-3' style={{border: "2px solid #dee2e6", padding: "15px", borderRadius: "0.375rem"}}>
-                            <Label className='m-0' style={{color: "#212529", opacity: ".7"}}>Gender</Label>
-                            {
-                                gender.map((e, i) => {
-                                    return(
-                                        <FormGroup check key={i}>
-                                            <Input value={user?.gender} checked={user?.gender === e} name="radio1" type="radio" onChange={() => setUser({ ...user, gender: e })} />
-                                            <Label className='m-0' style={{color: "#212529", opacity: ".7"}} check>{e}</Label>
-                                        </FormGroup>
-                                    )
-                                })
-                            }
-                        </FormGroup>
+                    <FormGroup tag="fieldset" className='d-flex gap-3' style={{border: "2px solid #dee2e6", padding: "15px", borderRadius: "0.375rem"}}>
+                        <Label className='m-0' style={{color: "#212529", opacity: ".7"}}>Gender</Label>
+                        {
+                            gender.map((e, i) => {
+                                return(
+                                    <FormGroup check key={i}>
+                                        <Input value={user?.gender} checked={user?.gender === e} name="radio1" type="radio" onChange={() => setUser({ ...user, gender: e })} />
+                                        <Label className='m-0' style={{color: "#212529", opacity: ".7"}} check>{e}</Label>
+                                    </FormGroup>
+                                )
+                            })
+                        }
+                    </FormGroup>
                     <FormGroup>
                         <Input value={user?.number} type='text' className='txt' placeholder='Mobile Number' onChange={(e) => setUser({ ...user, number: e?.target?.value })} />
                     </FormGroup>

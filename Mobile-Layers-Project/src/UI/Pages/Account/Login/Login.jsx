@@ -1,9 +1,18 @@
-import React, { useLayoutEffect } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import { Form, Button, Input, FormGroup } from 'reactstrap'
 import './Login.css'
+import '../SignUp/SignUp.css'
 import { NavLink } from 'react-router-dom'
+import { Eye, EyeOff } from 'lucide-react'
 
 export default function Login() {
+    let [showPassword, setShowPassword] = useState(false)
+
+    const passwordShowHideHandler = ()=>{
+        setShowPassword(!showPassword)
+    }
+
+    
     useLayoutEffect(()=>{
         window.scrollTo(0, 0)
     })
@@ -16,8 +25,17 @@ export default function Login() {
                     <FormGroup>
                         <Input id="email" name="email" placeholder="Email" type="email" className='txt' />
                     </FormGroup>
-                    <FormGroup>
-                        <Input id="password" name="password" placeholder="Password" type="password" className='txt' />
+                    <FormGroup className='position-relative'>
+                        <Input id="password" name="password" placeholder="Password" type={showPassword ? "text" : "password"} className='txt' />
+                        {
+                            showPassword ?
+                            <div className='eye_hover'>
+                                <EyeOff role='button' color='black' onClick={passwordShowHideHandler} />
+                            </div> :
+                            <div className='eye_hover'>
+                                <Eye role='button' onClick={passwordShowHideHandler} />
+                            </div>
+                        }
                     </FormGroup>
                     <p>
                         <NavLink to={"/forgotpassword"} className="text-decoration-none">
