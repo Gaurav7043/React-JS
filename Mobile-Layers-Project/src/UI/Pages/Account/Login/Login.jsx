@@ -2,20 +2,40 @@ import React, { useLayoutEffect, useState } from 'react'
 import { Form, Button, Input, FormGroup } from 'reactstrap'
 import './Login.css'
 import '../SignUp/SignUp.css'
-import { NavLink } from 'react-router-dom'
+import { NavLink} from 'react-router-dom'
 import { Eye, EyeOff } from 'lucide-react'
+import axios from 'axios'
+
+const initializeData = {
+    email: "",
+    password: "",
+}
 
 export default function Login() {
+    let [user, setUser] = useState(initializeData)
     let [showPassword, setShowPassword] = useState(false)
-
+    
+    // password hide and show
     const passwordShowHideHandler = ()=>{
         setShowPassword(!showPassword)
     }
-
     
     useLayoutEffect(()=>{
         window.scrollTo(0, 0)
     })
+    
+    const submitHandler = (e)=>{
+        e?.preventDefault()
+        axios({
+            method: "post",
+            url: "http://localhost:9999/user/login",
+            data: { email, password }
+        }).then((res)=>{
+            console.log("======res_data======>", res.data)
+        }).catch((err)=>{
+            console.log("=======err======>", err)
+        })
+    }
     
     return (
         <>
@@ -23,10 +43,10 @@ export default function Login() {
                 <h1 className='heading'>Customer Login</h1>
                 <Form autoComplete='off' style={{ paddingBottom: "110px" }} onSubmit={(e) => submitHandler(e)}>
                     <FormGroup>
-                        <Input id="email" name="email" placeholder="Email" type="email" className='txt' />
+                        <Input value={user?.email} id="email" name="email" placeholder="Email" type="email" className='txt' onChange={(e)=>setUser({...user, email: e?.target?.value})} />
                     </FormGroup>
                     <FormGroup className='position-relative'>
-                        <Input id="password" name="password" placeholder="Password" type={showPassword ? "text" : "password"} className='txt' />
+                        <Input value={user?.password} id="password" name="password" placeholder="Password" type={showPassword ? "text" : "password"} className='txt' onChange={(e)=>setUser({...user, password: e?.target?.value})} />
                         {
                             showPassword ?
                             <div className='eye_hover'>

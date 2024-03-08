@@ -1,4 +1,5 @@
 import React, { useLayoutEffect } from 'react'
+import { NavLink } from 'react-router-dom'
 import { Form, Button, Input, FormGroup } from 'reactstrap'
 
 export default function ForgotPassword() {
@@ -16,7 +17,9 @@ export default function ForgotPassword() {
                         <Input id="email" name="email" placeholder="Email" type="email" className='txt'/>
                     </FormGroup>
                     <Button className='signin'>SUBMIT</Button>
-                    <Button className='w-100 text-black p-3' style={{background: "none", border: "2px solid black", marginBottom: "93px"}}>CANCEL</Button>
+                    <NavLink to={"/login"}>
+                        <Button className='w-100 text-black p-3' style={{background: "none", border: "2px solid black", marginBottom: "93px"}}>CANCEL</Button>
+                    </NavLink>
                 </Form>
             </div>
         </>
