@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-// const user = JSON?.parse(localStorage.getItem("userLogin") || {})
-const user = JSON?.parse(localStorage.getItem("userLogin")) || {}
+const user = JSON?.parse(localStorage.getItem("userLogin") || "{}")
 const jsonToken = localStorage.getItem("token")
 const token = jsonToken ? JSON.parse(jsonToken) : ""
 
