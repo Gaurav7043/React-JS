@@ -38,11 +38,11 @@ export default function Login() {
         }).then((res)=>{
             console.log("======res_data======>", res?.data)
             dispatch(login(res?.data))
-            toast.success("success")
+            toast.success("User login success")
             navigate("/")
         }).catch((err)=>{
             console.log("=======err======>", err)
-            toast.error("worng")
+            toast.error("Something is Wrong")
         })
     }
 
