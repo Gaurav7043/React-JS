@@ -4,6 +4,7 @@
 }
 .header .nav {
   gap: 35px;
+  flex: 1;
 }
 .header .nav .navlink {
   font-weight: 700;
@@ -40,13 +41,3 @@
 .carousel-indicators {
   z-index: unset !important;
 }
-/* .header{
-  background-color: white;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 11111111111111;
-} */
-/* .carousel-inner {
-  padding: 83px 0px 0px 0px;
-} */

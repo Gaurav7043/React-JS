@@ -21,6 +21,8 @@ import LaptopCollect from '../UI/Pages/Collection/LaptopCollect'
 import LayerCollection from '../UI/Pages/Collection/LayerCollection'
 import { Provider } from 'react-redux'
 import Store from '../Redux/App/Store'
+import DashBoard from '../UI/Pages/Admin/DashBoard/DashBoard'
+import Profile from '../UI/Pages/Profile/Profile'
 
 export default function Router() {
     return (
@@ -29,11 +31,10 @@ export default function Router() {
                 <Provider store={Store}>
                     <Header />
                     <Routes>
+                        {/* ==============User============ */}
                         <Route path='/' Component={Home} />
-                        <Route path='/login' element={<Login />} />
                         <Route path='/mobileskin' Component={MobileSkin} />
                         <Route path='/forgotPassword' Component={ForgotPassword} />
-                        <Route path='/signup' Component={SignUp} />
                         <Route path='/trackorder' element={<TrackOrder />} />
                         <Route path='/brand' element={<SelectBrand />} />
                         <Route path="/about" element={<About />} />
@@ -42,10 +43,20 @@ export default function Router() {
                         <Route path='/privacy-policy' Component={PrivacyPolicy} />
                         <Route path='/refunds' Component={Refunds} />
                         <Route path='/faq' element={<FAQ />} />
-                        <Route path='*' Component={Error} />
                         <Route path='/collection' Component={Collection} />
                         <Route path='/collect' Component={LaptopCollect} />
                         <Route path='/layercollect' Component={LayerCollection} />
+
+                        {/* ==============Common============ */}
+                        <Route path='/login' element={<Login />} />
+                        <Route path='/signup' Component={SignUp} />
+                        <Route path='/profile' Component={Profile} />
+
+                        {/* ==============Admin============ */}
+                        <Route path='/dashboard' Component={DashBoard} />
+
+                        {/* ==============Error============ */}
+                        <Route path='*' Component={Error} />
                     </Routes>
                     <Footer />
                 </Provider>

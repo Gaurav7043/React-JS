@@ -36,10 +36,16 @@ export default function Login() {
             url: "http://localhost:9999/user/signin",
             data: user,
         }).then((res)=>{
-            console.log("======res_data======>", res?.data)
+            // console.log("======res_data======>", res?.data)
+            // console.log("======res_data_data======>", res?.data?.data)
             dispatch(login(res?.data))
             toast.success("User login success")
-            navigate("/")
+            if(res?.data?.data?.userType === "admin"){
+                navigate("/dashboard")
+            }else{
+                navigate("/")
+            }
+            setUser(initializeData)
         }).catch((err)=>{
             console.log("=======err======>", err)
             toast.error("Something is Wrong")
