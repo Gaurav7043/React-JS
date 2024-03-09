@@ -8,10 +8,13 @@
 }
 .header .nav .navlink {
   font-weight: 700;
-  color: black;
+  color: rgb(69, 65, 65);
   font-size: 13px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   position: relative;
+}
+.header .nav .navlink:hover{
+  color: black;
 }
 .header .nav .navlink::before {
   content: "";
@@ -40,4 +43,12 @@
 }
 .carousel-indicators {
   z-index: unset !important;
+}
+.nav .active{
+  color: black !important;
+  font-weight: bold;
+  position: relative;
+}
+.header .nav .navlink.active::before {
+  transform: scale(1);
 }

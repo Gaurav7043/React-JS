@@ -23,6 +23,9 @@ import { Provider } from 'react-redux'
 import Store from '../Redux/App/Store'
 import DashBoard from '../UI/Pages/Admin/DashBoard/DashBoard'
 import Profile from '../UI/Pages/Profile/Profile'
+import Product from '../UI/Pages/Admin/Product/Product'
+import Order from '../UI/Pages/Admin/Order/Order'
+import User from '../UI/Pages/Admin/User/User'
 
 export default function Router() {
     return (
@@ -51,6 +54,9 @@ export default function Router() {
                         <Route path='/login' element={<Login />} />
                         <Route path='/signup' Component={SignUp} />
                         <Route path='/profile' Component={Profile} />
+                        <Route path='/admin-product' Component={Product} />
+                        <Route path='/order' Component={Order} />
+                        <Route path='/user' Component={User} />
 
                         {/* ==============Admin============ */}
                         <Route path='/dashboard' Component={DashBoard} />
