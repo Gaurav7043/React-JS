@@ -1,7 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from '../UI/Components/Header/Header'
-import MobileSkin from '../UI/Pages/MobileSkin/MobileSkin'
 import Home from '../UI/Pages/Home/Home'
 import Login from '../UI/Pages/Account/Login/Login'
 import ForgotPassword from '../UI/Pages/Account/Forgot/ForgotPassword'
@@ -36,7 +35,6 @@ export default function Router() {
                     <Routes>
                         {/* ==============User============ */}
                         <Route path='/' Component={Home} />
-                        <Route path='/mobileskin' Component={MobileSkin} />
                         <Route path='/forgotPassword' Component={ForgotPassword} />
                         <Route path='/trackorder' element={<TrackOrder />} />
                         <Route path='/brand' element={<SelectBrand />} />
