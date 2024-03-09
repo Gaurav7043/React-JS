@@ -10,7 +10,7 @@ export default function Profile() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const logoutHandler = (e)=>{
+    const logoutHandler = (e) => {
         e?.preventDefault()
         dispatch(logout())
         navigate("/")
@@ -21,12 +21,12 @@ export default function Profile() {
             <div className='d-flex justify-content-center p-5'>
                 <div className='rounded-1 w-50 border d-flex align-items-center flex-column p-3'>
                     <img src="https://d1y78cl34ykkmt.cloudfront.net/ProfileImage/2020224131816458.png" alt="" className='w-50' />
-                    <hr />
+                    <hr style={{ width: "100%" }} />
                     <div className='w-100'>
                         <h3>Name :- {user?.name || "Admin"}</h3>
                         <h3>Email :- {user?.email}</h3>
                         <h3>UserType :- {user?.userType}</h3>
-                        <Button color='danger' className='w-100' onClick={()=>logoutHandler()}>Logout <LogIn/></Button>
+                        <Button color='danger' className='w-100' onClick={() => logoutHandler()}>Logout <LogIn /></Button>
                     </div>
                 </div>
             </div>
