@@ -10,7 +10,8 @@ export default function Profile() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const logoutHandler = ()=>{
+    const logoutHandler = (e)=>{
+        e?.preventDefault()
         dispatch(logout())
         navigate("/")
     }
