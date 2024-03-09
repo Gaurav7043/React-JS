@@ -61,6 +61,7 @@ export default function SignUp(props) {
             setUser(initializeData)
             setAddress(initializeAddress)
         }).catch((err) => {
+            console.log("=======err======>", err)
             toast.error("Something is Wrong")
         })
     }

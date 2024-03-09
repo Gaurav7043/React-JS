@@ -2,9 +2,12 @@ import React, { useLayoutEffect, useState } from 'react'
 import { Form, Button, Input, FormGroup } from 'reactstrap'
 import './Login.css'
 import '../SignUp/SignUp.css'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { Eye, EyeOff } from 'lucide-react'
 import axios from 'axios'
+import { toast } from 'react-toastify'
+import { useDispatch } from "react-redux"
+import { login } from '../../../../Redux/Fetures/Auth/AuthSlice'
 
 const initializeData = {
     email: "",
@@ -14,6 +17,8 @@ const initializeData = {
 export default function Login() {
     let [user, setUser] = useState(initializeData)
     let [showPassword, setShowPassword] = useState(false)
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
     
     // password hide and show
     const passwordShowHideHandler = ()=>{
@@ -26,15 +31,18 @@ export default function Login() {
     
     const submitHandler = (e)=>{
         e?.preventDefault()
-        const { email, password } = user
         axios({
             method: "post",
-            url: "http://localhost:9999/user/login",
-            data: { email, password }
+            url: "http://localhost:9999/user/signin",
+            data: user,
         }).then((res)=>{
-            console.log("======res_data======>", res.data)
+            console.log("======res_data======>", res?.data)
+            dispatch(login(res?.data))
+            toast.success("success")
+            navigate("/")
         }).catch((err)=>{
             console.log("=======err======>", err)
+            toast.error("worng")
         })
     }
 
