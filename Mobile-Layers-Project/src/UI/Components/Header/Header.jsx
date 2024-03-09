@@ -50,9 +50,13 @@ export default function Header() {
                                     <li>
                                         <NavLink to={"/apply"} className="text-decoration-none navlink">How to Apply</NavLink>
                                     </li>
-                                    <li>
-                                        <NavLink to={"/login"} className="text-decoration-none navlink">Login</NavLink>
-                                    </li>
+                                    {
+                                        data?.token ?
+                                        <CircleUserRound role='button' onClick={()=>navigate("/profile")} />:
+                                        <li>
+                                            <NavLink to={"/login"} className="text-decoration-none navlink">Login</NavLink>
+                                        </li>
+                                    }
                                     <li>
                                         <NavLink to={"/trackorder"} className="navlink1 fs-5">
                                             <BoxSeam className='box' />
