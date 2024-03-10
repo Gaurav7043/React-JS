@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react'
+import React, { useEffect, useLayoutEffect } from 'react'
 import logo from '../../../../public/logo.webp'
 import "./Header.css"
 import { NavLink, useNavigate } from 'react-router-dom'
@@ -17,6 +17,14 @@ export default function Header() {
     useLayoutEffect(()=>{
         window.scrollTo(0, 0)
     })
+
+    useEffect(() => {
+        // Redirect to login page if the user is not authenticated
+        if (!data?.token && window?.location?.pathname === "/profile") {
+            navigate('/login')
+        }
+    }, [data, navigate])
+
     
     return (
         <>
