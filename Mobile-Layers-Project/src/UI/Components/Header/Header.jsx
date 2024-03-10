@@ -17,6 +17,13 @@ export default function Header() {
     useLayoutEffect(()=>{
         window.scrollTo(0, 0)
     })
+
+    useEffect(() => {
+        // Redirect to login page if the user is not authenticated
+        if (!data?.token && window?.location?.pathname === "/profile") {
+            navigate('/login')
+        }
+    }, [data, navigate])
     
     return (
         <>
