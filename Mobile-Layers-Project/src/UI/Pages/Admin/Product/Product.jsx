@@ -150,8 +150,6 @@ export default function Product() {
         })
     }
 
-
-
     const previouHandler = (id) => {
         axios({
             method: "get",
