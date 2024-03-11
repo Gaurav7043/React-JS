@@ -4,8 +4,7 @@ import { toast } from 'react-toastify'
 import Select from 'react-select'
 import { Table, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input } from 'reactstrap'
 import { Edit, Eye, Slash, Trash } from 'lucide-react'
-import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import ProductFullDetails from './ProductFullDetails'
 
 const intialProduct = {
     title: "", // text
@@ -40,7 +39,6 @@ const categoryOptions = [
 ]
 
 const gender = ["male", "female", "kids"]
-const sizeOptions = [41, 42, 43, 44, 45]
 
 export default function Product() {
     const [product, setProduct] = useState(intialProduct);
@@ -49,6 +47,8 @@ export default function Product() {
     const [refetch, setRefetch] = useState(true)
     const refetchData = () => setRefetch(!refetch)
     const [updateMode, setUpdateMode] = useState(false)
+    const [detailModal, setDetailModal] = useState(false)
+    const [selectedProductDetails, setSelectedProductDetails] = useState(null)
 
     const toggle = () => {
         setModal(!modal)
@@ -150,13 +150,17 @@ export default function Product() {
         })
     }
 
-    const previouHandler = (id)=>{
+
+
+    const previouHandler = (id) => {
         axios({
             method: "get",
             url: `http://localhost:9999/product/getProductById/${id}`,
             data: product,
         })?.then((res) => {
-            console.log(res?.data?.data)
+            // console.log(res?.data?.data)
+            setSelectedProductDetails(res?.data?.data);
+            setDetailModal(true);
         })?.catch((err) => {
             toast.error(err)
         })
@@ -290,7 +294,7 @@ export default function Product() {
                                         <Slash style={{ rotate: "-21deg" }} />
                                         <Trash role='button' color="#f22b2b" onClick={() => deleteHandler(e?._id)} />
                                         <Slash style={{ rotate: "-21deg" }} />
-                                        <Eye role='button' color='#81adee' onClick={()=>previouHandler(e?._id)} />
+                                        <Eye role='button' color='#81adee' onClick={() => previouHandler(e?._id)} />
                                     </td>
                                 </tr>
                             )
@@ -298,6 +302,8 @@ export default function Product() {
                     }
                 </tbody>
             </Table>
+
+            <ProductFullDetails isOpen={detailModal} toggle={() => setDetailModal(false)} productDetails={selectedProductDetails} />
         </>
     )
 }
