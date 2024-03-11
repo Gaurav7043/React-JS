@@ -53,12 +53,12 @@ export default function Router() {
                         <Route path='/login' element={<Login />} />
                         <Route path='/signup' Component={SignUp} />
                         <Route path='/profile' element={<ProtectedRouter Component={<Profile />} />} />
-                        <Route path='/admin-product' Component={Product} />
-                        <Route path='/order' Component={Order} />
-                        <Route path='/user' Component={User} />
 
                         {/* ==============Admin============ */}
-                        <Route path='/dashboard' Component={DashBoard} />
+                        <Route path='/dashboard' element={<ProtectedRouter Component={<DashBoard />} />} />
+                        <Route path='/admin-product' element={<ProtectedRouter Component={<Product />} />} />
+                        <Route path='/order' element={<ProtectedRouter Component={<Order />} />} />
+                        <Route path='/user' element={<ProtectedRouter Component={<User />} />} />
 
                         {/* ==============Error============ */}
                         <Route path='*' Component={Error} />

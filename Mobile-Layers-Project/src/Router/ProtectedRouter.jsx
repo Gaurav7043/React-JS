@@ -7,7 +7,7 @@ export default function ProtectedRouter({ Component }) {
     const data = useSelector((state) => state.authSlice)
 
     useEffect(() => {
-        if (!data || data?.user?.userType !== "profile") {
+        if (!data?.token || Object?.keys(data?.user || {}).length === 0) {
             navigate("/login")
         }
     })
