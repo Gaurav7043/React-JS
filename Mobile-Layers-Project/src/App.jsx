@@ -1,12 +1,12 @@
 import { ToastContainer } from "react-toastify";
 import './App.css'
-import ProtectedRouter from "./Router/ProtectedRouter";
+import Router from "./Router/Router";
 
 function App() {
   return (
     <>
       <div>
-        <ProtectedRouter />
+        <Router />
       </div>
       <ToastContainer />
     </>

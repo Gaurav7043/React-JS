@@ -25,6 +25,7 @@ import Profile from '../UI/Pages/Profile/Profile'
 import Product from '../UI/Pages/Admin/Product/Product'
 import Order from '../UI/Pages/Admin/Order/Order'
 import User from '../UI/Pages/Admin/User/User'
+import ProtectedRouter from './ProtectedRouter'
 
 export default function Router() {
     return (
@@ -51,7 +52,7 @@ export default function Router() {
                         {/* ==============Common============ */}
                         <Route path='/login' element={<Login />} />
                         <Route path='/signup' Component={SignUp} />
-                        <Route path='/profile' Component={Profile} />
+                        <Route path='/profile' element={<ProtectedRouter Component={<Profile />} />} />
                         <Route path='/admin-product' Component={Product} />
                         <Route path='/order' Component={Order} />
                         <Route path='/user' Component={User} />
