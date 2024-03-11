@@ -10,12 +10,16 @@ const authSlice = createSlice({
     initialState: { user, token },
     reducers: {
         login: (state, { payload }) => {
+            // Updates state with user data and token
             state.user = payload.data
             state.token = payload.token
+
+            // Saves user data and token to local storage
             localStorage.setItem("userLogin", JSON.stringify(payload.data))
             localStorage.setItem("token", JSON.stringify(payload.token))
         },
         logout: (state, action) => {
+            // Clears user data and token in state and local storage
             // console.log("===>")
             state.user = {}
             state.token = ""
