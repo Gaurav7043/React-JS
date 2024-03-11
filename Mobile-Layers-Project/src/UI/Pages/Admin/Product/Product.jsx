@@ -4,6 +4,8 @@ import { toast } from 'react-toastify'
 import Select from 'react-select'
 import { Table, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input } from 'reactstrap'
 import { Edit, Eye, Slash, Trash } from 'lucide-react'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 const intialProduct = {
     title: "", // text
@@ -155,10 +157,6 @@ export default function Product() {
             data: product,
         })?.then((res) => {
             console.log(res?.data?.data)
-            // toast.success("Data Added")
-            // setProduct(intialProduct)
-            // toggle()
-            // refetchData()
         })?.catch((err) => {
             toast.error(err)
         })
