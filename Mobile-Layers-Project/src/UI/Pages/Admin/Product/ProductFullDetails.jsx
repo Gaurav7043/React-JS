@@ -57,7 +57,7 @@ export default function ProductFullDetails({ isOpen, toggle, productDetails }) {
                                             {
                                                 sizeOptions?.map((size, i) => {
                                                     return (
-                                                        <div key={i} style={{ border: "1px solid black", padding: "3px", color: productDetails?.size?.find((e) => e == size) ? "black" : "gray" }}>{size}</div>
+                                                        <div key={i} style={{ border: "1px solid black", padding: " 0px 4px", borderRadius: "50%", color: productDetails?.size?.find((e) => e == size) ? "black" : "gray" }}>{size}</div>
                                                     )
                                                 })
                                             }

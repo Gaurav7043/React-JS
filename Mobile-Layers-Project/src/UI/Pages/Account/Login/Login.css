@@ -4,9 +4,12 @@
   font-weight: 400 !important;
 }
 .txt[type="email"],
-[type="password"], [type="text"] {
+[type="password"] {
   padding: 15px !important;
   border-width: 2px !important;
+}
+.txt[type="text"]{
+  padding: 15px;
 }
 .txt:focus {
   border: 2px solid black !important;

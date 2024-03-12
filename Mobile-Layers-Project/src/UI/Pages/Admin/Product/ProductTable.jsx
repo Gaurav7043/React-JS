@@ -1,8 +1,48 @@
+import axios from 'axios'
 import { Edit, Eye, Slash, Trash } from 'lucide-react'
 import React from 'react'
+import { toast } from 'react-toastify'
 import { Table } from 'reactstrap'
 
-export default function ProductTable({ allProduct, editHandler, deleteHandler, previewHandler }) {
+export default function ProductTable({ product, setProduct, allProduct, refetchData, toggle, setUpdateMode, setSelectedProductDetails, setDetailModal }) {
+
+    // DELETE HANDLER
+    const deleteHandler = (id) => {
+        // console.log("delete product id", id)
+        axios({
+            method: "delete",
+            url: `http://localhost:9999/product/delete/${id}`,
+        })?.then((res) => {
+            toast.success("Product Delete...!")
+            refetchData()
+        })?.catch((err) => {
+            toast.error(err)
+        })
+    }
+
+    // EDIT HANDLER
+    const editHandler = (data) => {
+        // console.log("update product id", data)
+        toggle()
+        setProduct(data)
+        setUpdateMode(true)
+    }
+
+    // PREVIEW HANDLER
+    const previewHandler = (id) => {
+        axios({
+            method: "get",
+            url: `http://localhost:9999/product/getProductById/${id}`,
+            data: product,
+        })?.then((res) => {
+            // console.log(res?.data?.data)
+            setSelectedProductDetails(res?.data?.data)
+            setDetailModal(true)
+        })?.catch((err) => {
+            toast.error(err)
+        })
+    }
+
     return (
         <>
             <Table striped className='text-center'>
