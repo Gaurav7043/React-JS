@@ -69,6 +69,7 @@ import Crud from "./00_Task/05_Crud";
 import ReduxPratice from "./00_Task/ReduxPractice/ReduxPratice";
 import Inp from "./00_Task/06_Inp";
 import InpMain from "./00_Task/TwoInputData/InpMain";
+import Product_Preview from "./13_API/Product_Preview/Product_Preview";
 
 function App() {
   return (
@@ -187,7 +188,7 @@ function App() {
         {/* <ReduxApp /> */}
         {/* <ReduxPratice /> */}
         {/* <Inp /> */}
-        <InpMain />
+        {/* <InpMain /> */}
 
         {/* ---------API---------- */}
         {/* <Simple_API/> */}
@@ -196,6 +197,7 @@ function App() {
         {/* <ProductData /> */}
         {/* <ProductSelectIcon /> */}
         {/* <Productt /> */}
+        <Product_Preview />
 
         {/* ---------Lifting_Starte_Up---------- */}
         {/* <Parent />
