@@ -12,25 +12,25 @@ export default function ProductFullDetails({ isOpen, toggle, productDetails }) {
                     productDetails && (
                         <>
                             <div className='text-center p-2'>
-                                <img src={productDetails?.thumbnail} alt="" width="200px" height="100px" />
+                                <img src={productDetails?.thumbnail} alt="" width="200px" height="250px" />
                             </div>
                             <div className='border dark rounded-2'>
-                                <div className="d-flex justify-content-between border-bottom dark" style={{ padding: "0px 11px" }}>
+                                <div className="d-flex justify-content-between border-bottom dark" style={{ padding: "05px 11px" }}>
                                     <div><span className='fw-bold'>Title:-</span> {productDetails?.title}</div>
                                     <div><span className='fw-bold'>Description:-</span> {productDetails?.description}</div>
                                 </div>
-                                <div className="d-flex justify-content-between border-bottom dark" style={{ padding: "0px 11px" }}>
+                                <div className="d-flex justify-content-between border-bottom dark" style={{ padding: "05px 11px" }}>
                                     <div><span className='fw-bold'>Price:-</span> {productDetails?.price}</div>
                                     <div><span className='fw-bold'>Discount:-</span> {productDetails?.discountPercentage || 0} %</div>
                                 </div>
-                                <div className="d-flex justify-content-between border-bottom dark" style={{ padding: "0px 11px" }}>
+                                <div className="d-flex justify-content-between border-bottom dark" style={{ padding: "05px 11px" }}>
                                     <div>
                                         <span className='fw-bold'>Final price:-</span>
                                         {productDetails?.price - ((productDetails?.price * productDetails?.discountPercentage) / 100).toFixed(1) || "not discount"}
                                     </div>
                                     <div><span className="fw-bold">Available Stock:-</span> {productDetails?.availableStock}</div>
                                 </div>
-                                <div className="d-flex justify-content-between border-bottom dark" style={{ padding: "0px 11px" }}>
+                                <div className="d-flex justify-content-between border-bottom dark" style={{ padding: "05px 11px" }}>
                                     <div className='d-flex gap-2 align-items-baseline'>
                                         <span className='fw-bold'>Color</span>
                                         <div className="d-flex gap-2">
@@ -45,11 +45,11 @@ export default function ProductFullDetails({ isOpen, toggle, productDetails }) {
                                     </div>
                                     <div><span className="fw-bold">Gender:-</span> {productDetails?.gender}</div>
                                 </div>
-                                <div className="d-flex justify-content-between border-bottom dark" style={{ padding: "0px 11px" }}>
+                                <div className="d-flex justify-content-between border-bottom dark" style={{ padding: "05px 11px" }}>
                                     <div><span className="fw-bold">Category:-</span> {productDetails?.category}</div>
                                     <div><span className='fw-bold'>Rating:-</span> {productDetails?.rating}</div>
                                 </div>
-                                <div className="d-flex justify-content-between border-bottom dark" style={{ padding: "0px 11px" }}>
+                                <div className="d-flex justify-content-between border-bottom dark" style={{ padding: "05px 11px" }}>
                                     <div><span className="fw-bold">Brand:-</span> {productDetails?.brand}</div>
                                     <div className='d-flex gap-2'>
                                         <span className='fw-bold'>Size:-</span>
@@ -57,7 +57,7 @@ export default function ProductFullDetails({ isOpen, toggle, productDetails }) {
                                             {
                                                 sizeOptions?.map((size, i) => {
                                                     return (
-                                                        <div key={i} style={{ border: "1px solid black", padding: " 0px 4px", borderRadius: "50%", color: productDetails?.size?.find((e) => e == size) ? "black" : "gray" }}>{size}</div>
+                                                        <div key={i} style={{ border: "1px solid black", padding: " 4px 7px", borderRadius: "50%", color: productDetails?.size?.find((e) => e == size) ? "black" : "gray" }}>{size}</div>
                                                     )
                                                 })
                                             }

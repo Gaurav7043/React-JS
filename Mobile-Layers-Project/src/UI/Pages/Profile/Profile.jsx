@@ -26,6 +26,8 @@ export default function Profile() {
                         <h3>Name :- {user?.name || "Admin"}</h3>
                         <h3>Email :- {user?.email}</h3>
                         <h3>UserType :- {user?.userType}</h3>
+                        {/* <h3>area:- {user?.address[0].add}</h3> */}
+                        {/* {console.log("🚀 ~ Profile ~ add?.add:", user?.address[0].add)} */}
                         <Button color='danger' className='w-100' onClick={() => logoutHandler()}>Logout <LogIn /></Button>
                     </div>
                 </div>
