@@ -6,7 +6,7 @@ import { Button } from 'reactstrap'
 import { logout } from '../../../Redux/Fetures/Auth/AuthSlice'
 
 export default function Profile() {
-    let { user } = useSelector((state) => state?.authSlice)
+    const { user } = useSelector((state) => state?.authSlice)
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -23,23 +23,19 @@ export default function Profile() {
                     <img src="https://d1y78cl34ykkmt.cloudfront.net/ProfileImage/2020224131816458.png" alt="" className='w-50' />
                     <hr style={{ width: "100%" }} />
                     <div className='w-100'>
+                        <h3>Name: {user?.name || "Admin"}</h3>
+                        <h3>Email: {user?.email}</h3>
+                        <h3>UserType: {user?.userType}</h3>
                         {
-                            user?.userType !== "admin" ?
-                                <div>
-                                    <h3>Name :- {user?.name || "Admin"}</h3>
-                                    <h3>Email :- {user?.email}</h3>
-                                    <h3>UserType :- {user?.userType}</h3>
-                                    <h3>Area:- {user?.address[0]?.add}</h3>
-                                    <h3>City:- {user?.address[0]?.city}</h3>
-                                    <h3>State:- {user?.address[0]?.state}</h3>
-                                </div> :
-                                <div>
-                                    <h3>Name :- {user?.name || "Admin"}</h3>
-                                    <h3>Email :- {user?.email}</h3>
-                                    <h3>UserType :- {user?.userType}</h3>
-                                </div>
+                            user?.userType !== "admin" && (
+                                <>
+                                    <h3>Area: {user?.address?.[0]?.add}</h3>
+                                    <h3>City: {user?.address?.[0]?.city}</h3>
+                                    <h3>State: {user?.address?.[0]?.state}</h3>
+                                </>
+                            )
                         }
-                        <Button color='danger' className='w-100' onClick={() => logoutHandler()}>Logout <LogIn /></Button>
+                        <Button color='danger' className='w-100' onClick={()=>logoutHandler()}>Logout <LogIn /></Button>
                     </div>
                 </div>
             </div>
