@@ -3,15 +3,16 @@ import { Edit, Eye, Slash, Trash } from 'lucide-react'
 import React from 'react'
 import { toast } from 'react-toastify'
 import { Table } from 'reactstrap'
+import { BE_URL } from '../../../../Config'
 
-export default function ProductTable({ product, setProduct, allProduct, refetchData, toggle, setUpdateMode, setSelectedProductDetails, setDetailModal }) {
+export default function ProductTable({ setProduct, allProduct, refetchData, toggle, setUpdateMode, setSelectedProductDetails, setDetailModal }) {
 
     // DELETE HANDLER
     const deleteHandler = (id) => {
         // console.log("delete product id", id)
         axios({
             method: "delete",
-            url: `http://localhost:9999/product/delete/${id}`,
+            url: BE_URL+`/product/delete/${id}`,
         })?.then((res) => {
             toast.success("Product Delete...!")
             refetchData()
@@ -32,8 +33,7 @@ export default function ProductTable({ product, setProduct, allProduct, refetchD
     const previewHandler = (id) => {
         axios({
             method: "get",
-            url: `http://localhost:9999/product/getProductById/${id}`,
-            data: product,
+            url: BE_URL+`/product/getProductById/${id}`,
         })?.then((res) => {
             // console.log(res?.data?.data)
             setSelectedProductDetails(res?.data?.data)

@@ -36,7 +36,7 @@ export default function Product() {
 
             <ProductForm intialProduct={intialProduct} product={product} toggle={toggle} modal={modal} updateMode={updateMode} setProduct={setProduct} setAllProduct={setAllProduct} refetch={refetch} refetchData={refetchData} />
 
-            <ProductTable product={product} setProduct={setProduct} allProduct={allProduct} refetchData={refetchData} toggle={toggle} setUpdateMode={setUpdateMode} setSelectedProductDetails={setSelectedProductDetails} setDetailModal={setDetailModal} />
+            <ProductTable setProduct={setProduct} allProduct={allProduct} refetchData={refetchData} toggle={toggle} setUpdateMode={setUpdateMode} setSelectedProductDetails={setSelectedProductDetails} setDetailModal={setDetailModal} />
 
             <ProductFullDetails isOpen={detailModal} toggle={() => setDetailModal(false)} productDetails={selectedProductDetails} />
         </>

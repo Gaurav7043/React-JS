@@ -8,6 +8,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 import { useDispatch } from "react-redux"
 import { login } from '../../../../Redux/Fetures/Auth/AuthSlice'
+import { BE_URL } from '../../../../Config'
 
 const initializeData = {
     email: "",
@@ -33,7 +34,7 @@ export default function Login() {
         e?.preventDefault()
         axios({
             method: "post",
-            url: "http://localhost:9999/user/signin",
+            url: BE_URL+"/user/signin",
             data: user,
         }).then((res)=>{
             // console.log("======res_data======>", res?.data)
@@ -47,7 +48,7 @@ export default function Login() {
             }
             setUser(initializeData)
         }).catch((err)=>{
-            console.log("=======err======>", err)
+            // console.log("=======err======>", err)
             toast.error("Something is Wrong")
         })
     }

@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux"
 import { toast } from 'react-toastify'
 import { Eye, EyeOff } from 'lucide-react'
 import { login } from '../../../../Redux/Fetures/Auth/AuthSlice'
+import { BE_URL } from '../../../../Config'
 
 const initializeData = {
     name: "",
@@ -48,20 +49,20 @@ export default function SignUp(props) {
 
     const submitHandler = (e) => {
         e?.preventDefault()
-        if (user.password !== user.conPassword) return toast.error("Password and confirm password does not match")
+        if (user?.password !== user?.conPassword) return toast.error("Password and confirm password does not match")
         axios({
             method: "post",
-            url: "http://localhost:9999/user/signup",
+            url: BE_URL+"/user/signup",
             data: { ...user, address: [address] }
         }).then((res) => {
             dispatch(login(res?.data))
             toast.success("User login success")
-            console.log("====res_data===>", res.data)
+            // console.log("====res_data===>", res.data)
             navigate("/")
             setUser(initializeData)
             setAddress(initializeAddress)
         }).catch((err) => {
-            console.log("=======err======>", err)
+            // console.log("=======err======>", err)
             toast.error("Something is Wrong")
         })
     }

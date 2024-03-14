@@ -5,6 +5,7 @@ import { gender, colorOptions, categoryOptions } from '../../../../Utils/Constan
 import { toast } from 'react-toastify'
 import axios from 'axios'
 import './Product.css'
+import { BE_URL } from '../../../../Config'
 
 export default function ProductForm({ modal, toggle, product, setProduct, setAllProduct, updateMode, refetchData, refetch, intialProduct }) {
 
@@ -12,7 +13,7 @@ export default function ProductForm({ modal, toggle, product, setProduct, setAll
     useEffect(() => {
         axios({
             method: "get",
-            url: "http://localhost:9999/product/getAll",
+            url: BE_URL+"/product/getAll",
         })?.then((res) => {
             console.log(res?.data)
             setAllProduct(res?.data?.data)
@@ -27,7 +28,7 @@ export default function ProductForm({ modal, toggle, product, setProduct, setAll
         console.log("---------->", product)
         axios({
             method: "post",
-            url: "http://localhost:9999/product/create",
+            url: BE_URL+"/product/create",
             data: product,
         })?.then((res) => {
             // console.log(res?.data)
@@ -75,7 +76,7 @@ export default function ProductForm({ modal, toggle, product, setProduct, setAll
         // console.log("======>", product?._id)
         axios({
             method: "put",
-            url: `http://localhost:9999/product/update/${product?._id}`,
+            url: BE_URL+`/product/update/${product?._id}`,
             data: product,
         })?.then((res) => {
             // console.log(res?.data)
