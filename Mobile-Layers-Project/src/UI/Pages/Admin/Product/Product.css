@@ -12,9 +12,6 @@
     display: grid;
     place-content: center;
 }
-li:hover{
-    color: rgb(54, 159, 245);
-}
 .prev_link{
     text-decoration: none;
     color: white;
