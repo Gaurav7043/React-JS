@@ -46,7 +46,9 @@ export default function ProductFullDetails({ isOpen, toggle, productDetails }) {
                                     <div><span className="fw-bold">Gender:-</span> {productDetails?.gender}</div>
                                 </div>
                                 <div className="d-flex justify-content-between border-bottom dark" style={{ padding: "05px 11px" }}>
-                                    <div><span className="fw-bold">Category:-</span> {productDetails?.category}</div>
+                                    <div>
+                                        <span className="fw-bold">Category:-</span> {productDetails?.category?.map((e)=> e)?.join(" / ")}
+                                    </div>
                                     <div><span className='fw-bold'>Rating:-</span> {productDetails?.rating}</div>
                                 </div>
                                 <div className="d-flex justify-content-between border-bottom dark" style={{ padding: "05px 11px" }}>
@@ -57,7 +59,7 @@ export default function ProductFullDetails({ isOpen, toggle, productDetails }) {
                                             {
                                                 sizeOptions?.map((size, i) => {
                                                     return (
-                                                        <div key={i} style={{ border: "1px solid black", padding: " 4px 7px", borderRadius: "50%", color: productDetails?.size?.find((e) => e == size) ? "black" : "gray" }}>{size}</div>
+                                                        <div key={i} style={{ border: "1px solid black", padding: "4px 7px", borderRadius: "50%", color: productDetails?.size?.find((e) => e == size) ? "black" : "gray" }}>{size}</div>
                                                     )
                                                 })
                                             }

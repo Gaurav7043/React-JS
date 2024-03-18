@@ -24,19 +24,13 @@ export default function Product() {
 
     return (
         <>
-            <div className='d-flex align-items-center mb-4'>
-                <div style={{ flex: "1", textAlign: "center" }}>
-                    <h1 className='m-0 ps-5 ms-5'>Product</h1>
-                </div>
-
-                <div>
-                    <Button color="danger" onClick={toggle}>Add Product</Button>
-                </div>
+            <div className='d-flex gap-2 justify-content-end me-4 mt-2 mb-3'>
+                <Button color="danger" onClick={toggle}>New Product</Button>
             </div>
 
             <ProductForm intialProduct={intialProduct} product={product} toggle={toggle} modal={modal} updateMode={updateMode} setProduct={setProduct} setAllProduct={setAllProduct} refetch={refetch} refetchData={refetchData} />
 
-            <ProductTable setProduct={setProduct} allProduct={allProduct} refetchData={refetchData} toggle={toggle} setUpdateMode={setUpdateMode} setSelectedProductDetails={setSelectedProductDetails} setDetailModal={setDetailModal} />
+            <ProductTable setProduct={setProduct} allProduct={allProduct} refetchData={refetchData} toggle={toggle} setUpdateMode={setUpdateMode} setSelectedProductDetails={setSelectedProductDetails} setDetailModal={setDetailModal} refetch={refetch} setAllProduct={setAllProduct} product={product} />
 
             <ProductFullDetails isOpen={detailModal} toggle={() => setDetailModal(false)} productDetails={selectedProductDetails} />
         </>

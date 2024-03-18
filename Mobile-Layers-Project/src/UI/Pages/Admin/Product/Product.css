@@ -3,3 +3,53 @@
     box-shadow: none !important;
     border: 1px solid #dee2e6 !important;
 }
+.active_class{
+    border: 2px solid rgb(54, 159, 245);
+    color: rgb(54, 159, 245);
+    height: 32px;
+    width: 33px;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+}
+li:hover{
+    color: rgb(54, 159, 245);
+}
+.prev_link{
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    position: relative
+}
+.prev_link::after{
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 122px;
+    color: white;
+    background-color: white;
+    transform: rotate(90deg);
+    left: 0px;
+}
+.prev_link:hover{
+    color: rgb(54, 159, 245);
+}
+.next_link{
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    position: relative
+}
+.next_link::after{
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 122px;
+    color: white;
+    background-color: white;
+    transform: rotate(90deg);
+    right: 0px;
+}
+.next_link:hover{
+    color: rgb(54, 159, 245);
+}
