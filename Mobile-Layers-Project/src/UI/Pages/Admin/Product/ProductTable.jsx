@@ -177,7 +177,7 @@ export default function ProductTable({ product, setProduct, allProduct, refetchD
                     </tbody>
                 </Table>
 
-                <ReactPaginate className='d-flex gap-3 align-items-center list-unstyled justify-content-evenly text-white bg-info p-1 fs-5' previousLinkClassName='prev_link' nextLinkClassName='next_link' breakLabel="..." nextLabel=">" pageRangeDisplayed={5} pageCount={paginate?.totalProduct / paginate?.limit} previousLabel="<" renderOnZeroPageCount={null} onPageChange={handlePageClick} activeClassName="active_class" />
+                <ReactPaginate className='d-flex gap-3 align-items-center list-unstyled justify-content-evenly text-white bg-info fs-5' previousLinkClassName='prev_link' nextLinkClassName='next_link' breakLabel="..." nextLabel=">" pageRangeDisplayed={5} pageCount={paginate?.totalProduct / paginate?.limit} previousLabel="<" renderOnZeroPageCount={null} onPageChange={handlePageClick} activeClassName="active_class" />
             </div>
         </>
     )
