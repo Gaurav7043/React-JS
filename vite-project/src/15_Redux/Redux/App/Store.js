@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import countReducer from "../Fetures/Count"
 import amountReducer from "../Fetures/Amount"
+import userSlice from '../Fetures/User'
 
 export default configureStore({
     reducer: {
         COUNT: countReducer,
         amountReducer,
+        userSlice,
     }
 })
 

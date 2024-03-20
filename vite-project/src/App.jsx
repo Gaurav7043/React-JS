@@ -197,14 +197,14 @@ function App() {
         {/* <ProductData /> */}
         {/* <ProductSelectIcon /> */}
         {/* <Productt /> */}
-        <Product_Preview />
+        {/* <Product_Preview /> */}
 
         {/* ---------Lifting_Starte_Up---------- */}
         {/* <Parent />
         <Child /> */}
 
         {/* ---------Redux---------- */}
-        {/* <AppRedux /> */}
+        <AppRedux />
 
       </div>
       <ToastContainer />

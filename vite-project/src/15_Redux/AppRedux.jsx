@@ -3,6 +3,7 @@ import Count from './UI/Count/Count'
 import { Provider } from "react-redux"
 import Store from './Redux/App/Store'
 import Amount from './UI/Amount/Amount'
+import User from './UI/User/User'
 
 export default function AppRedux() {
     return (
@@ -10,6 +11,7 @@ export default function AppRedux() {
             <Provider store={Store}>
                 <Count />
                 <Amount />
+                <User />
             </Provider>
         </>
     )

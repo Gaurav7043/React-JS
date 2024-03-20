@@ -25,7 +25,7 @@ import Profile from '../UI/Pages/Profile/Profile'
 import Product from '../UI/Pages/Admin/Product/Product'
 import Order from '../UI/Pages/Admin/Order/Order'
 import User from '../UI/Pages/Admin/User/User'
-import ProtectedRouter from './ProtectedRouter'
+import ProtectedRouter, { ProtectedRouteUser } from './ProtectedRouter'
 
 export default function Router() {
     return (
@@ -37,7 +37,8 @@ export default function Router() {
                         {/* ==============User============ */}
                         <Route path='/' Component={Home} />
                         <Route path='/forgotPassword' Component={ForgotPassword} />
-                        <Route path='/trackorder' element={<TrackOrder />} />
+                        <Route path='/trackorder' element={<ProtectedRouteUser ComponentUser={<TrackOrder />}/>} />
+                        {/* <Route path='/trackorder' element={<TrackOrder />} /> */}
                         <Route path='/brand' element={<SelectBrand />} />
                         <Route path="/about" element={<About />} />
                         <Route path='/contact' element={<Contact />} />
@@ -52,7 +53,7 @@ export default function Router() {
                         {/* ==============Common============ */}
                         <Route path='/login' element={<Login />} />
                         <Route path='/signup' Component={SignUp} />
-                        <Route path='/profile' element={<ProtectedRouter Component={<Profile />} />} />
+                        <Route path='/profile' element={<ProtectedRouteUser ComponentUser={<Profile />} />} />
 
                         {/* ==============Admin============ */}
                         <Route path='/dashboard' element={<ProtectedRouter Component={<DashBoard />} />} />

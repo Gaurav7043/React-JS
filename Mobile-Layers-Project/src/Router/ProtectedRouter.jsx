@@ -4,10 +4,10 @@ import { useNavigate } from 'react-router-dom'
 
 export default function ProtectedRouter({ Component }) {
     const navigate = useNavigate()
-    const data = useSelector((state) => state.authSlice)
+    const data = useSelector((state) => state?.authSlice)
 
     useEffect(() => {
-        if (!data?.token || Object?.keys(data?.user || {}).length === 0) {
+        if (!data || data?.user?.userType !== "admin") {
             navigate("/login")
         }
     })
@@ -17,4 +17,16 @@ export default function ProtectedRouter({ Component }) {
             {Component}
         </div>
     )
+}
+export const ProtectedRouteUser = ({ ComponentUser }) => {
+    const navigate = useNavigate();
+    const data = useSelector(state => state?.authSlice)
+    
+    useEffect(() => {
+        if (!data || data?.user?.userType !== "customer" && data?.user?.userType !== "admin") {
+            navigate("/login")
+        }
+    })
+
+    return <div>{ComponentUser}</div>
 }

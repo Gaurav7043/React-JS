@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit"
 
 const amountSlice = createSlice({
     name: "amount",
@@ -8,7 +8,12 @@ const amountSlice = createSlice({
             console.log("=====action=======>", action)
             state.amount++
         }
-    }
+    },
+    extraReducers: (builder) => {
+        builder.addCase("userLogin/fulfilled", (state, action) => {
+            state.amount++
+        })
+    },
 })
 
 export default amountSlice.reducer
