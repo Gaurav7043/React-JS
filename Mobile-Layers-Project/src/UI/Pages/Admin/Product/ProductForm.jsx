@@ -15,7 +15,7 @@ export default function ProductForm({ modal, toggle, product, setProduct, setAll
             method: "get",
             url: BE_URL+"/product/getAll",
         })?.then((res) => {
-            console.log(res?.data)
+            // console.log(res?.data)
             setAllProduct(res?.data?.data)
         })?.catch((err) => {
             toast.error(err)
