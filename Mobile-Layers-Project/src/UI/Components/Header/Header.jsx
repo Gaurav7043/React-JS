@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import logo from '../../../../public/logo.webp'
 import "./Header.css"
 import { NavLink, useNavigate } from 'react-router-dom'
