@@ -70,6 +70,7 @@ import ReduxPratice from "./00_Task/ReduxPractice/ReduxPratice";
 import Inp from "./00_Task/06_Inp";
 import InpMain from "./00_Task/TwoInputData/InpMain";
 import Product_Preview from "./13_API/Product_Preview/Product_Preview";
+import Review from "./16_Review/Review";
 
 function App() {
   return (
@@ -204,7 +205,10 @@ function App() {
         <Child /> */}
 
         {/* ---------Redux---------- */}
-        <AppRedux />
+        {/* <AppRedux /> */}
+
+        {/* ---------Review---------- */}
+        <Review />
 
       </div>
       <ToastContainer />
