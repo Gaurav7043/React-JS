@@ -26,6 +26,7 @@ import Product from '../UI/Pages/Admin/Product/Product'
 import Order from '../UI/Pages/Admin/Order/Order'
 import User from '../UI/Pages/Admin/User/User'
 import ProtectedRouter, { ProtectedRouteUser } from './ProtectedRouter'
+import Apple from '../UI/Pages/Collection/SelectBrand/Apple/Apple'
 
 export default function Router() {
     return (
@@ -37,9 +38,8 @@ export default function Router() {
                         {/* ==============User============ */}
                         <Route path='/' Component={Home} />
                         <Route path='/forgotPassword' Component={ForgotPassword} />
-                        <Route path='/trackorder' element={<ProtectedRouteUser ComponentUser={<TrackOrder />}/>} />
-                        {/* <Route path='/trackorder' element={<TrackOrder />} /> */}
-                        <Route path='/brand' element={<SelectBrand />} />
+                        <Route path='/trackorder' element={<ProtectedRouteUser ComponentUser={<TrackOrder />} />} />
+                        <Route path='/brand' element={<SelectBrand/>} />
                         <Route path="/about" element={<About />} />
                         <Route path='/contact' element={<Contact />} />
                         <Route path='/tandc' Component={TermsAndCondition} />
@@ -49,6 +49,7 @@ export default function Router() {
                         <Route path='/collection' Component={Collection} />
                         <Route path='/collect' Component={LaptopCollect} />
                         <Route path='/layercollect' Component={LayerCollection} />
+                        <Route path='/mobile' Component={Apple} />
 
                         {/* ==============Common============ */}
                         <Route path='/login' element={<Login />} />
