@@ -26,7 +26,7 @@ import Product from '../UI/Pages/Admin/Product/Product'
 import Order from '../UI/Pages/Admin/Order/Order'
 import User from '../UI/Pages/Admin/User/User'
 import ProtectedRouter, { ProtectedRouteUser } from './ProtectedRouter'
-import Apple from '../UI/Pages/Collection/SelectBrand/Apple/Apple'
+import AllBrand from '../UI/Pages/Collection/SelectBrand/AllBrand/AllBrand'
 
 export default function Router() {
     return (
@@ -49,7 +49,7 @@ export default function Router() {
                         <Route path='/collection' Component={Collection} />
                         <Route path='/collect' Component={LaptopCollect} />
                         <Route path='/layercollect' Component={LayerCollection} />
-                        <Route path='/mobile' Component={Apple} />
+                        <Route path='/mobile' Component={AllBrand} />
 
                         {/* ==============Common============ */}
                         <Route path='/login' element={<Login />} />
