@@ -14,7 +14,7 @@ export default function AllBrand() {
 
     // USEEFFECT HANDLER
     useEffect(() => {
-        console.log("----->")
+        // console.log("----->")
         axios({
             method: "get",
             url: BE_URL + "/product/getAll",
