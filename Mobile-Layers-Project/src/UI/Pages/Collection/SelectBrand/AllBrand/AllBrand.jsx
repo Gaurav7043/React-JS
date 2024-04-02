@@ -10,9 +10,7 @@ export default function AllBrand() {
     const [filter, setFilter] = useState({})
 
     let location = useLocation()
-    // console.log("🚀 ~ Apple ~ test:", test?.state?.brand)
-
-
+    // console.log("=======location=====>", location?.state?.brand)
 
     // USEEFFECT HANDLER
     useEffect(() => {
@@ -22,11 +20,9 @@ export default function AllBrand() {
             url: BE_URL + "/product/getAll",
             params: { ...filter, brand: location?.state?.brand }
         })?.then((res) => {
-            // console.log("----->s")
             // console.log(res?.data)
             setData(res?.data?.data)
         }).catch((err) => {
-            // console.log(err)
             toast.error(err)
         })
     }, [filter, location])
