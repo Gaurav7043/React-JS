@@ -252,7 +252,7 @@ export default function Productt() {
                             {
                                 allProduct?.map((e, i) => {
                                     return (
-                                        <div key={i} className='border-2 dark border rounded-2 bg-white'>
+                                        <div key={i} className='border-2 dark rounded-2 bg-white'>
                                             <div>
                                                 <img src={e?.thumbnail} alt="" style={{ height: "300px", width: "100%", borderTopLeftRadius: "0.3rem", borderTopRightRadius: "0.3rem" }} />
                                             </div>
