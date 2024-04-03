@@ -22,7 +22,7 @@ export default function AllBrand() {
         })?.then((res) => {
             // console.log(res?.data)
             setData(res?.data?.data)
-        }).catch((err) => {
+        })?.catch((err) => {
             toast.error(err)
         })
     }, [filter, location])
