@@ -27,7 +27,7 @@
   position: absolute;
   bottom: -1px;
 }
-.header .nav a:hover::before {
+.header .nav .a:hover::before {
   transform: scale(1);
 }
 .header .nav .navlink1 {

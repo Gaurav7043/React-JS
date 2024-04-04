@@ -52,7 +52,7 @@ export default function Header() {
                 // Add more submenu items as needed
             ]
         },
-        { label: 'Find Your Device' },
+        // { label: 'Find Your Device' },
         { label: 'How to Apply' },
     ]
 
@@ -83,12 +83,12 @@ export default function Header() {
                                             <li key={index} className='disp_menu' style={{ padding: "15px 20px" }}>
                                                 {
                                                     menuItem?.submenu ? (
-                                                        <NavLink className="text-decoration-none">{menuItem?.label}
+                                                        <NavLink className="text-decoration-none a">{menuItem?.label}
                                                             <ul className='show_menu list-inline'>
                                                                 {
                                                                     menuItem?.submenu?.map((subItem, subIndex) => (
                                                                         <li key={subIndex} style={{ padding: "5px 25px" }}>
-                                                                            <NavLink to={"/mobile"} state={{ brand: subItem?.brand }} className="text-decoration-none" style={{ fontWeight: "200", fontSize: "16px" }}>{subItem?.label}</NavLink>
+                                                                            <NavLink to={"/mobile"} state={{ brand: subItem?.brand }} className="text-decoration-none a" style={{ fontWeight: "200", fontSize: "16px" }}>{subItem?.label}</NavLink>
                                                                         </li>
                                                                     ))
                                                                 }
@@ -96,7 +96,7 @@ export default function Header() {
                                                         </NavLink>
                                                     ) : 
                                                     (
-                                                        <NavLink className="text-decoration-none">{menuItem.label}</NavLink>
+                                                        <NavLink className="text-decoration-none a">{menuItem.label}</NavLink>
                                                     )
                                                 }
                                             </li>
@@ -108,7 +108,7 @@ export default function Header() {
                                         ) : 
                                         (
                                             <li style={{ padding: "15px 20px" }}>
-                                                <NavLink to={"/login"} className="text-decoration-none">Login</NavLink>
+                                                <NavLink to={"/login"} className="text-decoration-none a">Login</NavLink>
                                             </li>
                                         )
                                     }

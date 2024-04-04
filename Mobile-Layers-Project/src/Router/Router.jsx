@@ -35,7 +35,7 @@ export default function Router() {
                 <Provider store={Store}>
                     <Header />
                     <Routes>
-                        {/* ==============User============ */}
+                        {/* ============== User ============ */}
                         <Route path='/' Component={Home} />
                         <Route path='/forgotPassword' Component={ForgotPassword} />
                         <Route path='/trackorder' element={<ProtectedRouteUser ComponentUser={<TrackOrder />} />} />
@@ -51,18 +51,18 @@ export default function Router() {
                         <Route path='/layercollect' Component={LayerCollection} />
                         <Route path='/mobile' Component={AllBrand} />
 
-                        {/* ==============Common============ */}
+                        {/* ============== Common ============ */}
                         <Route path='/login' element={<Login />} />
                         <Route path='/signup' Component={SignUp} />
                         <Route path='/profile' element={<ProtectedRouteUser ComponentUser={<Profile />} />} />
 
-                        {/* ==============Admin============ */}
+                        {/* ============== Admin ============ */}
                         <Route path='/dashboard' element={<ProtectedRouter Component={<DashBoard />} />} />
                         <Route path='/admin-product' element={<ProtectedRouter Component={<Product />} />} />
                         <Route path='/order' element={<ProtectedRouter Component={<Order />} />} />
                         <Route path='/user' element={<ProtectedRouter Component={<User />} />} />
 
-                        {/* ==============Error============ */}
+                        {/* ============== Error ============ */}
                         <Route path='*' Component={Error} />
                     </Routes>
                     <Footer />
