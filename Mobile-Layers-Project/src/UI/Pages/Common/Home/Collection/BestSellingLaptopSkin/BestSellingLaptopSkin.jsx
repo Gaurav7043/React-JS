@@ -1,14 +1,14 @@
 import React, { useLayoutEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import './BestSellingLaptopSkin.css'
-import jediattack from '../../../../../public/jediattack-logo.webp'
-import universe from '../../../../../public/universe-logo.webp'
-import manda from '../../../../../public/manda-logo.webp'
-import cybermind from '../../../../../public/cybermind-logo.webp'
-import magma from '../../../../../public/magma-logo.webp'
-import chaos from '../../../../../public/chaos-logo.webp'
-import abstrack from '../../../../../public/abstrack-logo.webp'
-import oceanic from '../../../../../public/oceanic-logo.webp'
+import jediattack from '../../../../../../../public/jediattack-logo.webp'
+import universe from '../../../../../../../public/universe-logo.webp'
+import manda from '../../../../../../../public/manda-logo.webp'
+import cybermind from '../../../../../../../public/cybermind-logo.webp'
+import magma from '../../../../../../../public/magma-logo.webp'
+import chaos from '../../../../../../../public/chaos-logo.webp'
+import abstrack from '../../../../../../../public/abstrack-logo.webp'
+import oceanic from '../../../../../../../public/oceanic-logo.webp'
 
 export default function BestSellingLaptopSkin() {
     useLayoutEffect(()=>{

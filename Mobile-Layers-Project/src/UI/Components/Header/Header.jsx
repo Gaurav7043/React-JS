@@ -7,7 +7,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { BoxSeam, Cart } from 'react-bootstrap-icons'
 import { CircleUserRound, Moon } from 'lucide-react'
 import { useSelector } from 'react-redux'
-import OffCanvas from '../../Pages/OffCanvas/OffCanvas'
+import OffCanvas from '../OffCanvas/OffCanvas'
 import { NavItem } from 'reactstrap'
 
 export default function Header() {

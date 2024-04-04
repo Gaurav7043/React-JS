@@ -1,6 +1,6 @@
 import React, { useLayoutEffect } from 'react'
 import { NavLink } from 'react-router-dom'
-import shopnow from '../../../../../public/shopnow-logo.webp'
+import shopnow from '../../../../../../../public/shopnow-logo.webp'
 
 export default function ShopNow() {
     useLayoutEffect(()=>{

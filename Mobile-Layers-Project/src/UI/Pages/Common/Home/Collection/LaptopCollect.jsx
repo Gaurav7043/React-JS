@@ -1,19 +1,15 @@
 import React, { useLayoutEffect } from 'react'
 import { NavLink } from 'react-router-dom'
-import apple from '../../../../public/iPhone-logo.webp'
-import samsung from '../../../../public/Samsung-logo.webp'
-import onepuls from '../../../../public/OnePlus-logo.webp'
-import google from '../../../../public/google-logo.webp'
-import realme from '../../../../public/realme-logo.webp'
-import xiaomi from '../../../../public/Xiaomi-logo.webp'
-import oppo from '../../../../public/Oppo-logo.webp'
-import nothing from '../../../../public/Nothing_logo.webp'
-import iqoo from '../../../../public/iqoo-logo.webp'
-import poco from '../../../../public/Poco-logo.webp'
-import vivo from '../../../../public/Vivo-logo.webp'
-import "./LayerCollection.css"
+import apple from '../../../../../../public/iPhone-logo.webp'
+import dell from '../../../../../../public/dell.webp'
+import lenovo from '../../../../../../public/Lenovo.webp'
+import realme from '../../../../../../public/realme-logo.webp'
+import xiaomi from '../../../../../../public/Xiaomi-logo.webp'
+import microsoft from '../../../../../../public/Microsoft.webp'
+import asus from '../../../../../../public/Asus-logo.webp'
+import "./LaptopCollect.css"
 
-export default function LayerCollection() {
+export default function LaptopCollect() {
     useLayoutEffect(()=>{
         window.scrollTo(0, 0)
     })
@@ -24,19 +20,15 @@ export default function LayerCollection() {
             brandText: "Select your Device",
         },
         {
-            brandImg: samsung,
+            brandImg: dell,
             brandText: "Select your Device",
         },
         {
-            brandImg: onepuls,
+            brandImg: lenovo,
             brandText: "Select your Device",
         },
         {
-            brandImg: nothing,
-            brandText: "Select your Device",
-        },
-        {
-            brandImg: google,
+            brandImg: asus,
             brandText: "Select your Device",
         },
         {
@@ -44,23 +36,11 @@ export default function LayerCollection() {
             brandText: "Select your Device",
         },
         {
-            brandImg: iqoo,
-            brandText: "Select your Device",
-        },
-        {
-            brandImg: poco,
+            brandImg: microsoft,
             brandText: "Select your Device",
         },
         {
             brandImg: realme,
-            brandText: "Select your Device",
-        },
-        {
-            brandImg: oppo,
-            brandText: "Select your Device",
-        },
-        {
-            brandImg: vivo,
             brandText: "Select your Device",
         },
     ]
@@ -74,17 +54,17 @@ export default function LayerCollection() {
             </div>
 
             <h1 className='text-center mt-3 mb-3' style={{ fontWeight: "400", borderTop: "1px solid #00000014", padding: "15px" }}>Select Your Brand</h1>
-            <div className='layer_collection'>
+            <div className='lapcollect'>
                 <div className="container">
-                    <div className='layers_collect'>
+                    <div className='top'>
                         {
                             brandData.map((e, i) => {
                                 return (
-                                    <div key={i} className='layer_collect'>
+                                    <div key={i} className='laptop_collect'>
                                         <NavLink className="text-decoration-none text-black">
-                                            <div className='layer_collect_image'>
+                                            <div className='laptop_collect_image'>
                                                 <img src={e?.brandImg} alt="" style={{ height: "250px", maxWidth: "100%" }} />
-                                                <span className='text-white layer_collect_text'>{e?.brandText}</span>
+                                                <span className='text-white laptop_collect_text'>{e?.brandText}</span>
                                             </div>
                                         </NavLink>
                                     </div>

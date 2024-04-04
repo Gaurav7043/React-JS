@@ -3,7 +3,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { Button } from 'reactstrap'
-import { logout } from '../../../Redux/Fetures/Auth/AuthSlice'
+import { logout } from '../../../../Redux/Fetures/Auth/AuthSlice'
 
 export default function Profile() {
     const { user } = useSelector((state) => state?.authSlice)

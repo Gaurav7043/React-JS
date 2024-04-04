@@ -1,14 +1,14 @@
 import React, { useLayoutEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import './BestSellingMobileSkin.css'
-import deadpool from '../../../../../public/Deadpool-logo.webp'
-import avengers from '../../../../../public/avengers-logo.webp'
-import captainamerica from '../../../../../public/captainamerica-logo.webp'
-import since from '../../../../../public/since-logo.webp'
-import heroes from '../../../../../public/heroes-logo.webp'
-import attack from '../../../../../public/attack-logo.webp'
-import MoonKnightRising from '../../../../../public/Moon_Knight_Rising-logo.webp'
-import astonishing from '../../../../../public/astonishing-logo.webp'
+import deadpool from '../../../../../../../public/Deadpool-logo.webp'
+import avengers from '../../../../../../../public/avengers-logo.webp'
+import captainamerica from '../../../../../../../public/captainamerica-logo.webp'
+import since from '../../../../../../../public/since-logo.webp'
+import heroes from '../../../../../../../public/heroes-logo.webp'
+import attack from '../../../../../../../public/attack-logo.webp'
+import MoonKnightRising from '../../../../../../../public/Moon_Knight_Rising-logo.webp'
+import astonishing from '../../../../../../../public/astonishing-logo.webp'
 
 export default function BestSellingMobileSkin() {
     useLayoutEffect(()=>{
