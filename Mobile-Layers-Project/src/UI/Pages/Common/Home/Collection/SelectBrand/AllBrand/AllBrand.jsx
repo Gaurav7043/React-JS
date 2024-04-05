@@ -29,10 +29,10 @@ export default function AllBrand() {
         })
     }, [filter, location])
     
-    const previewHandler = (e)=>{
+    const previewHandler = (id)=>{
         axios({
             method: "get",
-            url: BE_URL + `/product/getProductById/${e}`,
+            url: BE_URL + `/product/getProductById/${id}`,
         })?.then((res)=>{
             console.log(res?.data)
             setDetail(res?.data?.data)
