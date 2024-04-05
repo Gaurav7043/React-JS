@@ -4,10 +4,12 @@ import { NavLink, useLocation } from 'react-router-dom'
 import './AllBrand.css'
 import { toast } from 'react-toastify'
 import { BE_URL } from '../../../../../../../Config'
+import AllBrandDetails from './AllBrandDetails'
 
 export default function AllBrand() {
     const [data, setData] = useState([])
     const [filter, setFilter] = useState({})
+    const [detail, setDetail] = useState(null)
 
     let location = useLocation()
     // console.log("=======location=====>", location?.state?.brand)
@@ -26,6 +28,19 @@ export default function AllBrand() {
             toast.error(err)
         })
     }, [filter, location])
+    
+    const previewHandler = (e)=>{
+        axios({
+            method: "get",
+            url: BE_URL + `/product/getProductById/${e}`,
+        })?.then((res)=>{
+            console.log(res?.data)
+            setDetail(res?.data?.data)
+        })?.catch((err)=>{
+            console.log(err)
+            toast.error("Failed to load product details")
+        })
+    }
 
     return (
         <>
@@ -43,8 +58,8 @@ export default function AllBrand() {
                     {
                         data?.map((e, i) => {
                             return (
-                                <div key={i} className='apple_box'>
-                                    <NavLink className="text-decoration-none text-black">
+                                <div key={i} className='apple_box' onClick={()=>previewHandler(e?._id)}>
+                                    <NavLink to={`/productDetails`} className="text-decoration-none text-black">
                                         <div className='apple_image'>
                                             <img src={e?.thumbnail} alt="" style={{ height: "100%", width: "50%" }} />
                                         </div>
@@ -58,6 +73,9 @@ export default function AllBrand() {
                     }
                 </div>
             </div>
+
+            {/* <AllBrandDetails isOpen={detail} toggle={() => setDetail(false)} details={detail} /> */}
+            <AllBrandDetails detail={detail} />
         </>
     )
 }

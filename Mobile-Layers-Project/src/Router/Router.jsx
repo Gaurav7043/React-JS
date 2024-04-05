@@ -27,6 +27,7 @@ import SignUp from '../UI/Pages/Auth/SignUp/SignUp'
 import Error from '../UI/Pages/Error/Error'
 import Profile from '../UI/Pages/Common/Profile/Profile'
 import FAQ from '../UI/Pages/Common/FAQ/FAQ'
+import AllBrandDetails from '../UI/Pages/Common/Home/Collection/SelectBrand/AllBrand/AllBrandDetails'
 
 export default function Router() {
     return (
@@ -50,6 +51,8 @@ export default function Router() {
                         <Route path='/collect' Component={LaptopCollect} />
                         <Route path='/layercollect' Component={LayerCollection} />
                         <Route path='/mobile' Component={AllBrand} />
+                        {/* <Route path="/productDetails" component={AllBrandDetails} /> */}
+                        <Route path='/productDetails' element={<AllBrandDetails />} />
 
                         {/* ============== Common ============ */}
                         <Route path='/login' element={<Login />} />
