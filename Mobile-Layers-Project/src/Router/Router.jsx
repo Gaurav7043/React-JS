@@ -28,6 +28,7 @@ import Error from '../UI/Pages/Error/Error'
 import Profile from '../UI/Pages/Common/Profile/Profile'
 import FAQ from '../UI/Pages/Common/FAQ/FAQ'
 import AllBrandDetails from '../UI/Pages/Common/Home/Collection/SelectBrand/AllBrand/AllBrandDetails'
+import HowToApply from '../UI/Pages/Common/HowToApply/HowToApply'
 
 export default function Router() {
     return (
@@ -40,6 +41,7 @@ export default function Router() {
                         <Route path='/' Component={Home} />
                         <Route path='/forgotPassword' Component={ForgotPassword} />
                         <Route path='/trackorder' element={<ProtectedRouteUser ComponentUser={<TrackOrder />} />} />
+                        <Route path='/apply' Component={HowToApply} />
                         <Route path='/brand' element={<SelectBrand/>} />
                         <Route path="/about" element={<About />} />
                         <Route path='/contact' element={<Contact />} />
@@ -51,8 +53,7 @@ export default function Router() {
                         <Route path='/collect' Component={LaptopCollect} />
                         <Route path='/layercollect' Component={LayerCollection} />
                         <Route path='/mobile' Component={AllBrand} />
-                        {/* <Route path="/productDetails" component={AllBrandDetails} /> */}
-                        <Route path='/productDetails' element={<AllBrandDetails />} />
+                        <Route path='/productDetail/:id' Component={AllBrandDetails} />
 
                         {/* ============== Common ============ */}
                         <Route path='/login' element={<Login />} />

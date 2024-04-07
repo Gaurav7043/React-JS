@@ -38,3 +38,18 @@
 .apple .apple_grid .apple_box:hover .apple_text::before{
     transform: scale(1);
 }
+.bx-viewport {
+    height: 604px !important;
+}
+.bx-wrapper {
+    width: 50% !important;
+    border: none;
+    margin-bottom: 0px;
+}
+.bx-wrapper img {
+    width: 100% !important;
+    height: 604px;
+}
+.bx-wrapper .bx-controls-direction a{
+    z-index: 0 !important;
+}

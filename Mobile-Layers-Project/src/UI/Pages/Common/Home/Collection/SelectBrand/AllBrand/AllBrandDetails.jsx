@@ -1,56 +1,87 @@
-// import React from 'react'
-// import { Modal, ModalHeader, ModalBody } from 'reactstrap'
+import React, { useEffect, useState } from 'react'
+import { Button } from 'reactstrap'
+import { NavLink, useLocation } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSquareFacebook, faTwitter, faPinterest } from '@fortawesome/free-brands-svg-icons'
+import './AllBrand.css'
+import ReviewForm from './ReviewForm'
+import ReviewList from './ReviewList'
 
-// export default function AllBrandDetails({ isOpen, toggle, details }) {
-//     return (
-//         <Modal isOpen={isOpen} toggle={toggle} backdrop='static'>
-//             <ModalHeader toggle={toggle}>Product Details</ModalHeader>
-//             <ModalBody>
-//                 {
-//                     details && (
-//                         <>
-//                             <div className='text-center p-2'>
-//                                 <img src={details?.thumbnail} alt="" width="200px" height="250px" />
-//                             </div>
-//                             <div className='border dark rounded-2'>
-//                                 <div className="d-flex justify-content-between border-bottom dark" style={{ padding: "05px 11px" }}>
-//                                     <div><span className='fw-bold'>Title:-</span> {details?.title}</div>
-//                                     <div><span className='fw-bold'>Description:-</span> {details?.description}</div>
-//                                 </div>
-//                                 <div className="d-flex justify-content-between border-bottom dark" style={{ padding: "05px 11px" }}>
-//                                     <div><span className='fw-bold'>Price:-</span> {details?.price}</div>
-//                                     <div><span className='fw-bold'>Discount:-</span> {details?.discountPercentage || 0} %</div>
-//                                 </div>
-//                                 <div className="d-flex justify-content-between border-bottom dark" style={{ padding: "05px 11px" }}>
-//                                     <div>
-//                                         <span className='fw-bold'>Final price:-</span>
-//                                         {details?.price - ((details?.price * details?.discountPercentage) / 100).toFixed(1) || "not discount"}
-//                                     </div>
-//                                     <div><span className="fw-bold">Available Stock:-</span> {details?.availableStock}</div>
-//                                 </div>
-//                             </div>
-//                         </>
-//                     )
-//                 }
-//             </ModalBody>
-//         </Modal>
-//     )
-// }
+export default function AllBrandDetails() {
+    let location = useLocation()
+    // console.log("data=====>", location)
 
-import React from 'react'
+    const { title, images, description, price, brand, discountPercentage } = location?.state || {}
+    const productId = location?.state?._id
+    const [reviews, setReviews] = useState([])
 
-export default function AllBrandDetails({ detail }) {
+    // Load reviews for the specific product from local storage when component mounts
+    useEffect(() => {
+        const storedReviews = JSON.parse(localStorage.getItem(`reviews_${productId}`)) || []
+        setReviews(storedReviews)
+    }, [productId])
+
+    // Update local storage whenever reviews change
+    useEffect(() => {
+        localStorage.setItem(`reviews_${productId}`, JSON.stringify(reviews))
+    }, [reviews, productId]);
+
+    // Add Review
+    const addReview = (review) => {
+        setReviews([...reviews, review])
+    }
+
+    // Delete Review
+    const deleteReview = (index) => {
+        const newReviews = [...reviews]
+        newReviews.splice(index, 1)
+        setReviews(newReviews)
+    }
 
     return (
         <>
-        <h1>gaurav</h1>
-        <h1>harsh</h1>
-            <h1>{detail?.title}</h1>
-            <div>
-                <img src={detail?.thumbnail} alt={detail?.title} style={{ maxWidth: '100%', height: 'auto' }} />
+            <div className='d-flex gap-3 ms-5 ps-4 pt-3 pb-3 collection'>
+                <NavLink to={"/"} className="text-decoration-none home" style={{ color: "black", opacity: "0.58" }}>Home</NavLink>
+                <div style={{ opacity: "0.58" }}>/</div>
+                <div>Collection</div>
+                <div style={{ opacity: "0.58" }}>/</div>
+                <div style={{ opacity: "0.58" }}>{brand}</div>
+                <div style={{ opacity: "0.58" }}>/</div>
+                <div style={{ opacity: "0.58" }}>{title}</div>
             </div>
-            <p>Description: {detail?.description}</p>
-            <p>Price: ${detail?.price}</p>
+            <div style={{ borderBottom: "1px solid rgba(0, 0, 0, 0.08)", marginBottom: "30px" }}></div>
+
+            <div className='d-flex border dark'>
+                <div className="bxslider">
+                    {
+                        images?.map((image, index) => (
+                            <img key={index} src={image} alt={`${title} - Image ${index + 1}`} />
+                        ))
+                    }
+                </div>
+
+                <div className='p-5' style={{ flex: "1" }}>
+                    <p className='m-0'>{title}</p>
+                    <h1 style={{ letterSpacing: "1px", fontFamily: "sans-serif" }}>{description}</h1>
+                    <p style={{ fontSize: "23px" }}>₹ {price - discountPercentage}.00 MRP(inclusive of taxes): <span className='text-decoration-line-through' style={{ color: "gray" }}>₹ {price}.00</span></p>
+                    <Button className='w-100 bg-black rounded-5 mt-4 mb-3'>Add To Cart</Button>
+                    <div className='d-flex align-items-center justify-content-between'>
+                        <p style={{ fontSize: "20px", marginBottom: "0px" }}>share:
+                            <a href='https://twitter.com/' target='_blank' style={{ color: "black", fontSize: "25px" }}>
+                                <FontAwesomeIcon icon={faTwitter} className='ps-3 pe-3' role='button' />
+                            </a>
+                            <a href='https://www.facebook.com/' target='_blank' style={{ color: "black", fontSize: "25px" }}>
+                                <FontAwesomeIcon icon={faSquareFacebook} className='pe-3' role='button' />
+                            </a>
+                            <a href='https://in.pinterest.com/' target='_blank' style={{ color: "black", fontSize: "25px" }}>
+                                <FontAwesomeIcon icon={faPinterest} className='pe-3' role='button' />
+                            </a>
+                        </p>
+                        <ReviewForm style={{ flex: "1" }} addReview={addReview} />
+                    </div>
+                    <ReviewList reviews={reviews} deleteReview={deleteReview} />
+                </div>
+            </div>
         </>
     )
 }

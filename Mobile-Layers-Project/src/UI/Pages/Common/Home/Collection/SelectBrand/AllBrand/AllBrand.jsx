@@ -4,12 +4,10 @@ import { NavLink, useLocation } from 'react-router-dom'
 import './AllBrand.css'
 import { toast } from 'react-toastify'
 import { BE_URL } from '../../../../../../../Config'
-import AllBrandDetails from './AllBrandDetails'
 
 export default function AllBrand() {
     const [data, setData] = useState([])
     const [filter, setFilter] = useState({})
-    const [detail, setDetail] = useState(null)
 
     let location = useLocation()
     // console.log("=======location=====>", location?.state?.brand)
@@ -28,15 +26,15 @@ export default function AllBrand() {
             toast.error(err)
         })
     }, [filter, location])
-    
-    const previewHandler = (id)=>{
+
+    const previewHandler = (id) => {
         axios({
             method: "get",
             url: BE_URL + `/product/getProductById/${id}`,
-        })?.then((res)=>{
-            console.log(res?.data)
-            setDetail(res?.data?.data)
-        })?.catch((err)=>{
+        })?.then((res) => {
+            // console.log(res?.data)
+            setFilter(res?.data?.data)
+        })?.catch((err) => {
             console.log(err)
             toast.error("Failed to load product details")
         })
@@ -58,8 +56,8 @@ export default function AllBrand() {
                     {
                         data?.map((e, i) => {
                             return (
-                                <div key={i} className='apple_box' onClick={()=>previewHandler(e?._id)}>
-                                    <NavLink to={`/productDetails`} className="text-decoration-none text-black">
+                                <div key={i} className='apple_box' onClick={() => previewHandler(e?._id)}>
+                                    <NavLink to={`/productDetail/${e?._id}`} state={e} className="text-decoration-none text-black">
                                         <div className='apple_image'>
                                             <img src={e?.thumbnail} alt="" style={{ height: "100%", width: "50%" }} />
                                         </div>
@@ -73,9 +71,6 @@ export default function AllBrand() {
                     }
                 </div>
             </div>
-
-            {/* <AllBrandDetails isOpen={detail} toggle={() => setDetail(false)} details={detail} /> */}
-            <AllBrandDetails detail={detail} />
         </>
     )
 }

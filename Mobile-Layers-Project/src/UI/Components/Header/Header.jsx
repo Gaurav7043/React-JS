@@ -52,8 +52,7 @@ export default function Header() {
                 // Add more submenu items as needed
             ]
         },
-        // { label: 'Find Your Device' },
-        { label: 'How to Apply' },
+        { label: 'How to Apply', path: '/apply' }
     ]
 
     // admin site
@@ -77,79 +76,79 @@ export default function Header() {
                         <div className="nav w-100" style={{ flex: "3" }}>
                             {
                                 data?.user?.userType !== "admin" ?
-                                <ul className='list-inline d-flex align-items-center justify-content-end w-100 m-0 nav'>
-                                    {
-                                        menuItems?.map((menuItem, index) => (
-                                            <li key={index} className='disp_menu' style={{ padding: "15px 20px" }}>
-                                                {
-                                                    menuItem?.submenu ? (
-                                                        <NavLink className="text-decoration-none a">{menuItem?.label}
-                                                            <ul className='show_menu list-inline'>
-                                                                {
-                                                                    menuItem?.submenu?.map((subItem, subIndex) => (
-                                                                        <li key={subIndex} style={{ padding: "5px 25px" }}>
-                                                                            <NavLink to={"/mobile"} state={{ brand: subItem?.brand }} className="text-decoration-none a" style={{ fontWeight: "200", fontSize: "16px" }}>{subItem?.label}</NavLink>
-                                                                        </li>
-                                                                    ))
-                                                                }
-                                                            </ul>
-                                                        </NavLink>
-                                                    ) : 
-                                                    (
-                                                        <NavLink className="text-decoration-none a">{menuItem.label}</NavLink>
-                                                    )
-                                                }
-                                            </li>
-                                        ))
-                                    }
-                                    {
-                                        data?.token ? (
-                                            <CircleUserRound role='button' onClick={() => navigate("/profile")} />
-                                        ) : 
-                                        (
-                                            <li style={{ padding: "15px 20px" }}>
-                                                <NavLink to={"/login"} className="text-decoration-none a">Login</NavLink>
-                                            </li>
-                                        )
-                                    }
-                                    <li style={{ padding: "15px 20px" }}>
-                                        <NavLink to={"/trackorder"} className="navlink1 fs-5">
-                                            <BoxSeam className='box' />
-                                        </NavLink>
-                                    </li>
-                                    <li style={{ padding: "15px 20px" }}>
-                                        <NavLink to={"/search"} className="navlink1 fs-5">
-                                            <FontAwesomeIcon icon={faSearch} />
-                                        </NavLink>
-                                    </li>
-                                    <li style={{ padding: "15px 20px" }}>
-                                        <NavLink className="navlink1 fs-5">
-                                            <Cart onClick={toggleOffCanves} />
-                                        </NavLink>
-                                    </li>
-                                    <li style={{ padding: "15px 0px" }}>
-                                        <NavLink to={"/d&lmode"} className="navlink1 fs-5">
-                                            <Moon />
-                                        </NavLink>
-                                    </li>
-                                </ul>:
-                                <>
-                                    <ul className='list-inline d-flex align-items-center justify-content-center w-75 m-0 nav'>{
-                                        // Admin menu items
-                                        adminMenuItems?.map((menuItem, index) => (
-                                            <NavItem key={index} style={{ padding: "15px 20px" }}>
-                                                <NavLink to={menuItem?.link} className="text-decoration-none">{menuItem?.label}</NavLink>
-                                            </NavItem>
-                                        ))}
-                                    </ul>
-                                    {
-                                        data?.token ?
-                                        <CircleUserRound role='button' onClick={() => navigate("/profile")} /> :
-                                        <NavItem>
-                                            <NavLink to={"/login"} className="text-decoration-none">Login</NavLink>
-                                        </NavItem>
-                                    }
-                                </>
+                                    <ul className='list-inline d-flex align-items-center justify-content-end w-100 m-0 nav'>
+                                        {
+                                            menuItems?.map((menuItem, index) => (
+                                                <li key={index} className='disp_menu' style={{ padding: "15px 20px" }}>
+                                                    {
+                                                        menuItem?.submenu ? (
+                                                            <NavLink to={"/brand"} className="text-decoration-none a">{menuItem?.label}
+                                                                <ul className='show_menu list-inline'>
+                                                                    {
+                                                                        menuItem?.submenu?.map((subItem, subIndex) => (
+                                                                            <li key={subIndex} style={{ padding: "5px 25px" }}>
+                                                                                <NavLink to={"/mobile"} state={{ brand: subItem?.brand }} className="text-decoration-none a" style={{ fontWeight: "200", fontSize: "16px" }}>{subItem?.label}</NavLink>
+                                                                            </li>
+                                                                        ))
+                                                                    }
+                                                                </ul>
+                                                            </NavLink>
+                                                        ) :
+                                                            (
+                                                                <NavLink to={"/apply"} className="text-decoration-none a">{menuItem.label}</NavLink>
+                                                            )
+                                                    }
+                                                </li>
+                                            ))
+                                        }
+                                        {
+                                            data?.token ? (
+                                                <CircleUserRound role='button' onClick={() => navigate("/profile")} />
+                                            ) :
+                                                (
+                                                    <li style={{ padding: "15px 20px" }}>
+                                                        <NavLink to={"/login"} className="text-decoration-none a">Login</NavLink>
+                                                    </li>
+                                                )
+                                        }
+                                        <li style={{ padding: "15px 20px" }}>
+                                            <NavLink to={"/trackorder"} className="navlink1 fs-5">
+                                                <BoxSeam className='box' />
+                                            </NavLink>
+                                        </li>
+                                        <li style={{ padding: "15px 20px" }}>
+                                            <NavLink to={"/search"} className="navlink1 fs-5">
+                                                <FontAwesomeIcon icon={faSearch} />
+                                            </NavLink>
+                                        </li>
+                                        <li style={{ padding: "15px 20px" }}>
+                                            <NavLink className="navlink1 fs-5">
+                                                <Cart onClick={toggleOffCanves} />
+                                            </NavLink>
+                                        </li>
+                                        <li style={{ padding: "15px 0px" }}>
+                                            <NavLink to={"/d&lmode"} className="navlink1 fs-5">
+                                                <Moon />
+                                            </NavLink>
+                                        </li>
+                                    </ul> :
+                                    <>
+                                        <ul className='list-inline d-flex align-items-center justify-content-center w-75 m-0 nav'>{
+                                            // Admin menu items
+                                            adminMenuItems?.map((menuItem, index) => (
+                                                <NavItem key={index} style={{ padding: "15px 20px" }}>
+                                                    <NavLink to={menuItem?.link} className="text-decoration-none">{menuItem?.label}</NavLink>
+                                                </NavItem>
+                                            ))}
+                                        </ul>
+                                        {
+                                            data?.token ?
+                                                <CircleUserRound role='button' onClick={() => navigate("/profile")} /> :
+                                                <NavItem>
+                                                    <NavLink to={"/login"} className="text-decoration-none">Login</NavLink>
+                                                </NavItem>
+                                        }
+                                    </>
                             }
                         </div>
                     </div>
