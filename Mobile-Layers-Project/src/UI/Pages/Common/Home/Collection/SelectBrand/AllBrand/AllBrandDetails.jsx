@@ -83,7 +83,7 @@ export default function AllBrandDetails() {
                     {/* Render images as thumbnails */}
                     {
                         images.map((image, index) => (
-                            <img key={index} className="cursor-pointer mt-4 me-4 rounded-circle" src={image} alt={`${title} - Image ${index + 1}`} onClick={() => setSelectedImage(image)} height="93px" />
+                            <img key={index} role='button' className="mt-4 me-4 rounded-circle" src={image} alt={`${title} - Image ${index + 1}`} onClick={() => setSelectedImage(image)} height="93px" />
                         ))
                     }
                     <ReviewList reviews={reviews} deleteReview={deleteReview} />
