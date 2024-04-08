@@ -38,6 +38,9 @@ export default function AllBrandDetails() {
         setReviews(newReviews)
     }
 
+    // State to hold the currently selected image
+    const [selectedImage, setSelectedImage] = useState(images?.length > 0 ? images[0] : null)
+
     return (
         <>
             <div className='d-flex gap-3 ms-5 ps-4 pt-3 pb-3 collection'>
@@ -52,13 +55,11 @@ export default function AllBrandDetails() {
             <div style={{ borderBottom: "1px solid rgba(0, 0, 0, 0.08)", marginBottom: "30px" }}></div>
 
             <div className='d-flex border dark'>
-                <div className="bxslider">
-                    {
-                        images?.map((image, index) => (
-                            <img key={index} src={image} alt={`${title} - Image ${index + 1}`} />
-                        ))
-                    }
-                </div>
+                {
+                    selectedImage && (
+                        <img className="w-50" src={selectedImage} alt={`${title} - Selected Image`} />
+                    )
+                }
 
                 <div className='p-5' style={{ flex: "1" }}>
                     <p className='m-0'>{title}</p>
@@ -79,6 +80,12 @@ export default function AllBrandDetails() {
                         </p>
                         <ReviewForm style={{ flex: "1" }} addReview={addReview} />
                     </div>
+                    {/* Render images as thumbnails */}
+                    {
+                        images.map((image, index) => (
+                            <img key={index} className="cursor-pointer mt-4 me-4 rounded-circle" src={image} alt={`${title} - Image ${index + 1}`} onClick={() => setSelectedImage(image)} height="93px" />
+                        ))
+                    }
                     <ReviewList reviews={reviews} deleteReview={deleteReview} />
                 </div>
             </div>
