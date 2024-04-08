@@ -66,6 +66,18 @@ export default function AllBrandDetails() {
                     <h1 style={{ letterSpacing: "1px", fontFamily: "sans-serif" }}>{description}</h1>
                     <p style={{ fontSize: "23px" }}>₹ {price - discountPercentage}.00 MRP(inclusive of taxes): <span className='text-decoration-line-through' style={{ color: "gray" }}>₹ {price}.00</span></p>
                     <Button className='w-100 bg-black rounded-5 mt-4 mb-3'>Add To Cart</Button>
+                    {/* Render images as thumbnails */}
+                    <div className='d-flex'>
+                        {
+                            images?.map((image, index) => {
+                                return (
+                                    <div>
+                                        <img key={index} role='button' className="mt-4 me-4 mb-5 rounded-circle" src={image} alt={`${title} -   Image ${index + 1}`} onClick={() => setSelectedImage(image)} height="93px" />
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
                     <div className='d-flex align-items-center justify-content-between'>
                         <p style={{ fontSize: "20px", marginBottom: "0px" }}>share:
                             <a href='https://twitter.com/' target='_blank' style={{ color: "black", fontSize: "25px" }}>
@@ -80,12 +92,7 @@ export default function AllBrandDetails() {
                         </p>
                         <ReviewForm style={{ flex: "1" }} addReview={addReview} />
                     </div>
-                    {/* Render images as thumbnails */}
-                    {
-                        images.map((image, index) => (
-                            <img key={index} role='button' className="mt-4 me-4 rounded-circle" src={image} alt={`${title} - Image ${index + 1}`} onClick={() => setSelectedImage(image)} height="93px" />
-                        ))
-                    }
+
                     <ReviewList reviews={reviews} deleteReview={deleteReview} />
                 </div>
             </div>
