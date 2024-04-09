@@ -2,7 +2,7 @@ import React from 'react'
 import bgImage from '../../../../../public/bg.webp'
 import fitpack from '../../../../../public/Fitpack.webp'
 import rumble from '../../../../../public/rumble.webp'
-import OurCollection from './OurCollection'
+import Pop from './Pop'
 
 export default function Home() {
     return (
@@ -21,9 +21,8 @@ export default function Home() {
                     <img src={rumble} alt="" className='hover:scale-110 transition-all duration-700' />
                 </div>
             </div>
-
-            {/* Our_Collection */}
-            <OurCollection />
+            {/*  */}
+            <Pop />
 
         </>
     )
