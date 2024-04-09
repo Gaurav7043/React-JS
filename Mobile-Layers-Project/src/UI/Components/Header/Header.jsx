@@ -82,7 +82,7 @@ export default function Header() {
                                                 <li key={index} className='disp_menu' style={{ padding: "15px 20px" }}>
                                                     {
                                                         menuItem?.submenu ? (
-                                                            <NavLink to={"/brand"} className="text-decoration-none a">{menuItem?.label}
+                                                            <NavLink className="text-decoration-none a">{menuItem?.label}
                                                                 <ul className='show_menu list-inline'>
                                                                     {
                                                                         menuItem?.submenu?.map((subItem, subIndex) => (
