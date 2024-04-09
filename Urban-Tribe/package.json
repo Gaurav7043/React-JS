@@ -27,6 +27,7 @@
     "react-bootstrap-icons": "^1.10.3",
     "react-dom": "^18.2.0",
     "react-lodash": "^0.1.2",
+    "react-multi-carousel": "^2.8.5",
     "react-paginate": "^8.2.0",
     "react-redux": "^9.1.0",
     "react-router-dom": "^6.21.3",
