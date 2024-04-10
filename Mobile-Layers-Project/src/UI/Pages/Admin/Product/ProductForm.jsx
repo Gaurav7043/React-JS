@@ -6,14 +6,17 @@ import { toast } from 'react-toastify'
 import axios from 'axios'
 import './Product.css'
 import { BE_URL } from '../../../../Config'
+import { useSelector } from 'react-redux'
 
 export default function ProductForm({ modal, toggle, product, setProduct, setAllProduct, updateMode, refetchData, refetch, intialProduct }) {
+    const data = useSelector((state) => state?.authSlice?.token)
+    // console.log("🚀 ~ ProductForm ~ location:", data)
 
     // USEEFFECT HANDLER
     useEffect(() => {
         axios({
             method: "get",
-            url: BE_URL+"/product/getAll",
+            url: BE_URL + "/product/getAll",
         })?.then((res) => {
             // console.log(res?.data)
             setAllProduct(res?.data?.data)
@@ -25,13 +28,17 @@ export default function ProductForm({ modal, toggle, product, setProduct, setAll
     // SUBMIT HANDLER
     const submitHandler = (e) => {
         e?.preventDefault()
-        console.log("---------->", product)
+        // console.log("---------->", product)
         axios({
             method: "post",
-            url: BE_URL+"/product/create",
+            url: BE_URL + "/product/create",
             data: product,
+            headers: {
+                authorization: `Beare ${data}`,
+                "Content-Type": "application/json"
+            }
         })?.then((res) => {
-            // console.log(res?.data)
+            console.log(res?.data)
             toast.success("Data Added")
             setProduct(intialProduct)
             toggle()
@@ -76,7 +83,7 @@ export default function ProductForm({ modal, toggle, product, setProduct, setAll
         // console.log("======>", product?._id)
         axios({
             method: "put",
-            url: BE_URL+`/product/update/${product?._id}`,
+            url: BE_URL + `/product/update/${product?._id}`,
             data: product,
         })?.then((res) => {
             // console.log(res?.data)
