@@ -15,7 +15,7 @@ export default function AllBrandDetails() {
     let location = useLocation()
     // console.log("data=====>", location)
 
-    const { title, images, description, price, brand, discountPercentage } = location?.state || {}
+    const { thumbnail, title, images, description, price, brand, discountPercentage } = location?.state || {}
     const productId = location?.state?._id
     const [reviews, setReviews] = useState([])
 
@@ -43,7 +43,7 @@ export default function AllBrandDetails() {
     }
 
     // State to hold the currently selected image
-    const [selectedImage, setSelectedImage] = useState(images?.length > 0 ? images[0] : null)
+    const [selectedImage, setSelectedImage] = useState(thumbnail || (images?.length > 0 ? images[0] : null))
 
     const data = useSelector((state) => state?.authSlice?.token)
     // console.log("===data=======>", data)
