@@ -38,8 +38,8 @@ export default function Header() {
         {
             label: 'Laptop Skin',
             submenu: [
-                { label: 'Macbook' },
-                { label: 'Windows' },
+                { label: 'Macbook', brand: 'Apple Laptop' },
+                { label: 'Windows', brand: 'window Laptop' },
                 // Add more submenu items as needed
             ]
         },
