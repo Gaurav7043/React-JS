@@ -50,7 +50,7 @@ export default function Header() {
               })}
             </ul>
 
-            <div className="border border-gray-400 rounded-md flex justify-center items-center pl-3 pr-1">
+            <div className="border border-gray-400 rounded-md flex justify-center items-center pl-3 pr-1 bg-white">
               <FontAwesomeIcon
                 className="text-gray-400 cursor-pointer"
                 icon={faSearch}
