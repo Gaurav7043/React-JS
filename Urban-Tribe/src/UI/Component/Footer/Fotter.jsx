@@ -1,10 +1,4 @@
-import {
-  Footer,
-  FooterDivider,
-  FooterIcon,
-  FooterLinkGroup,
-  FooterTitle,
-} from "flowbite-react";
+import { Footer, FooterIcon, FooterLinkGroup, FooterTitle } from "flowbite-react";
 import { BsFacebook, BsYoutube, BsInstagram, BsTwitter } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
 
@@ -14,10 +8,7 @@ export default function Fotter() {
       <div className="w-full">
         <div className="flex flex-wrap justify-between sm:flex-nowrap md:flex-wrap py-36 mx-40">
           <div style={{ flex: "0.50" }}>
-            <FooterTitle
-              className="text-red-600 text-lg"
-              title="Customer Service"
-            />
+            <FooterTitle className="text-red-600 text-lg" title="Customer Service" />
             <FooterLinkGroup col className="p-0">
               <NavLink className="text-black hover:!text-red-600" to="/signin">
                 Sign In
