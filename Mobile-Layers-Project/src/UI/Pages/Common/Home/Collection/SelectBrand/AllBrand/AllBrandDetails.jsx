@@ -1,72 +1,33 @@
 import React, { useEffect, useState } from 'react'
-import { Button } from 'reactstrap'
-import { NavLink, useLocation } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSquareFacebook, faTwitter, faPinterest } from '@fortawesome/free-brands-svg-icons'
-import './AllBrand.css'
-import ReviewForm from './ReviewForm'
-import ReviewList from './ReviewList'
 import axios from 'axios'
 import { BE_URL } from '../../../../../../../Config'
 import { toast } from 'react-toastify'
-import { useSelector } from 'react-redux'
+import { NavLink, useParams } from 'react-router-dom'
+import './AllBrand.css'
+import { Button } from 'reactstrap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPinterest, faSquareFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import ReviewList from './ReviewList'
+import ReviewForm from './ReviewForm'
 
 export default function AllBrandDetails() {
-    let location = useLocation()
-    // console.log("data=====>", location)
+    let [productData, setProductData] = useState({})
+    console.log("productData==============>", productData)
+    const paramsData = useParams()
+    console.log("========paramsData", paramsData)
 
-    const { thumbnail, title, images, description, price, brand, discountPercentage } = location?.state || {}
-    const productId = location?.state?._id
-    const [reviews, setReviews] = useState([])
-
-    // Load reviews for the specific product from local storage when component mounts
     useEffect(() => {
-        const storedReviews = JSON.parse(localStorage.getItem(`reviews_${productId}`)) || []
-        setReviews(storedReviews)
-    }, [productId])
-
-    // Update local storage whenever reviews change
-    useEffect(() => {
-        localStorage.setItem(`reviews_${productId}`, JSON.stringify(reviews))
-    }, [reviews, productId]);
-
-    // Add Review
-    const addReview = (review) => {
-        setReviews([...reviews, review])
-    }
-
-    // Delete Review
-    const deleteReview = (index) => {
-        const newReviews = [...reviews]
-        newReviews.splice(index, 1)
-        setReviews(newReviews)
-    }
-
-    // State to hold the currently selected image
-    const [selectedImage, setSelectedImage] = useState(thumbnail || (images?.length > 0 ? images[0] : null))
-
-    const data = useSelector((state) => state?.authSlice?.token)
-    // console.log("===data=======>", data)
-
-    // cart
-    const addCardHandler = (id)=>{
         axios({
-            method: "post",
-            url: BE_URL + `/cart/create/${id}`,
-            headers : {
-                authorization: `Beare ${data}`,
-                "Content-Type": "application/json"
-            }
+            method: "get",
+            url: BE_URL + `/product/getProductById/${paramsData?.id}`,
         })?.then((res) => {
-            console.log(res?.data?.data)
-            toast.success("success")
-            // setFilter(res?.data?.data)
+            // console.log(res?.data)
+            setProductData(res?.data?.data)
         })?.catch((err) => {
             console.log(err)
             toast.error("Failed to load product details")
         })
-        // console.log(id)
-    }
+    }, [])
 
     return (
         <>
@@ -75,31 +36,31 @@ export default function AllBrandDetails() {
                 <div style={{ opacity: "0.58" }}>/</div>
                 <div>Collection</div>
                 <div style={{ opacity: "0.58" }}>/</div>
-                <div style={{ opacity: "0.58" }}>{brand}</div>
+                <div style={{ opacity: "0.58" }}>{productData?.brand}</div>
                 <div style={{ opacity: "0.58" }}>/</div>
-                <div style={{ opacity: "0.58" }}>{title}</div>
+                <div style={{ opacity: "0.58" }}>{productData?.title}</div>
             </div>
             <div style={{ borderBottom: "1px solid rgba(0, 0, 0, 0.08)", marginBottom: "30px" }}></div>
 
             <div className='d-flex border dark'>
                 {
-                    selectedImage && (
-                        <img className="w-50" src={selectedImage} alt={`${title} - Selected Image`} />
-                    )
+                    // selectedImage && (
+                    <img className="w-50" src={productData?.images} alt={`${productData?.title} - Selected Image`} />
+                    // )
                 }
 
                 <div className='p-5' style={{ flex: "1" }}>
-                    <p className='m-0'>{title}</p>
-                    <h1 style={{ letterSpacing: "1px", fontFamily: "sans-serif" }}>{description}</h1>
-                    <p style={{ fontSize: "23px" }}>₹ {price - discountPercentage}.00 MRP(inclusive of taxes): <span className='text-decoration-line-through' style={{ color: "gray" }}>₹ {price}.00</span></p>
-                    <Button className='w-100 bg-black rounded-5 mt-4 mb-3' onClick={()=>addCardHandler(location?.state?._id)}>Add To Cart</Button>
+                    <p className='m-0'>{productData?.title}</p>
+                    <h1 style={{ letterSpacing: "1px", fontFamily: "sans-serif" }}>{productData?.description}</h1>
+                    <p style={{ fontSize: "23px" }}>₹ {productData?.price - productData?.discountPercentage}.00 MRP(inclusive of taxes): <span className='text-decoration-line-through' style={{ color: "gray" }}>₹ {productData?.price}.00</span></p>
+                    <Button className='w-100 bg-black rounded-5 mt-4 mb-3'>Add To Cart</Button>
                     {/* Render images as thumbnails */}
                     <div className='d-flex'>
                         {
-                            images?.map((image, index) => {
+                            productData?.images?.map((image, index) => {
                                 return (
                                     <div>
-                                        <img key={index} role='button' className="mt-4 me-4 mb-5 rounded-circle" src={image} alt={`${title} -   Image ${index + 1}`} onClick={() => setSelectedImage(image)} height="93px" />
+                                        <img key={index} role='button' className="mt-4 me-4 mb-5 rounded-circle" src={image} alt={`${productData?.title} -   Image ${index + 1}`} height="93px" />
                                     </div>
                                 )
                             })
@@ -117,10 +78,10 @@ export default function AllBrandDetails() {
                                 <FontAwesomeIcon icon={faPinterest} className='pe-3' role='button' />
                             </a>
                         </p>
-                        <ReviewForm style={{ flex: "1" }} addReview={addReview} />
+                        <ReviewForm style={{ flex: "1" }} />
                     </div>
 
-                    <ReviewList reviews={reviews} deleteReview={deleteReview} />
+                    <ReviewList />
                 </div>
             </div>
         </>

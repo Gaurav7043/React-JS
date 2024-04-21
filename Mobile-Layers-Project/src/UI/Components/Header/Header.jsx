@@ -9,6 +9,45 @@ import { CircleUserRound, Moon } from 'lucide-react'
 import { useSelector } from 'react-redux'
 import OffCanvas from '../OffCanvas/OffCanvas'
 import { NavItem } from 'reactstrap'
+// customer site
+const menuItems = [
+    {
+        label: 'Mobile Skin',
+        submenu: [
+            { label: 'iPhone', brand: 'Apple' },
+            { label: 'Samsung', brand: 'Samsung' },
+            { label: 'OnePlus', brand: 'OnePlus' },
+            { label: 'Pixel', brand: 'Google' },
+            // Add more submenu items as needed
+        ]
+    },
+    {
+        label: 'Laptop Skin',
+        submenu: [
+            { label: 'Macbook', brand: 'Apple Laptop' },
+            { label: 'Windows', brand: 'window Laptop' },
+            // Add more submenu items as needed
+        ]
+    },
+    {
+        label: 'Skin Collection',
+        submenu: [
+            { label: 'Dark' },
+            { label: 'Cyberforce' },
+            { label: 'Into the Woods' },
+            // Add more submenu items as needed
+        ]
+    },
+    { label: 'How to Apply', path: '/apply' }
+]
+
+// admin site
+const adminMenuItems = [
+    { label: 'Dashboard', link: '/dashboard' },
+    { label: 'Product', link: '/admin-product' },
+    { label: 'Order', link: '/order' },
+    { label: 'User', link: '/user' }
+];
 
 export default function Header() {
     const data = useSelector((state) => state.authSlice)
@@ -19,49 +58,11 @@ export default function Header() {
         setIsOpen(!isOpen)
     }
 
-    useLayoutEffect(() => {
-        window.scrollTo(0, 0)
-    })
+    // useLayoutEffect(() => {
+    //     window.scrollTo(0, 0)
+    // })
 
-    // customer site
-    const menuItems = [
-        {
-            label: 'Mobile Skin',
-            submenu: [
-                { label: 'iPhone', brand: 'Apple' },
-                { label: 'Samsung', brand: 'Samsung' },
-                { label: 'OnePlus', brand: 'OnePlus' },
-                { label: 'Pixel', brand: 'Google' },
-                // Add more submenu items as needed
-            ]
-        },
-        {
-            label: 'Laptop Skin',
-            submenu: [
-                { label: 'Macbook', brand: 'Apple Laptop' },
-                { label: 'Windows', brand: 'window Laptop' },
-                // Add more submenu items as needed
-            ]
-        },
-        {
-            label: 'Skin Collection',
-            submenu: [
-                { label: 'Dark' },
-                { label: 'Cyberforce' },
-                { label: 'Into the Woods' },
-                // Add more submenu items as needed
-            ]
-        },
-        { label: 'How to Apply', path: '/apply' }
-    ]
 
-    // admin site
-    const adminMenuItems = [
-        { label: 'Dashboard', link: '/dashboard' },
-        { label: 'Product', link: '/admin-product' },
-        { label: 'Order', link: '/order' },
-        { label: 'User', link: '/user' }
-    ];
 
     return (
         <>
@@ -103,7 +104,9 @@ export default function Header() {
                                         }
                                         {
                                             data?.token ? (
-                                                <CircleUserRound role='button' onClick={() => navigate("/profile")} />
+                                                <li style={{ padding: "15px 20px" }}>
+                                                    <CircleUserRound role='button' onClick={() => navigate("/profile")} />
+                                                </li>
                                             ) :
                                                 (
                                                     <li style={{ padding: "15px 20px" }}>
