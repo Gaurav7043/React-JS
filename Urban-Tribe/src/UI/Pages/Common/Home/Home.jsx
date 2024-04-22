@@ -46,7 +46,6 @@ export default function Home() {
         <div className="flex justify-center mb-[50px]"></div>
         <div className="flex justify-around text-center [&>*]:cursor-pointer">
           <div className="group/item flex flex-col items-center">
-            {" "}
             <RefreshCcw size={40} /> <br />
             Hassle Free Returns
           </div>
@@ -71,7 +70,7 @@ export default function Home() {
       {/* HOMEGROWN INDIAN BRAND*/}
       <div className="bg-[#d11e33] text-white p-[100px]">
         <div className="flex justify-center mb-[50px]">
-          <h2>HOMEGROWN INDIAN BRAND</h2>
+          <h2 className="flex justify-center">HOMEGROWN INDIAN BRAND</h2>
         </div>
         <div className="flex justify-around text-center [&>*]:cursor-pointer ">
           <div className="group/item">

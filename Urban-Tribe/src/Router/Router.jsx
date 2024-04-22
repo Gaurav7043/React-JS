@@ -8,12 +8,12 @@ import Header from "../ui/Component/Header/Header";
 import Footer from "../ui/Component/Footer/Fotter";
 import Login from "../ui/Pages/Auth/Signin/Login";
 import AddToCart from "../ui/Pages/Auth/AddToCart";
-import Home from "../ui/Pages/Common/Home/Home";
 import Register from "../ui/Pages/Auth/Register/Register";
 import Product from "../ui/Pages/Admin/Product/Product";
 import User from "../ui/Pages/Admin/User/User";
 import Order from "../ui/Pages/Admin/Order/Order";
 import Profile from "../ui/Pages/Common/Profile/Profile";
+import Home from "../UI/Pages/Common/Home/Home";
 
 export default function Router() {
   return (

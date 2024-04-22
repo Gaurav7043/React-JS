@@ -90,7 +90,6 @@ export default function Header() {
               color="red"
             />
           ) : (
-            <div className="text-decoration-none text-red-500 ">
               <p className="text-gray-400 cursor-pointer m-0">
                 <span
                   className="hover:text-black"
@@ -106,7 +105,6 @@ export default function Header() {
                   Register
                 </span>
               </p>
-            </div>
           )}
           <div className="flex items-center cursor-pointer">
             <FontAwesomeIcon

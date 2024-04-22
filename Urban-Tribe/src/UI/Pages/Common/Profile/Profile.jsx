@@ -20,22 +20,28 @@ export default function Account() {
       <div>
         <ul>
           <li className="py-3 border-b-2">
-            Name : {cookie.user.name || "User"}{" "}
+            Name : {cookie?.user?.name || "Admin"}
           </li>
           <li className="py-3 border-b-2">Email : {cookie.user.email} </li>
-          <li className="py-3 border-b-2">
-            ADDRESS : {cookie?.user?.address?.[0]?.add}
-          </li>
-          <li className="py-3 border-b-2">COUNTRY: India</li>
-          <li className="py-3 border-b-2">
-            ZIP: {cookie?.user?.address?.[0]?.pincode}
-          </li>
-          <li className="py-3 mb-5 border-b-2">
-            PHONE: {cookie?.user?.number}
-          </li>
+          <li className="py-3 border-b-2">User Type : {cookie.user.userType} </li>
+          {
+            cookie?.user?.userType !== "admin" &&
+            <>
+              <li className="py-3 border-b-2">
+                ADDRESS : {cookie?.user?.address?.[0]?.add}
+              </li>
+              <li className="py-3 border-b-2">COUNTRY: India</li>
+              <li className="py-3 border-b-2">
+                ZIP: {cookie?.user?.address?.[0]?.pincode}
+              </li>
+              <li className="py-3 mb-5 border-b-2">
+                PHONE: {cookie?.user?.number}
+              </li>
+            </>
+          }
         </ul>
         <button
-          className="p-2 rounded-md border !border-red-600	bg-white text-red-600 hover:text-white hover:bg-red-600"
+          className="p-2 mt-4 rounded-md border !border-red-600	bg-white text-red-600 hover:text-white hover:bg-red-600"
           onClick={() => logoutHandler()}
         >
           LOGOUT{" "}
