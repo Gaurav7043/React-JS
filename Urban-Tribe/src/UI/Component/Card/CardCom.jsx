@@ -13,7 +13,7 @@ export default function CardCom({ data }) {
         />
         <img
           src={
-            "https://media.macphun.com/img/uploads/customer/how-to/608/15542038745ca344e267fb80.28757312.jpg?q=85&w=1340"
+            data.HoverImage
           }
           alt={data.title}
           className="absolute top-0 left-0 w-full h-[100%] group-hover:!opacity-100 transition-opacity !duration-700 opacity-0 "

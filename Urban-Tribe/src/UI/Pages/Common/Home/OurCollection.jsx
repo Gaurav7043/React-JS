@@ -1,5 +1,5 @@
 import React from "react";
-import bag1 from "../../../../../public/bag2.webp";
+import bag1 from "../../../../../public/bag1.webp";
 import bag2 from "../../../../../public/bag2.webp";
 import bag3 from "../../../../../public/bag3.webp";
 import bag4 from "../../../../../public/bag4.webp";
@@ -20,8 +20,6 @@ import bagg8 from "../../../../../public/bagg8.webp";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faHeart } from "@fortawesome/free-regular-svg-icons";
 import CardCom from "../../../Component/Card/CardCom";
 const data = [
   {
