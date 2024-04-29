@@ -8,11 +8,7 @@ export default function PreviewData({ modal, setModal, previewData }) {
                 <Modal.Body>
                     <div className="flex">
                         <div className="w-[25%] mr-3">
-                            <img
-                                src={previewData?.thumbnail}
-                                className="h-full rounded-md "
-                                alt=""
-                            />
+                            <img src={previewData?.thumbnail} className="h-full rounded-md " alt="" />
                         </div>
                         <div className="w-[70%] text-start pl-3 border rounded-md border-gray-600">
                             <h1 className="text-2xl">{previewData?.title}</h1>

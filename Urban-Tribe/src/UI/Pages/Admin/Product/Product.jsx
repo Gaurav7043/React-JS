@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import ProductForm from './ProductForm'
-import ProductTable from './ProductTable'
-import { intialState } from '../../../../Utils/intialState'
+import React, { useEffect, useState } from "react"
+import ProductTable from "./ProductTable"
+import ProductForm from "./ProductForm"
+import { intialState } from "../../../../Utils/intialState"
 
 export default function Product() {
-    let [updatedData, setUpdatedData] = useState(intialState)
+    const [updatedData, setUpdatedData] = useState(intialState)
     const [modal, setModal] = useState(false)
     let [isRefresh, setIsRefresh] = useState(true)
 
@@ -19,7 +19,7 @@ export default function Product() {
 
     return (
         <div>
-            <ProductForm updateData={updatedData} toggle={toggle} modal={modal} refetch={refetch} />
+            <ProductForm updatedData={updatedData} toggle={toggle} modal={modal} refetch={refetch} />
             <ProductTable refetch={refetch} isRefresh={isRefresh} setUpdatedData={setUpdatedData} toggle={toggle} />
         </div>
     )
