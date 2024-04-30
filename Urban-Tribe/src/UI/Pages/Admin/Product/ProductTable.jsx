@@ -6,7 +6,7 @@ import { toast } from "react-toastify"
 
 const img = "https://marketplace.canva.com/EAFijA-Es8I/1/0/1600w/canva-beige-minimalist-stay-tuned-coming-soon-instagram-post-iv_vQnhdRkY.jpg"
 
-const sizeOptions = ["S", "M", "l", "XL"]
+const sizeOptions = ["S", "M", "L", "XL"]
 
 export default function ProductTable({ refetch, isRefresh, setUpdatedData, toggle }) {
     const [data, setdata] = useState([])
