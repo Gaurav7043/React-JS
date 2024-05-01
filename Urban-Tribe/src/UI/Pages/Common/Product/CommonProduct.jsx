@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Dropdown, DropdownItem } from "flowbite-react"
+import { Select } from "flowbite-react"
 import allProductBg from '../../../../../public/allProductBg.webp'
 import Card from '../../../Component/Card/Card'
 import { Grid3x3GapFill, GridFill } from 'react-bootstrap-icons'
@@ -9,12 +9,12 @@ export default function CommonProduct() {
     let [gridCols, setGridCols] = useState("grid grid-cols-3")
     let [product, setProduct] = useState([])
 
-    useEffect(()=>{
-        (async function getData(){
-            try{
+    useEffect(() => {
+        (async function getData() {
+            try {
                 let { data } = await API?.get("/product/getAll")
                 setProduct(data?.data)
-            }catch(error){
+            } catch (error) {
                 console.log("---------error--------->", error)
             }
         })()
@@ -26,12 +26,12 @@ export default function CommonProduct() {
             <div className='container-fluid'>
                 <h1 className='text-center text-2xl mt-5 m-0'>All Products</h1>
                 <div className='flex justify-end items-center gap-2.5 pr-5 my-5 text-[#777777] [&_svg]:!cursor-pointer'>
-                    <Dropdown label="Dropdown button" className='[&_ul]:!ps-0' dismissOnClick={false}>
-                        <DropdownItem>Better Price</DropdownItem>
-                        <DropdownItem>Price: High to Low</DropdownItem>
-                        <DropdownItem>Price: Low to High</DropdownItem>
-                        <DropdownItem>Customer Rating</DropdownItem>
-                    </Dropdown>
+                    <Select required>
+                        <option>Better Price</option>
+                        <option>Price: High to Low</option>
+                        <option>Price: Low to High</option>
+                        <option>Customer Rating</option>
+                    </Select>
                     <GridFill className='hover:!text-[#191919]' onClick={() => setGridCols("grid grid-cols-2")} />
                     <Grid3x3GapFill className='hover:!text-[#191919]' onClick={() => setGridCols("grid grid-cols-3")} />
                     <div className='flex text-[#777777] hover:text-[#191919] text-[8px]' onClick={() => setGridCols("grid grid-cols-4")}>

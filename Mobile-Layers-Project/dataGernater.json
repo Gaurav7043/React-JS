@@ -1,0 +1,231 @@
+[
+    {
+        "title": "OnePlus 10 Pro",
+        "description": "Spaceboy",
+        "brand": "OnePlus",
+        "gender": "male",
+        "price": 699,
+        "images": [
+            "https://www.layers.shop/cdn/shop/products/oneplus-10-pro-spaceboy--back.jpg?v=1677047952&width=1080",
+            "https://www.layers.shop/cdn/shop/products/oneplus-10-pro-space-buddies--back.jpg?v=1692261272&width=1080",
+            "https://www.layers.shop/cdn/shop/products/oneplus-10-pro-astro-rainbow--back.jpg?v=1677044543&width=1080",
+            "https://www.layers.shop/cdn/shop/products/oneplus-10-pro-baby-pink--back.jpg?v=1677047940&width=1080",
+            "https://www.layers.shop/cdn/shop/products/oneplus-10-pro-oceanic--back.jpg?v=1677047951&width=1080"
+        ],
+        "thumbnail": "https://www.layers.shop/cdn/shop/products/oneplus-10-pro.jpg?v=1677135182&width=480",
+        "discountPercentage": 72,
+        "category": [ "Cloth", "Fromal" ],
+        "color": [ "red", "black", "Orangered" ],
+        "size": [ "42", "44" ],
+        "rating": 1,
+        "availableStock": 599,
+        "mainCategory": "Best Offer"
+    },
+    {
+        "title": "Google Pixel 8 Pro",
+        "description": "Spaceboy",
+        "brand": "Google",
+        "gender": "male",
+        "price": 699,
+        "images": [
+            "https://www.layers.shop/cdn/shop/products/Google_Pixel_8_Pro_Cyberhud.png?v=1701156320&width=1080",
+            "https://www.layers.shop/cdn/shop/products/Google_Pixel_8_Pro_Machina_Hud.png?v=1701156317&width=1080",
+            "https://www.layers.shop/cdn/shop/products/Google_Pixel_8_Pro_Spaceboy.png?v=1701156314&width=1080",
+            "https://www.layers.shop/cdn/shop/products/Google_Pixel_8_Pro_Purple_River.png?v=1701156311&width=1080",
+            "https://www.layers.shop/cdn/shop/products/Google_Pixel_8_Pro_Dance_Weekend.png?v=1701156308&width=1080"
+        ],
+        "thumbnail": "https://www.layers.shop/cdn/shop/files/GooglePixel8Pro.png?v=1701753277&width=480",
+        "discountPercentage": 7,
+        "category": [ "Cloth" ],
+        "color": [ "red", "black", "white" ],
+        "size": [ "44", "45", "42", "43", "41" ],
+        "rating": 4,
+        "availableStock": 29,
+        "mainCategory": "Corporate gifting"
+    },
+    {
+        "title": "iPhone 15 Pro",
+        "description": "Matrix",
+        "brand": "Apple",
+        "gender": "male",
+        "price": 699,
+        "images": [
+            "https://www.layers.shop/cdn/shop/products/iPhone_15_Pro_Matrix.png?v=1702620760&width=1080",
+            "https://www.layers.shop/cdn/shop/products/iPhone_15_Pro_Pashmina.png?v=1698993434&width=1080",
+            "https://www.layers.shop/cdn/shop/products/iPhone_15_Pro_Bulbul.png?v=1698993378&width=1080",
+            "https://www.layers.shop/cdn/shop/products/iPhone_15_Pro_Gulastan.png?v=1698993364&width=1080"
+        ],
+        "thumbnail": "https://www.layers.shop/cdn/shop/files/Final_iPhone_15_Pro_Back_Only_Vinyl_Skin_Design_Mockup_Front_Back___Side_View_877ac320-600c-4fe7-9810-38886ccea7de.jpg?v=1695821071&width=480",
+        "discountPercentage": 24,
+        "category": [ "T-Shirt" ],
+        "color": [ "red", "black", "white" ],
+        "size": [ "44", "45", "42", "43" ],
+        "rating": 2,
+        "availableStock": 343,
+        "mainCategory": "casual"
+    },
+    {
+        "title": " iPhone 15 Plus",
+        "description": "Vacation",
+        "brand": "Apple",
+        "gender": "male",
+        "price": 699,
+        "images": [
+            "https://www.layers.shop/cdn/shop/products/iPhone_15_Plus_Vacation.png?v=1709546589&width=1080"
+        ],
+        "thumbnail": "https://www.layers.shop/cdn/shop/files/Final_iPhone15PlusBackOnlyVinylSkinDesignMockupFrontBack_SideView.jpg?v=1695739452&width=480",
+        "discountPercentage": 37,
+        "category": [ "Shirt" ],
+        "color": [ "red", "black", "Orangered" ],
+        "size": [ "44", "45", "42", "43" ],
+        "rating": 5,
+        "availableStock": 362,
+        "mainCategory": "Professional"
+    },
+    {
+        "title": " iPhone 15 Plus",
+        "description": "Vacation",
+        "brand": "Apple",
+        "gender": "male",
+        "price": 699,
+        "images": [
+            "https://www.layers.shop/cdn/shop/products/iPhone_15_Plus_Vacation.png?v=1709546589&width=1080"
+        ],
+        "thumbnail": "https://www.layers.shop/cdn/shop/files/Final_iPhone15PlusBackOnlyVinylSkinDesignMockupFrontBack_SideView.jpg?v=1695739452&width=480",
+        "discountPercentage": 37,
+        "category": [ "Shirt" ],
+        "color": [ "red", "black", "Orangered" ],
+        "size": [ "44", "45", "42", "43" ],
+        "rating": 5,
+        "availableStock": 362,
+        "mainCategory": "Professional"
+    },
+    {
+        "title": "iPhone 15",
+        "description": "Marvel",
+        "brand": "Apple",
+        "gender": "male",
+        "price": 699,
+        "images": [
+            "https://www.layers.shop/cdn/shop/products/iPhone_15_Captain_America_Silhouette.png?v=1701257074&width=1080",
+            "https://www.layers.shop/cdn/shop/products/iPhone_15_Iron_Man_Silhouette.png?v=1701257071&width=1080",
+            "https://www.layers.shop/cdn/shop/products/iPhone_15_Thor_Silhouette.png?v=1701257059&width=1080",
+            "https://www.layers.shop/cdn/shop/products/iPhone_15_Hulk_Silhouette.png?v=1701257047&width=1080",
+            "https://www.layers.shop/cdn/shop/products/iPhone_15_Spider_Man_Silhouette.png?v=1701257032&width=1080"
+        ],
+        "thumbnail": "https://www.layers.shop/cdn/shop/files/iPhone15phone.jpg?v=1695739276&width=480",
+        "discountPercentage": 27,
+        "category": [ "Shirt" ],
+        "color": [ "red", "black", "white" ],
+        "size": [ "44", "45", "42", "43" ],
+        "rating": 4,
+        "availableStock": 328,
+        "mainCategory": "casual"
+    },
+    {
+        "title": "Samsung Galaxy S24 Ultra",
+        "description": "Cranberry Abstract",
+        "brand": "Samsung",
+        "gender": "male",
+        "price": 699,
+        "images": [
+            "https://www.layers.shop/cdn/shop/products/Galaxy_S24_Ultra_Cranberry_Abstract.png?v=1706086172&width=1080",
+            "https://www.layers.shop/cdn/shop/products/Galaxy_S24_Ultra_Black_Smoke.png?v=1706086159&width=1080",
+            "https://www.layers.shop/cdn/shop/products/Galaxy_S24_Ultra_Baby_Pink.png?v=1706086134&width=1080"
+        ],
+        "thumbnail": "https://www.layers.shop/cdn/shop/files/1_1f363ab5-297e-41ce-9e48-e7e78aa9ba43.png?v=1706089060&width=480",
+        "discountPercentage": 34,
+        "category": [ "T-Shirt" ],
+        "color": [ "red", "black", "Orangered" ],
+        "size": [ "44", "45", "42", "43" ],
+        "rating": 4,
+        "availableStock": 34,
+        "mainCategory": "Sports"
+    },
+    {
+        "title": "Samsung Galaxy S24",
+        "description": "Purple River",
+        "brand": "Samsung",
+        "gender": "male",
+        "price": 699,
+        "images": [
+            "https://www.layers.shop/cdn/shop/products/Galaxy_S24_Purple_River.png?v=1706013514&width=1080",
+            "https://www.layers.shop/cdn/shop/products/Galaxy_S24_Cyberhud.png?v=1706013511&width=1080",
+            "https://www.layers.shop/cdn/shop/products/Galaxy_S24_Turnstile.png?v=1706013508&width=1080",
+            "https://www.layers.shop/cdn/shop/products/Galaxy_S24_Dance_Weekend.png?v=1706013500&width=1080"
+        ],
+        "thumbnail": "https://www.layers.shop/cdn/shop/files/2_35d0b0e6-14d1-4f9d-9a40-2264bbe9ca74.png?v=1706089038&width=480",
+        "discountPercentage": 26,
+        "category": [ "T-Shirt" ],
+        "color": [ "red", "black", "white" ],
+        "size": [ "44", "45", "42", "43" ],
+        "rating": 3,
+        "availableStock": 34,
+        "mainCategory": "Travel"
+    },
+    {
+        "title": "Samsung Galaxy S23 Ultra",
+        "description": "Hillside Chase",
+        "brand": "Samsung",
+        "gender": "male",
+        "price": 699,
+        "images": [
+            "https://www.layers.shop/cdn/shop/products/Galaxy_S23_Ultra_Back_Hillside_Chase.jpg?v=1696318215&width=1080",
+            "https://www.layers.shop/cdn/shop/products/Galaxy_S23_Ultra_Back_Mountain_Pulse.jpg?v=1696318209&width=1080",
+            "https://www.layers.shop/cdn/shop/products/Galaxy_S23_Ultra_Back_Dancing_Wind.jpg?v=1696318206&width=1080",
+            "https://www.layers.shop/cdn/shop/products/Galaxy_S23_Ultra_Back_Forest_s_Whisper.jpg?v=1696318203&width=1080"
+        ],
+        "thumbnail": "https://www.layers.shop/cdn/shop/products/samsung-galaxy-s23-ultra.jpg?v=1677165429&width=480",
+        "discountPercentage": 15,
+        "category": [ "Shirt" ],
+        "color": [ "red", "black", "Orangered" ],
+        "size": [ "44", "45", "42", "43" ],
+        "rating": 3,
+        "availableStock": 39,
+        "mainCategory": "Sports"
+    },
+    {
+        "title": "iPhone 14",
+        "description": "Untethered",
+        "brand": "Apple",
+        "gender": "female",
+        "price": 699,
+        "images": [
+            "https://www.layers.shop/cdn/shop/products/iPhone_14_Mountain_Pulse.jpg?v=1696318088&width=1080",
+            "https://www.layers.shop/cdn/shop/products/iPhone_14_Fluttering_Dreams.jpg?v=1696318085&width=1080",
+            "https://www.layers.shop/cdn/shop/products/iPhone_14_Cliff_s_Edge.jpg?v=1696318067&width=1080",
+            "https://www.layers.shop/cdn/shop/products/iPhone_14_Dancing_Wind.jpg?v=1696318091&width=1080",
+            "https://www.layers.shop/cdn/shop/products/iPhone_14_Hillside_Chase.jpg?v=1696318094&width=1080"
+        ],
+        "thumbnail": "https://www.layers.shop/cdn/shop/products/apple-iphone-14.jpg?v=1677132755&width=480",
+        "discountPercentage": 13,
+        "category": [ "Shirt" ],
+        "color": [ "red", "black", "Orangered" ],
+        "size": [ "44", "45", "42", "43" ],
+        "rating": 5,
+        "availableStock": 23,
+        "mainCategory": "casual"
+    },
+    {
+        "title": "iPhone 13 Pro",
+        "description": "Titanium",
+        "brand": "Apple",
+        "gender": "female",
+        "price": 699,
+        "images": [
+            "https://www.layers.shop/cdn/shop/products/iPhone_13_Pro_Titanium.jpg?v=1696318120&width=1080",
+            "https://www.layers.shop/cdn/shop/products/iPhone_13_Pro_Turnstile.jpg?v=1696318114&width=1080",
+            "https://www.layers.shop/cdn/shop/products/iPhone_13_Pro_Titanic_Swirl.jpg?v=1696318139&width=1080",
+            "https://www.layers.shop/cdn/shop/products/iPhone_13_Pro_Midnight_Glimmer.jpg?v=1696318156&width=1080",
+            "https://www.layers.shop/cdn/shop/products/iphone-13-pro-oceanic--back-Copy.jpg?v=1675243169&width=1080"
+        ],
+        "thumbnail": "https://www.layers.shop/cdn/shop/products/apple-iphone-13-pro.jpg?v=1677132817&width=480",
+        "discountPercentage": 45,
+        "category": [ "T-Shirt" ],
+        "color": [ "red", "black", "Orangered" ],
+        "size": [ "44", "45", "42", "43" ],
+        "rating": 4,
+        "availableStock": 82,
+        "mainCategory": "School Bags"
+    }
+]
