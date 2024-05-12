@@ -36,14 +36,14 @@ const adminMenuItems = [
 
 export default function Header() {
     const navigate = useNavigate()
-    const [cookie] = useCookies(["token"])
+    const [cookies] = useCookies(["token"])
 
     return (
         <>
             {
-                cookie?.user?.userType !== "admin" &&
+                cookies?.user?.userType !== "admin" &&
                 <div>
-                    <p className='text-center py-1.5 text-sm text-white bg-[#d11e33] m-0'>
+                    <p className='text-center py-1 text-sm text-white bg-[#d11e33] m-0'>
                         <marquee>
                             Get Rs 100 Off on Prepaid Orders | Free Shipping All Over India
                         </marquee>
@@ -77,7 +77,7 @@ export default function Header() {
                     <img src={logo} alt="" />
                 </div>
                 {
-                    cookie?.user?.userType === "admin" &&
+                    cookies?.user?.userType === "admin" &&
                     <ul className='flex items-center gap-5 [*_&]:mx-3 [&_a]:!no-underline m-0 p-0 [&_a]:text-[#191919] w-[37%]'>
                         {
                             // Admin menu items
@@ -94,7 +94,7 @@ export default function Header() {
 
                 <div className='flex gap-6 items-center'>
                     {
-                        cookie?.token ?
+                        cookies?.token ?
                             <div>
                                 <User className='text-[#d11e33]' role='button' onClick={() => navigate("/profile")} />
                             </div> :
@@ -106,7 +106,7 @@ export default function Header() {
                     }
 
                     {
-                        cookie?.user?.userType !== "admin" &&
+                        cookies?.user?.userType !== "admin" &&
                         <>
                             <Tooltip content="Wishlist" placement='bottom' style='light' animation="duration-500">
                                 <NavLink className="text-decoration-none group/item">
@@ -118,7 +118,7 @@ export default function Header() {
                             </Tooltip>
 
                             <Tooltip content="Cart" placement='bottom' style='light' animation="duration-500">
-                                <NavLink className="text-decoration-none group/item">
+                                <NavLink to={"/addToCart"} className="text-decoration-none group/item">
                                     <div className='flex items-center'>
                                         <Bag className='text-4xl pr-2.5 text-[#d11e33] group-hover/item:!text-black' />
                                         <span className='text-black'>MY CART</span>

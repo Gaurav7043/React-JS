@@ -1,8 +1,9 @@
 import axios from "axios"
-import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from "flowbite-react"
+import { Dropdown, Label, Pagination, Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow, TextInput } from "flowbite-react"
 import { useEffect, useState } from "react"
 import PreviewData from "./PreviewData"
 import { toast } from "react-toastify"
+import { Search } from "lucide-react"
 
 const img = "https://marketplace.canva.com/EAFijA-Es8I/1/0/1600w/canva-beige-minimalist-stay-tuned-coming-soon-instagram-post-iv_vQnhdRkY.jpg"
 
@@ -12,17 +13,41 @@ export default function ProductTable({ refetch, isRefresh, setUpdatedData, toggl
     const [data, setdata] = useState([])
     const [modal, setModal] = useState(false)
     const [previewData, setPreviewData] = useState({})
+    const [search, setSearch] = useState("")
+    const [paginate, setPaginate] = useState({
+        totalProduct: 0,
+        page: 0,
+        limit: 10,
+    })
+    let id
+    const onPageChange = (page) => {
+        clearTimeout(id)
+        id = setTimeout(() => {
+            setPaginate({ ...paginate, page: page - 1})
+        }, 200)
+    }
+
+    const getSearchInput = (e) => {
+        setSearch(e?.target?.value)
+        setPaginate({ ...paginate, page: 0, limit: 10 })
+    }
 
     useEffect(() => {
         axios({
             method: "get",
-            url: "http://localhost:9999/product/getAll",
+            url: "http://localhost:9999/product/getAllPaginate",
+            params: {
+                page: paginate.page || 0,
+                limit: paginate.limit,
+                search: search,
+            },
         })?.then((res) => {
             setdata(res?.data?.data)
+            setPaginate({ ...paginate, totalProduct: res?.data?.count })
         })?.catch((err) => {
             console.log("-----------err----------->", err)
         })
-    }, [isRefresh])
+    }, [isRefresh, paginate.page, paginate.limit, search])
 
     const deleteHandler = (id) => {
         axios({
@@ -49,6 +74,23 @@ export default function ProductTable({ refetch, isRefresh, setUpdatedData, toggl
 
     return (
         <div className="m-10">
+            <div className="flex justify-between mb-4 items-center">
+                <Dropdown color={"white"} outline={true} label={`${paginate?.limit}`} className="border hover:!bg-gray-400 [&_ul]:p-0" placement="bottom">
+                    {
+                        [10, 20, 50, 100]?.map?.((e, i) => {
+                            return (
+                                <Dropdown.Item onClick={() => setPaginate({ ...paginate, limit: e })}> {e} </Dropdown.Item>
+                            )
+                        })
+                    }
+                </Dropdown>
+                <div className="flex items-center">
+                    <TextInput onChange={(e) => getSearchInput(e)} type="email" value={search} placeholder="Search your text hear..." className="w-1/3 input-group" style={{ boxShadow: "none", border: "1px solid #dee2e6", borderTopRightRadius: "0%", borderBottomRightRadius: "0%" }} required />
+                    <Label className='input-group-text m-0 py-2' style={{ borderTopLeftRadius: "0%", borderBottomLeftRadius: "0%", border: "1px solid #dee2e6" }}>
+                        <Search className="text-[#b2c1d1]" />
+                    </Label>
+                </div>
+            </div>
             <PreviewData setModal={setModal} modal={modal} previewData={previewData} />
             <Table striped>
                 <TableHead className="[&_*]:!bg-slate-300">
@@ -69,7 +111,7 @@ export default function ProductTable({ refetch, isRefresh, setUpdatedData, toggl
                             if (product?.userType === "admin") return
                             return (
                                 <TableRow key={product?._id} className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                                    <TableCell>{index + 1}</TableCell>
+                                    <TableCell>{index + 1 + paginate?.page * 10}</TableCell>
                                     <TableCell>
                                         <img
                                             className="h-[70px]"
@@ -96,9 +138,9 @@ export default function ProductTable({ refetch, isRefresh, setUpdatedData, toggl
                                         </div>
 
                                         <div className="bordering flex gap-1">
-                                            <span className="fw-bold">Final price:- </span>
+                                            <span className="fw-bold">FinalPrice:- </span>
                                             <div className="text-green-500 font-bold">
-                                                ₹ {product?.price - ((product?.price * product?.discountPercentage) / 100).toFixed(1)}
+                                                ₹{product?.price - ((product?.price * product?.discountPercentage) / 100).toFixed(0)}
                                             </div>
                                         </div>
                                     </TableCell>
@@ -150,6 +192,7 @@ export default function ProductTable({ refetch, isRefresh, setUpdatedData, toggl
                     }
                 </TableBody>
             </Table>
+            <Pagination className="flex justify-end" currentPage={paginate?.page + 1} totalPages={Math.ceil(paginate?.totalProduct / paginate?.limit) || 10} onPageChange={onPageChange} showIcons />
         </div>
     )
 }

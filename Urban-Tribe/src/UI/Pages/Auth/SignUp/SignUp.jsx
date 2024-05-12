@@ -27,6 +27,7 @@ const initialAddress = {
 export default function SignUp() {
     let [user, setUser] = useState(initialUser)
     let [address, setAddress] = useState(initialAddress)
+    
     // cookies
     const [cookies, setCookie, removeCookie] = useCookies([])
 
@@ -74,7 +75,7 @@ export default function SignUp() {
                         <label htmlFor="email">Email *</label>
                         <input type="email" id='email' value={user?.email} placeholder='Enter Your Email' className="mb-3 mt-2 w-full border-none bg-[#f7f8fa] focus:!ring-[#d11e33] focus:ring-1" required onChange={(e) => setUser({ ...user, email: e?.target?.value })} />
                         <label htmlFor="number">Number *</label>
-                        <input type="text" id='number' value={user?.number} placeholder='Enter Your Number' className="mb-3 mt-2 w-full border-none bg-[#f7f8fa] focus:!ring-[#d11e33] focus:ring-1" required onChange={(e) => setUser({ ...user, number: e?.target?.value })} />
+                        <input type="text" id='number' value={user?.number} placeholder='Enter Your Number' className="mb-3 mt-2 w-full border-none bg-[#f7f8fa] focus:!ring-[#d11e33] focus:ring-1" required onChange={(e) => setUser({ ...user, number: e?.target?.value })} maxLength='10' minLength='2' />
                         <label htmlFor="age">Age *</label>
                         <input type="text" id='age' value={user?.age} placeholder='Enter Your Number' className="mb-3 mt-2 w-full border-none bg-[#f7f8fa] focus:!ring-[#d11e33] focus:ring-1" required onChange={(e) => setUser({ ...user, age: e?.target?.value })} />
                         <label htmlFor="gender">Gender *</label>

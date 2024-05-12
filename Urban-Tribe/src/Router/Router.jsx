@@ -12,33 +12,41 @@ import DashBoard from '../UI/Pages/Admin/DashBoard/DashBoard'
 import User from '../UI/Pages/Admin/User/User'
 import Order from '../UI/Pages/Admin/Order/Order'
 import CommonProduct from '../UI/Pages/Common/Product/CommonProduct'
+import { Provider } from 'react-redux'
+import { store } from '../Redux/APP/Store'
+import Cart from '../UI/Pages/User/Cart/Cart'
 
 export default function Router() {
     return (
         <>
-            <CookiesProvider defaultSetOptions={{ path: "/" }}>
-                <BrowserRouter>
-                    <Header />
-                    <Routes>
-                        {/* Common */}
-                        <Route path='/' Component={Home} />
-                        <Route path='/profile' Component={Profile} />
-                        <Route path='/product/:type' element={<CommonProduct />} />
+            <Provider store={store}>
+                <CookiesProvider defaultSetOptions={{ path: "/" }}>
+                    <BrowserRouter>
+                        <Header />
+                        <Routes>
+                            {/* Common */}
+                            <Route path='/' Component={Home} />
+                            <Route path='/profile' Component={Profile} />
+                            <Route path='/product/:type' element={<CommonProduct />} />
 
-                        {/* Auth */}
-                        <Route path='/signup' Component={SignUp} />
-                        <Route path='/signin' Component={SignIn} />
+                            {/* User */}
+                            <Route path='/addToCart' Component={Cart} />
 
-                        {/* Admin */}
-                        <Route path='/admin-dashboard' element={<DashBoard />} />
-                        <Route path='/admin-product' element={<Product />} />
-                        <Route path='/admin-user' element={<User />} />
-                        <Route path='/admin-order' element={<Order />} />
+                            {/* Auth */}
+                            <Route path='/signup' Component={SignUp} />
+                            <Route path='/signin' Component={SignIn} />
 
-                    </Routes>
-                    <Footers />
-                </BrowserRouter>
-            </CookiesProvider>
+                            {/* Admin */}
+                            <Route path='/admin-dashboard' element={<DashBoard />} />
+                            <Route path='/admin-product' element={<Product />} />
+                            <Route path='/admin-user' element={<User />} />
+                            <Route path='/admin-order' element={<Order />} />
+
+                        </Routes>
+                        <Footers />
+                    </BrowserRouter>
+                </CookiesProvider>
+            </Provider>
         </>
     )
 }

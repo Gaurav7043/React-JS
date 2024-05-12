@@ -25,8 +25,9 @@ export default function SignIn() {
             data: credential,
         })?.then((res) => {
             toast.success("Login Successfully")
+            console.log(res?.data,"data");
             setCookie("user", res?.data?.data)
-            setCookie("token", res?.data?.data)
+            setCookie("token", res?.data?.token)
             navigate("/")
             window.scrollTo(0, 0)
         })?.catch((err) => {

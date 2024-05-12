@@ -44,7 +44,9 @@ export default function Footers() {
                                 Subscribe to our email and be the first to know about our special offers! In addition, we will give you a 15% discount on the next order after registration.
                                 <div className="my-4 input-group">
                                     <Input placeholder="Enter your e-mail" className="focus:!ring-0 focus:!border-[#d11e33] m-0 hover:!border-[#d11e33]" />
-                                    <Button className="text-white !bg-[#d11e33] hover:!bg-black input-group-text">GET!</Button>
+                                    <Button className="text-white !bg-[#d11e33] hover:!bg-black input-group-text focus:ring-0">
+                                        GET!
+                                    </Button>
                                 </div>
                                 <div className="flex gap-4">
                                     <Tooltip content="Facebook" placement='bottom' style='light' animation="duration-500">

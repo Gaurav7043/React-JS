@@ -4,7 +4,7 @@ import { Rating } from "flowbite-react"
 import React from "react"
 import { Bag } from "react-bootstrap-icons"
 
-export default function Card({ data }) {
+export default function Card({ data, addProduct }) {
     let discountPrice = (data?.price * data?.discountPercentage) / 100
 
     return (
@@ -39,7 +39,7 @@ export default function Card({ data }) {
                         Rs.{data?.price}.00
                     </h6>
                 </div>
-                <button className="bg-[#d11e33] text-white rounded-md py-2 px-4 hidden group-hover:block hover:bg-white hover:border-2 hover:border-[#d11e33] hover:!text-[#d11e33]">
+                <button onClick={()=>addProduct(data?._id)} className="bg-[#d11e33] text-white rounded-md py-2 px-4 hidden group-hover:block hover:bg-white hover:border-2 hover:border-[#d11e33] hover:!text-[#d11e33]">
                     <div className="flex items-center gap-2">
                         <div><Bag /></div>
                         <div>ADD TO CART</div>
