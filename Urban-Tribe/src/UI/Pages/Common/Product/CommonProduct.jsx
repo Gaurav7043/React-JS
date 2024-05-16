@@ -11,6 +11,7 @@ import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 
 export default function CommonProduct() {
+    let [filter, setFilter] = useState({})
     let [gridCols, setGridCols] = useState("grid grid-cols-3")
     let [product, setProduct] = useState([])
     const navigate = useNavigate()
@@ -24,7 +25,7 @@ export default function CommonProduct() {
     useEffect(() => {
         (async function getData() {
             try {
-                let { data } = await API?.get("/product/getAll")
+                let { data } = await API?.get("/product/getAll",)
                 setProduct(data?.data)
             } catch (error) {
                 console.log("---------error--------->", error)
