@@ -8,13 +8,14 @@ import Filter from '../../../Component/Filter/Filter'
 import { FilterIcon } from 'lucide-react'
 import { useCookies } from 'react-cookie'
 import { toast } from 'react-toastify'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 export default function CommonProduct() {
     let [filter, setFilter] = useState({})
     let [gridCols, setGridCols] = useState("grid grid-cols-3")
     let [product, setProduct] = useState([])
     const navigate = useNavigate()
+    const { type } = useParams()
 
     const [cookies] = useCookies(["token"])
 
@@ -23,19 +24,30 @@ export default function CommonProduct() {
     const toggleFilter = () => setIsOpen(!isOpen)
 
     useEffect(() => {
+        if (type !== "all") {
+            setFilter({ ...filter, mainCategory: type })
+        } else {
+            setFilter({ ...filter, mainCategory: "" });
+        }
+    }, [type])
+
+    useEffect(() => {
         (async function getData() {
             try {
-                let { data } = await API?.get("/product/getAll",)
+                let { data } = await API?.get("/product/getAll", {
+                    params: filter
+                })
+                console.log("🚀 ~ getData ~ params:", filter)
                 setProduct(data?.data)
             } catch (error) {
                 console.log("---------error--------->", error)
             }
         })()
-    }, [])
+    }, [filter])
 
     // Product Added to Cart
-    const addProduct = async (productId)=>{
-        if(!cookies?.token) return navigate("/signin")
+    const addProduct = async (productId) => {
+        if (!cookies?.token) return navigate("/signin")
         try {
             let { data } = await API?.post("/cart/create/" + productId, null, {
                 headers: {

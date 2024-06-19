@@ -1,6 +1,6 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import logo from '../../../../public/logo.avif'
 import { Tooltip } from 'flowbite-react'
@@ -9,6 +9,8 @@ import { Bag } from 'react-bootstrap-icons'
 import { User } from 'lucide-react'
 import { useCookies } from 'react-cookie'
 import { NavItem } from 'reactstrap'
+import { useDispatch, useSelector } from 'react-redux'
+import { refetch } from '../../../Redux/Fetures/Cart/Cart'
 
 // customer site
 const menuItem = [
@@ -37,6 +39,13 @@ const adminMenuItems = [
 export default function Header() {
     const navigate = useNavigate()
     const [cookies] = useCookies(["token"])
+    const dispatch = useDispatch()
+
+    const { cartData, isRefresh } = useSelector((store)=> store.cartSlice)
+
+    useEffect(()=>{
+        dispatch(refetch())
+    }, [isRefresh])
 
     return (
         <>
@@ -119,9 +128,12 @@ export default function Header() {
 
                             <Tooltip content="Cart" placement='bottom' style='light' animation="duration-500">
                                 <NavLink to={"/addToCart"} className="text-decoration-none group/item">
-                                    <div className='flex items-center'>
+                                    <div className='flex items-center relative'>
                                         <Bag className='text-4xl pr-2.5 text-[#d11e33] group-hover/item:!text-black' />
                                         <span className='text-black'>MY CART</span>
+                                        <span className='absolute top-0 left-4 text-white bg-[#d11e33] rounded-full grid place-content-center text-[13px] h-[20px] w-[20px]'>
+                                            {cartData?.length || 0}
+                                        </span>
                                     </div>
                                 </NavLink>
                             </Tooltip>

@@ -17,7 +17,9 @@ const cartSlice = createSlice({
     name: "cart",
     initialState: { cartData: [], cartId: "", isRefresh: true },
     reducers: {
-        refetch: (state) => {}
+        refetch: (state) => {
+            state.isRefresh = !state.isRefresh
+        },
     },
     extraReducers: (builder) =>{
         builder?.addCase(fetchCart.fulfilled, (state, { payload }) => {
@@ -28,4 +30,4 @@ const cartSlice = createSlice({
 })
 
 export default cartSlice.reducer
-export const { refetch } = cartSlice.actions
+export const { refetch } = cartSlice.actions    
