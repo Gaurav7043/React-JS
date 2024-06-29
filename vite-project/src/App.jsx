@@ -71,6 +71,7 @@ import Inp from "./00_Task/06_Inp";
 import InpMain from "./00_Task/TwoInputData/InpMain";
 import Product_Preview from "./13_API/Product_Preview/Product_Preview";
 import Review from "./16_Review/Review";
+import MultiInput from "./08_Input/02_Multiple_Input/MultiInput";
 
 function App() {
   return (
@@ -160,6 +161,7 @@ function App() {
         {/* <Multiple_Input/> */}
         {/* <Multiple_Input_Delete/> */}
         {/* <Multiple_Input_Update/> */}
+        <MultiInput />
 
         {/* -----search data----------- */}
         {/* <Search_Data/> */}
@@ -208,7 +210,7 @@ function App() {
         {/* <AppRedux /> */}
 
         {/* ---------Review---------- */}
-        <Review />
+        {/* <Review /> */}
 
       </div>
       <ToastContainer />
