@@ -72,6 +72,7 @@ import InpMain from "./00_Task/TwoInputData/InpMain";
 import Product_Preview from "./13_API/Product_Preview/Product_Preview";
 import Review from "./16_Review/Review";
 import MultiInput from "./08_Input/02_Multiple_Input/MultiInput";
+import ReactHookForm from "./17_React_Hook_Form/ReactHookForm";
 
 function App() {
   return (
@@ -161,7 +162,7 @@ function App() {
         {/* <Multiple_Input/> */}
         {/* <Multiple_Input_Delete/> */}
         {/* <Multiple_Input_Update/> */}
-        <MultiInput />
+        {/* <MultiInput /> */}
 
         {/* -----search data----------- */}
         {/* <Search_Data/> */}
@@ -211,6 +212,9 @@ function App() {
 
         {/* ---------Review---------- */}
         {/* <Review /> */}
+
+        {/* ----------React_Hook_Form--------------- */}
+        <ReactHookForm />
 
       </div>
       <ToastContainer />
