@@ -73,6 +73,7 @@ import Product_Preview from "./13_API/Product_Preview/Product_Preview";
 import Review from "./16_Review/Review";
 import MultiInput from "./08_Input/02_Multiple_Input/MultiInput";
 import ReactHookForm from "./17_React_Hook_Form/ReactHookForm";
+import ReactHookFormValidation from "./17_React_Hook_Form/ReactHookFormValidations";
 
 function App() {
   return (
@@ -214,7 +215,8 @@ function App() {
         {/* <Review /> */}
 
         {/* ----------React_Hook_Form--------------- */}
-        <ReactHookForm />
+        {/* <ReactHookForm /> */}
+        <ReactHookFormValidation />
 
       </div>
       <ToastContainer />
